@@ -3,7 +3,7 @@ import Link from "next/link"
 export default function Header() {
 
     return (
-        <div className="sticky top-0 navbar bg-transparent mb-16 backdrop-blur-sm">
+        <div className="sticky top-0 navbar bg-transparent backdrop-blur-sm mb-20">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

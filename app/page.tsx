@@ -1,10 +1,11 @@
 import Intro from "./components/Intro"
+import Skill from "./components/Skill"
 
 export default function Home() {
   return (
     <>
       <Intro />
-      <div className="min-h-screen"></div>
+      <Skill />
     
     </>
 
