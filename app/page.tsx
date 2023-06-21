@@ -1,12 +1,13 @@
 import Intro from "./components/Intro"
 import Skill from "./components/Skill"
+import Projects from "./components/Projects"
 
 export default function Home() {
   return (
     <>
       <Intro />
       <Skill />
-    
+      <Projects />
     </>
 
 

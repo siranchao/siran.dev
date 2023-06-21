@@ -11,21 +11,21 @@ export default function Skill() {
                     
                     <div className="flex items-center justify-between">
                         <div className="flex gap-4">
-                                <a href="https://www.linkedin.com/in/siran-chao/" target="_blank" className="hover:scale-110 delay-100"><Image
+                                <a href="https://www.linkedin.com/in/siran-chao/" target="_blank" className="hover:scale-110 duration-200 ease-in"><Image
                                         src="/icon/linkedin.svg"
                                         alt="linkedin"
                                         width={25}
                                         height={25}
                                         className="fill-current"
                                     /></a>
-                                <a href="https://github.com/siranchao" target="_blank"  className="hover:scale-110 delay-100"><Image
+                                <a href="https://github.com/siranchao" target="_blank"  className="hover:scale-110 duration-200 ease-in"><Image
                                         src="/icon/github.svg"
                                         alt="github"
                                         width={25}
                                         height={25}
                                         className="fill-current"
                                     /></a>
-                                <a href="mailto:siranchao@gmail.com" target="_blank"  className="hover:scale-110 delay-100"><Image
+                                <a href="mailto:siranchao@gmail.com" target="_blank"  className="hover:scale-110 duration-200 ease-in"><Image
                                         src="/icon/gmail.svg"
                                         alt="gmail"
                                         width={25}
@@ -44,7 +44,7 @@ export default function Skill() {
                 <div className="divider text-gray-600 text-sm">Stacks and Skills</div>
 
                 <div className="flex flex-col items-center gap-4 lg:flex-row">
-                    <div className="w-96 shadow-xl hover:scale-105 delay-100 rounded-lg">
+                    <div className="w-96 shadow-md rounded-lg hover:shadow-2xl hover:scale-105 duration-200 ease-in">
                         <div className="bg-info-content flex flex-col items-center justify-center py-2 rounded-t-lg">
                             <Image
                                 src="/dev/html.png"
@@ -57,15 +57,32 @@ export default function Skill() {
 
                         <div className="text-center p-4 text-sm text-gray-600 font-semibold">
                             <ul>
-                                <li>JS</li>
-                                <li>TS</li>
-                                <li>html</li>
-                                <li>CSS</li>
+                                <li>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" className="hover:underline">HTML</a>
+                                </li>
+                                <li>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" className="hover:underline">CSS</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.typescriptlang.org/" target="_blank" className="hover:underline">JS/TS</a>
+                                </li>
+                                <li>
+                                    <a href="https://react.dev/" target="_blank" className="hover:underline">React</a>
+                                </li>
+                                <li>
+                                    <a href="https://nextjs.org/" target="_blank" className="hover:underline">Next.js</a>
+                                </li>
+                                <li>
+                                    <a href="https://vuejs.org/" target="_blank" className="hover:underline">Vue</a>
+                                </li>
+                                <li>
+                                    <a href="https://tailwindcss.com/" target="_blank" className="hover:underline">Tailwind</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
 
-                    <div className="w-96 shadow-xl hover:scale-105 delay-100 rounded-lg">
+                    <div className="w-96 shadow-md rounded-lg hover:shadow-2xl hover:scale-105 duration-200 ease-in">
                         <div className="bg-info-content flex flex-col items-center justify-center py-2 rounded-t-lg">
                             <Image
                                 src="/dev/server.png"
@@ -78,15 +95,32 @@ export default function Skill() {
 
                         <div className="text-center p-4 text-sm text-gray-600 font-semibold">
                             <ul>
-                                <li>JS</li>
-                                <li>TS</li>
-                                <li>html</li>
-                                <li>CSS</li>
+                                <li>
+                                    <a href="https://www.java.com/en/" target="_blank" className="hover:underline">Java</a>
+                                </li>
+                                <li>
+                                    <a href="https://learn.microsoft.com/en-us/cpp/cpp/?view=msvc-170" target="_blank" className="hover:underline">C++</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.typescriptlang.org/" target="_blank" className="hover:underline">JS/TS</a>
+                                </li>
+                                <li>
+                                    <a href="https://nodejs.org/en" target="_blank" className="hover:underline">Node.js</a>
+                                </li>
+                                <li>
+                                    <a href="https://expressjs.com/" target="_blank" className="hover:underline">Express.js</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.mongodb.com/" target="_blank" className="hover:underline">MongoDB</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.postgresql.org/" target="_blank" className="hover:underline">PostgreSQL</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
 
-                    <div className="w-96 shadow-xl hover:scale-105 delay-100 rounded-lg">
+                    <div className="w-96 shadow-md rounded-lg hover:shadow-2xl hover:scale-105 duration-200 ease-in">
                         <div className="bg-info-content flex flex-col items-center justify-center py-2 rounded-t-lg">
                             <Image
                                 src="/dev/tool.png"
@@ -94,22 +128,35 @@ export default function Skill() {
                                 width={25}
                                 height={25}
                             />
-                            <p className="text-md font-semibold text-white">Tools</p>
+                            <p className="text-md font-semibold text-white">Others</p>
                         </div>
 
                         <div className="text-center p-4 text-sm text-gray-600 font-semibold">
                             <ul>
-                                <li>JS</li>
-                                <li>TS</li>
-                                <li>html</li>
-                                <li>CSS</li>
+                                <li>
+                                    <a href="https://powerplatform.microsoft.com/" target="_blank" className="hover:underline">Power Platform</a>
+                                </li>
+                                <li>
+                                    <a href="https://azure.microsoft.com/en-ca" target="_blank" className="hover:underline">Microsoft Azure</a>
+                                </li>
+                                <li>
+                                    <a href="https://git-scm.com/" target="_blank" className="hover:underline">Git</a>
+                                </li>
+                                <li>
+                                    <a href="https://code.visualstudio.com/" target="_blank" className="hover:underline">VS Code</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.ibm.com/products/ibm-i?utm_content=SRCWW&p1=Search&p4=43700074687253318&p5=e&gclid=Cj0KCQjwnMWkBhDLARIsAHBOftpLeWZ1xpODou4e7sHTE5ytwNhW2NehNhfFNsq4oDk_uoMX7you0sQaAp7dEALw_wcB&gclsrc=aw.ds" target="_blank" className="hover:underline">IBM i</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.docker.com/" target="_blank" className="hover:underline">Docker</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linux.org/" target="_blank" className="hover:underline">Linux</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
-
-
-
-
                 </div>
             </div>
         </>

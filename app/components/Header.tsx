@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Header() {
 
@@ -16,7 +17,10 @@ export default function Header() {
                     <li><a>Sign in</a></li>
                 </ul>
                 </div>
-                <Link href="/" className="btn btn-ghost normal-case text-xl">Siran.dev</Link>
+                <Link href="/" className="cursor-pointer p-0">
+                    <Image src="/logo.svg" alt="logo" width={120} height={120} />
+                </Link>
+                
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
