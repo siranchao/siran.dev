@@ -9,18 +9,18 @@ export default function Projects() {
           <p className="text-2xl mb-4 font-bold">Recent projects</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 place-items-center">
-            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in">
+            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/kudos.png"
                     alt="kudos"
                     width={50}
                     height={50}
-                    className="m-auto py-4"
+                    className="m-auto pt-8 pb-4"
                 />
                 <div className="card-body">
                     {/* add project name and description here */}
-                    <h3 className="card-title text-lg">Kudos</h3>
+                    <h3 className="card-title text-lg dark:text-gray-800">Kudos</h3>
                     <p className="text-gray-600">If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?</p>
                     {/* add page route for this project */}
                     <div className="card-actions mt-2 flex justify-between items-center">
@@ -54,18 +54,18 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in">
+            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/museum.png"
                     alt="museum"
                     width={50}
                     height={50}
-                    className="m-auto py-4"
+                    className="m-auto pt-8 pb-4"
                 />
                 <div className="card-body">
                     {/* add project name and description here */}
-                    <h3 className="card-title text-lg">Portable Museum</h3>
+                    <h3 className="card-title text-lg dark:text-gray-800">Portable Museum</h3>
                     <p className="text-gray-600">If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?</p>
                     {/* add page route for this project */}
                     <div className="card-actions mt-2 flex justify-between items-center">
@@ -99,18 +99,18 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in">
+            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/kitchen.svg"
                     alt="kitchen"
                     width={50}
                     height={50}
-                    className="m-auto py-4"
+                    className="m-auto pt-8 pb-4"
                 />
                 <div className="card-body">
                     {/* add project name and description here */}
-                    <h3 className="card-title text-lg">Siran&apos;s Kitchen</h3>
+                    <h3 className="card-title text-lg dark:text-gray-800">Siran&apos;s Kitchen</h3>
                     <p className="text-gray-600">If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?</p>
                     {/* add page route for this project */}
                     <div className="card-actions mt-2 flex justify-between items-center">
@@ -144,18 +144,18 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in">
+            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/powerapps.png"
                     alt="powerapps"
                     width={50}
                     height={50}
-                    className="m-auto py-4"
+                    className="m-auto pt-8 pb-4"
                 />
                 <div className="card-body">
                     {/* add project name and description here */}
-                    <h3 className="card-title text-lg">Delegation of Authority Registry</h3>
+                    <h3 className="card-title text-lg dark:text-gray-800">Delegation of Authority Registry</h3>
                     <p className="text-gray-600">If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?</p>
                     {/* add page route for this project */}
                     <div className="card-actions mt-2 flex justify-between items-center">
@@ -189,18 +189,18 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in">
+            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/siran.dev.png"
                     alt="siran.dev"
                     width={50}
                     height={50}
-                    className="m-auto py-4"
+                    className="m-auto pt-8 pb-4"
                 />
                 <div className="card-body">
                     {/* add project name and description here */}
-                    <h3 className="card-title text-lg">Siran.dev</h3>
+                    <h3 className="card-title text-lg dark:text-gray-800">Siran.dev</h3>
                     <p className="text-gray-600">If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?</p>
                     {/* add page route for this project */}
                     <div className="card-actions mt-2 flex justify-between items-center">
@@ -234,18 +234,18 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in">
+            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/powerapps2.png"
                     alt="powerapps"
                     width={50}
                     height={50}
-                    className="m-auto py-4"
+                    className="m-auto pt-8 pb-4"
                 />
                 <div className="card-body">
                     {/* add project name and description here */}
-                    <h3 className="card-title text-lg">Application Portfolio Manager</h3>
+                    <h3 className="card-title text-lg dark:text-gray-800">Application Portfolio Manager</h3>
                     <p className="text-gray-600">If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?</p>
                     {/* add page route for this project */}
                     <div className="card-actions mt-2 flex justify-between items-center">
@@ -280,7 +280,7 @@ export default function Projects() {
             </div>
           </div>
         
-          <button className="btn btn-link normal-case mt-4 px-4 text-gray-600"><Link href={"/projects"}>All Projects</Link></button>
+          <button className="btn btn-link normal-case mt-4 px-4 text-gray-600 dark:text-gray-400"><Link href={"/projects"}>All Projects</Link></button>
         </div>
     )
 }
