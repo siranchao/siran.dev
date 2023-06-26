@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 
+
 export default function Projects() {
 
     return (
@@ -9,7 +10,7 @@ export default function Projects() {
           <p className="text-2xl mb-4 font-bold">Recent projects</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 place-items-center">
-            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
+            <div className="card card-compact w-3/4 md:w-full h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/kudos.png"
@@ -21,7 +22,7 @@ export default function Projects() {
                 <div className="card-body">
                     {/* add project name and description here */}
                     <h3 className="card-title text-lg dark:text-gray-800">Kudos</h3>
-                    <p className="text-gray-600">If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?</p>
+                    <p className="text-gray-600">Create, send, and share kudos with each other in a casual and interesting way!</p>
                     {/* add page route for this project */}
                     <div className="card-actions mt-2 flex justify-between items-center">
                         <Link href="/projects/kudos" className="btn btn-ghost btn-sm p-0 normal-case text-accent-focus">Read More</Link>
@@ -54,7 +55,7 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
+            <div className="card card-compact w-3/4 md:w-full h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/museum.png"
@@ -66,7 +67,7 @@ export default function Projects() {
                 <div className="card-body">
                     {/* add project name and description here */}
                     <h3 className="card-title text-lg dark:text-gray-800">Portable Museum</h3>
-                    <p className="text-gray-600">If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?</p>
+                    <p className="text-gray-600">An online archive app designed for museum and art lovers!</p>
                     {/* add page route for this project */}
                     <div className="card-actions mt-2 flex justify-between items-center">
                         <Link href="/projects/museum" className="btn btn-ghost btn-sm p-0 normal-case text-accent-focus">Read More</Link>
@@ -99,7 +100,7 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
+            <div className="card card-compact w-3/4 md:w-full h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/kitchen.svg"
@@ -111,7 +112,7 @@ export default function Projects() {
                 <div className="card-body">
                     {/* add project name and description here */}
                     <h3 className="card-title text-lg dark:text-gray-800">Siran&apos;s Kitchen</h3>
-                    <p className="text-gray-600">If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?</p>
+                    <p className="text-gray-600">A simple web app to record and share your favorite food recipes</p>
                     {/* add page route for this project */}
                     <div className="card-actions mt-2 flex justify-between items-center">
                         <Link href="/projects/kitchen" className="btn btn-ghost btn-sm p-0 normal-case text-accent-focus">Read More</Link>
@@ -144,7 +145,7 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
+            <div className="card card-compact w-3/4 md:w-full h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/powerapps.png"
@@ -156,7 +157,7 @@ export default function Projects() {
                 <div className="card-body">
                     {/* add project name and description here */}
                     <h3 className="card-title text-lg dark:text-gray-800">Delegation of Authority Registry</h3>
-                    <p className="text-gray-600">If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?</p>
+                    <p className="text-gray-600">A low-code application allows users to register and manage their delegation of authority process</p>
                     {/* add page route for this project */}
                     <div className="card-actions mt-2 flex justify-between items-center">
                         <Link href="/projects/doa" className="btn btn-ghost btn-sm p-0 normal-case text-accent-focus">Read More</Link>
@@ -189,7 +190,7 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
+            <div className="card card-compact w-3/4 md:w-full h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/siran.dev.png"
@@ -201,10 +202,10 @@ export default function Projects() {
                 <div className="card-body">
                     {/* add project name and description here */}
                     <h3 className="card-title text-lg dark:text-gray-800">Siran.dev</h3>
-                    <p className="text-gray-600">If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?</p>
+                    <p className="text-gray-600">Welcome to my portfolio website, here you can view my works and find useful resources!</p>
                     {/* add page route for this project */}
                     <div className="card-actions mt-2 flex justify-between items-center">
-                        <Link href="/projects/siran" className="btn btn-ghost btn-sm p-0 normal-case text-accent-focus">Read More</Link>
+                        <Link href="/projects/sirandev" className="btn btn-ghost btn-sm p-0 normal-case text-accent-focus">Read More</Link>
                         
                         {/* add github link and app link */}
                         <div className="flex gap-4 items-center">
@@ -234,7 +235,7 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="card card-compact w-90 h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
+            <div className="card card-compact w-3/4 md:w-full h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/powerapps2.png"
@@ -246,7 +247,7 @@ export default function Projects() {
                 <div className="card-body">
                     {/* add project name and description here */}
                     <h3 className="card-title text-lg dark:text-gray-800">Application Portfolio Manager</h3>
-                    <p className="text-gray-600">If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?</p>
+                    <p className="text-gray-600">A lightweight system app for managing, querying, and analyzing massive information from an enterprise level SQL database</p>
                     {/* add page route for this project */}
                     <div className="card-actions mt-2 flex justify-between items-center">
                         <Link href="/projects/apm" className="btn btn-ghost btn-sm p-0 normal-case text-accent-focus">Read More</Link>
