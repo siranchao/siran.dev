@@ -3,11 +3,12 @@ import { Inter } from 'next/font/google'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Providers from './components/Providers'
+import { Metadata } from 'next'
 
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
+export const  metadata: Metadata = {
   title: 'Siran.dev',
   description: 'The profolio site of Siran.dev',
 }

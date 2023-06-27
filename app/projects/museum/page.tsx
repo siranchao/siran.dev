@@ -1,11 +1,14 @@
 import Image from "next/image"
 import BackToTop from "@/app/components/BackToTop"
+import Breadcrumbs from "@/app/components/Breadcrumbs"
 
 export default function Museum() {
 
 
     return (
         <main className="mb-20">
+            <Breadcrumbs prevRoute="projects" currentRoute="Portable Museum" />
+
             {/* Intoduction section */}
             <section className="mb-16">
                 <p className="text-2xl mb-4 font-bold tracking-wide">Portable Museum</p>

@@ -1,11 +1,14 @@
 import Image from "next/image"
 import BackToTop from "@/app/components/BackToTop"
+import Breadcrumbs from "@/app/components/Breadcrumbs"
 
 export default function Apm() {
 
 
     return (
         <main className="mb-20">
+            <Breadcrumbs prevRoute="projects" currentRoute="Apm" />
+
             {/* Intoduction section */}
             <section className="mb-16">
                 <p className="text-2xl mb-4 font-bold tracking-wide">Application Portfolio Manager (APM)</p>

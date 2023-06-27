@@ -1,11 +1,14 @@
 import Image from "next/image"
 import BackToTop from "@/app/components/BackToTop"
+import Breadcrumbs from "@/app/components/Breadcrumbs"
 
 export default function Doa() {
 
 
     return (
         <main className="mb-20">
+            <Breadcrumbs prevRoute="projects" currentRoute="Doa" />
+
             {/* Intoduction section */}
             <section className="mb-16">
                 <p className="text-2xl mb-4 font-bold tracking-wide">Delegation of Authority Registry</p>

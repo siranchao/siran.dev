@@ -10,7 +10,7 @@ export default function Projects() {
           <p className="text-2xl mb-4 font-bold">Recent projects</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 place-items-center">
-            <div className="card card-compact w-3/4 md:w-full h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
+            <div className="card card-compact w-3/4 h-full md:w-full shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/kudos.png"
@@ -55,7 +55,7 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="card card-compact w-3/4 md:w-full h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
+            <div className="card card-compact w-3/4 h-full md:w-full shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/museum.png"
@@ -100,7 +100,7 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="card card-compact w-3/4 md:w-full h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
+            <div className="card card-compact w-3/4 h-full md:w-full shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/kitchen.svg"
@@ -145,7 +145,7 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="card card-compact w-3/4 md:w-full h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
+            <div className="card card-compact w-3/4 h-full md:w-full shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/powerapps.png"
@@ -190,7 +190,7 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="card card-compact w-3/4 md:w-full h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
+            <div className="card card-compact w-3/4 h-full md:w-full shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/siran.dev.png"
@@ -235,7 +235,7 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="card card-compact w-3/4 md:w-full h-80 bg-base-100 shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
+            <div className="card card-compact w-3/4 h-full md:w-full shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
                 {/* add project logo here */}
                 <Image
                     src="/projects/powerapps2.png"
