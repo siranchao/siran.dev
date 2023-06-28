@@ -70,7 +70,7 @@ const projects: Record[] = [
 
 
 export default function Projects() {
-    const totalPages: number = 6;
+    const totalPages: number = 1;
     const currentPage: number = 1;
 
 
