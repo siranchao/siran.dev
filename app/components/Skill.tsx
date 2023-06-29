@@ -109,7 +109,7 @@ export default function Skill() {
                                     <a href="https://nodejs.org/en" target="_blank" className="hover:underline">Node.js</a>
                                 </li>
                                 <li>
-                                    <a href="https://expressjs.com/" target="_blank" className="hover:underline">Express.js</a>
+                                    <a href="https://expressjs.com/" target="_blank" className="hover:underline">Express</a>
                                 </li>
                                 <li>
                                     <a href="https://www.mongodb.com/" target="_blank" className="hover:underline">MongoDB</a>
@@ -153,7 +153,7 @@ export default function Skill() {
                                     <a href="https://www.docker.com/" target="_blank" className="hover:underline">Docker</a>
                                 </li>
                                 <li>
-                                    <a href="https://www.linux.org/" target="_blank" className="hover:underline">Linux</a>
+                                    <a href="https://www.prisma.io/" target="_blank" className="hover:underline">Prisma</a>
                                 </li>
                             </ul>
                         </div>
