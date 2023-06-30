@@ -1,9 +1,11 @@
 import prisma from "@/app/lib/prisma";
 import * as bcrypt from "bcrypt";
+import { signWithJwt } from "@/app/lib/jwt";
 
 interface RequestBody {
     username: string
     password: string
+    remember?: boolean
 }
 
 export async function POST(req: Request) {
@@ -22,7 +24,15 @@ export async function POST(req: Request) {
     
         if (user && (await bcrypt.compare(body.password, user.password))) {
             const { password, ...userWithoutPassword } = user;
-            return new Response(JSON.stringify(userWithoutPassword), {status: 200})
+            const option = body.remember ? {expiresIn: "30d"} : {expiresIn: "1d"};
+            const accessToken: string = signWithJwt(userWithoutPassword, option);
+            
+            const res = {
+                ...userWithoutPassword,
+                accessToken
+            }
+
+            return new Response(JSON.stringify(res), {status: 200})
         } else {
             return new Response("Wrong password", {status: 401})
         }

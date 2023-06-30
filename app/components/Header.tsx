@@ -22,6 +22,7 @@ export default function Header() {
                         {session && session.user ? 
                             <>
                                 <li><a>My Favorite</a></li>
+                                {session?.user.isAdmin && <li><Link href="/newPost">New Post</Link></li>}
                                 <li><a onClick={() => signOut()}>Sign out</a></li>
                             </>
                             :
@@ -51,7 +52,7 @@ export default function Header() {
                             <p className="font-semibold text-md py-2 pl-2">Hello! {session.user.name}</p>
                             <hr/>
                             <li><a>My Favorite</a></li>
-                            <li><Link href="/newPost">New Post</Link></li>
+                            {session?.user.isAdmin && <li><Link href="/newPost">New Post</Link></li>}
                             <li><a onClick={() => signOut()}>Sign out</a></li>
                         </ul>
                     </div>
