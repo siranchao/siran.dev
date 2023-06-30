@@ -1,8 +1,12 @@
+'use client';
 import Link from "next/link"
 import Image from "next/image"
 import ThemeBtn from "./ThemeBtn"
+import { useSession, signOut, signIn } from "next-auth/react";
 
 export default function Header() {
+
+    const {data: session} = useSession();
 
     return (
         <div className="sticky top-0 navbar bg-transparent backdrop-blur-sm mb-20 z-50">
@@ -15,7 +19,15 @@ export default function Header() {
                         <li><a>Projects</a></li>
                         <li><a>Blogs</a></li>
                         <li><a>Contact Me</a></li>
-                        <li><a>Sign in</a></li>
+                        {session && session.user ? 
+                            <>
+                                <li><a>My Favorite</a></li>
+                                <li><a onClick={() => signOut()}>Sign out</a></li>
+                            </>
+                            :
+                            <li><a onClick={() => signIn()}>Sign in</a></li>
+                        }
+                        
                     </ul>
                 </div>
                 <Link href="/" className="cursor-pointer p-0">
@@ -32,7 +44,21 @@ export default function Header() {
             </div>
             <div className="navbar-end flex items-center">
                 <ThemeBtn /> 
-                <div><a className="btn btn-sm btn-outline dark:text-gray-400">sign in</a></div> 
+                {session && session.user ? 
+                    <div className="dropdown max-md:dropdown-end">
+                        <label tabIndex={0} className="btn btn-sm btn-outline dark:text-gray-400">Account</label>
+                        <ul tabIndex={0} className="dropdown-content z-[1] menu mt-4 p-2 shadow bg-base-100 rounded-box w-40 dark:bg-gray-100 dark:text-gray-800 ">
+                            <p className="font-semibold text-md py-2 pl-2">Hello! {session.user.name}</p>
+                            <hr/>
+                            <li><a>My Favorite</a></li>
+                            <li><Link href="/newPost">New Post</Link></li>
+                            <li><a onClick={() => signOut()}>Sign out</a></li>
+                        </ul>
+                    </div>
+                    :
+                    <div><a className="btn btn-sm btn-outline dark:text-gray-400" onClick={() => signIn()}>sign in</a></div> 
+                }
+                
             </div>
         </div>
     )
