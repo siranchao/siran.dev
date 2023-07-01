@@ -21,11 +21,11 @@ export default function Footer() {
 
             <div className="flex flex-col w-full border-opacity-50">
                 <div className="grid h-20 card bg-transparent rounded-box place-items-center">
-                    <div className="grid grid-flow-col gap-8">
+                    <div className="grid grid-flow-col gap-8 font-semibold">
                         <a className="link link-hover">Home</a> 
                         <a className="link link-hover">Projects</a> 
                         <a className="link link-hover">Blogs</a> 
-                        <a className="link link-hover">About Me</a>
+                        <a className="link link-hover">About</a> 
                     </div> 
                 </div>
                 

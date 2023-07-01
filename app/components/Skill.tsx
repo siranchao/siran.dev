@@ -106,7 +106,7 @@ export default function Skill() {
                                     <a href="https://www.typescriptlang.org/" target="_blank" className="hover:underline">JS/TS</a>
                                 </li>
                                 <li>
-                                    <a href="https://nodejs.org/en" target="_blank" className="hover:underline">Node.js</a>
+                                    <a href="https://nodejs.org/en" target="_blank" className="hover:underline">NodeJS</a>
                                 </li>
                                 <li>
                                     <a href="https://expressjs.com/" target="_blank" className="hover:underline">Express</a>

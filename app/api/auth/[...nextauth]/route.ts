@@ -26,7 +26,7 @@ const handler = NextAuth({
           
                 //return the user to next-auth session
                 if (res.status === 200) {
-                  console.log(user);
+
                   return user
                 } else {
                   // If you return null then an error will be displayed advising the user to check their details.

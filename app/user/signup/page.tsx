@@ -10,6 +10,7 @@ export default function SignUp() {
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
     const [msg, setMsg] = useState("");
+    const [success, setSuccess] = useState("");
 
     const submitForm = async (e: any) => {
         e.preventDefault();
@@ -26,7 +27,10 @@ export default function SignUp() {
             const res = await signUp(email, name, password)
 
             if(res.user) {
-                router.push("/user/login");
+                setSuccess("Account created, page redirecting...");
+                setTimeout(() => {
+                    router.push("/user/login");
+                }, 2000);
             } else {
                 setMsg(res.message);
             }
@@ -43,6 +47,7 @@ export default function SignUp() {
                     
             <form className="form-control w-full max-w-xs gap-4 py-4" onSubmit={submitForm}>
                     {msg && <p className="text-sm text-error mt-4">{msg}</p>}
+                    {success && <p className="text-sm text-info mt-4">{success}</p>}
 
                     <div>
                         <label className="label">
