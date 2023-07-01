@@ -3,7 +3,7 @@ import * as bcrypt from "bcrypt";
 import { signWithJwt } from "@/app/lib/jwt";
 
 interface RequestBody {
-    username: string
+    email: string
     password: string
     remember?: boolean
 }
@@ -14,17 +14,17 @@ export async function POST(req: Request) {
 
         const user = await prisma.user.findFirst({
             where: {
-                email: body.username
+                email: body.email
             }
         })
     
         if (!user) {
-            return new Response("User not found", {status: 401})
+            return new Response(JSON.stringify("User not found"), {status: 401})
         }
     
         if (user && (await bcrypt.compare(body.password, user.password))) {
             const { password, ...userWithoutPassword } = user;
-            const option = body.remember ? {expiresIn: "30d"} : {expiresIn: "1d"};
+            const option = body.remember ? {expiresIn: "60d"} : {expiresIn: "30d"};
             const accessToken: string = signWithJwt(userWithoutPassword, option);
             
             const res = {
@@ -34,12 +34,12 @@ export async function POST(req: Request) {
 
             return new Response(JSON.stringify(res), {status: 200})
         } else {
-            return new Response("Wrong password", {status: 401})
+            return new Response(JSON.stringify("Wrong password"), {status: 401})
         }
 
-    } catch(err) {
+    } catch(err: any) {
         console.log(err)
-        throw new Error("Error when logging user");
+        throw new Error(err);
     }
 
 }   

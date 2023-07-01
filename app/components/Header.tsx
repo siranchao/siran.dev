@@ -47,7 +47,7 @@ export default function Header() {
                 <ThemeBtn /> 
                 {session && session.user ? 
                     <div className="dropdown max-md:dropdown-end">
-                        <label tabIndex={0} className="btn btn-sm btn-outline dark:text-gray-400">Account</label>
+                        <label tabIndex={0} className="btn btn-sm btn-outline dark:text-gray-400 normal-case">Account</label>
                         <ul tabIndex={0} className="dropdown-content z-[1] menu mt-4 p-2 shadow bg-base-100 rounded-box w-40 dark:bg-gray-100 dark:text-gray-800 ">
                             <p className="font-semibold text-md py-2 pl-2">Hello! {session.user.name}</p>
                             <hr/>
@@ -57,7 +57,7 @@ export default function Header() {
                         </ul>
                     </div>
                     :
-                    <div><a className="btn btn-sm btn-outline dark:text-gray-400" onClick={() => signIn()}>sign in</a></div> 
+                    <div><a className="btn btn-sm btn-outline dark:text-gray-400 normal-case" onClick={() => signIn()}>Sign in</a></div> 
                 }
                 
             </div>
