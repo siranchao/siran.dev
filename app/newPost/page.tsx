@@ -1,30 +1,56 @@
 'use client';
 import { useSession } from "next-auth/react";
+import { useState } from "react";
 import Link from "next/link";
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm } from "react-hook-form"
+import axios from 'axios';
+import { createNewPost } from "../lib/db";
+import { useRouter } from "next/navigation";
+import { PostData } from "../lib/types";
 
-
-interface FormData {
-    title: string;
-    subtitle: string;
-    info: string;
-    iconUrl?: string;
-    primaryImgUrl?: string;
-    secondaryImgUrl?: string;
-    videoUrl?: string;
-    mainText?: string;
-    primaryLink: string;
-    primaryUrl: string;
-    secondaryLink?: string;
-    secondaryUrl?: string;
+const uploadImg = async (img: File, type: string) => {
+    const data = new FormData();
+    data.append("file", img as File);
+    data.append("upload_preset", `${process.env.NEXT_PUBLIC_CLOUD_PRESET}`);
+    data.append("cloud_name", `${process.env.NEXT_PUBLIC_CLOUD_NAME}`);
+    data.append("folder", `/siran_dev/post_${type}`)
+    try{
+        const resp = await axios.post(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUD_NAME}/image/upload`, data);    
+        return resp.data.url;
+    } catch(error) {
+        console.log(error)
+    }
 }
 
-export default async function NewPost() {
-    const { data: session } = useSession()
 
-    const { register, handleSubmit, reset } = useForm<FormData>()
-    const onSubmit = handleSubmit((data) => {
-        console.log(data)
+export default async function NewPost() {
+    const router = useRouter();
+    const { data: session } = useSession()
+    const [msg, setMsg] = useState("");
+
+    //image upload
+    const[icon, setIcon] = useState<File>();
+    const[primaryImg, setPrimaryImg] = useState<File>();
+    const[secondaryImg, setSecondaryImg] = useState<File>();
+
+    //react-hook-form
+    const { register, handleSubmit, reset } = useForm<PostData>()
+    const onSubmit = handleSubmit(async(data) => {
+        data.iconUrl = icon ? await uploadImg(icon, "icon") : "";
+        data.primaryImgUrl = primaryImg ? await uploadImg(primaryImg, "img") : "";
+        data.secondaryImgUrl = secondaryImg ? await uploadImg(secondaryImg, "img") : "";
+
+        const res = await createNewPost(data, session?.user.accessToken as string);
+
+        if(res.post) {
+            setMsg(res.message);
+            setTimeout(() => {
+                router.push("/");
+            }, 2000);
+        } else {
+            setMsg(res.message);
+        }
+
         window.scrollTo({
             top: 0,
             behavior: 'smooth',
@@ -52,18 +78,19 @@ export default async function NewPost() {
             <p className="text-2xl mb-4 font-bold tracking-wide">Create a new post</p>
 
             <form className="flex flex-col gap-4 border border-gray-300 p-8 rounded-lg shadow-lg" onSubmit={onSubmit}>
+                {msg && <p className="text-error">{msg}</p>}
                 <div>
-                    <label className="label">Post Title</label>
+                    <label className="label">Post Title *</label>
                     <input type="text" placeholder="show as main title" className="input input-bordered w-full max-w-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-300" {...register("title")} required/>
                 </div>
 
                 <div>
-                    <label className="label">Post Subtitle</label>
+                    <label className="label">Post Subtitle *</label>
                     <input type="text" placeholder="show as sub-title" className="input input-bordered w-full max-w-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-300" {...register("subtitle")} required/>
                 </div>
 
                 <div>
-                    <label className="label">Post Info</label>
+                    <label className="label">Post Info *</label>
                     <textarea className="textarea textarea-bordered w-full max-w-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-300" placeholder="show as post description" {...register("info")} required></textarea>
                 </div>
 
@@ -73,44 +100,45 @@ export default async function NewPost() {
                 </div>
 
                 <div>
-                    <label className="label">Primary Link</label>
-                    <input type="text" placeholder="link name" className="input input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300 m-1" {...register("primaryLink")} required/>
+                    <label className="label">Primary Link *</label>
+                    <input type="text" placeholder="name" className="input input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300 m-1" {...register("primaryLink")} required/>
                     <input type="text" placeholder="url" className="input input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300 m-1" {...register("primaryUrl")} required/>
                 </div>
 
                 <div>
                     <label className="label">Secondary Link</label>
-                    <input type="text" placeholder="link name" className="input input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300 m-1" {...register("secondaryLink")} />
+                    <input type="text" placeholder="name" className="input input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300 m-1" {...register("secondaryLink")} />
                     <input type="text" placeholder="url" className="input input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300 m-1" {...register("secondaryUrl")} />
                 </div>
 
                 <div>
                     <label className="label">Video URL</label>
-                    <input type="text" placeholder="url" className="input input-bordered w-full max-w-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-300" {...register("videoUrl")} />
+                    <input type="text" className="input input-bordered w-full max-w-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-300" {...register("videoUrl")} />
                 </div>
 
                 <hr/>
 
                 <div>
-                    <label className="label">Logo Image</label>
-                    <input type="file" className="file-input file-input-sm file-input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300" />
+                    <label className="label">Icon Image</label>
+                    <input type="file" id="icon" name="icon" className="file-input file-input-sm file-input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300" onChange={(e: any) => setIcon(e.target.files[0])}/>
                 </div>
 
                 <div>
                     <label className="label">Primary Image</label>
-                    <input type="file" className="file-input file-input-sm file-input-accent file-input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300" />
+                    <input type="file" id="primary" name="primary" className="file-input file-input-sm file-input-accent file-input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300" onChange={(e: any) => setPrimaryImg(e.target.files[0])}/>
                 </div>
 
                 <div>
                     <label className="label">Secondary Image</label>
-                    <input type="file" className="file-input file-input-sm file-input-info file-input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300" />
+                    <input type="file" id="secondary" name="secondary" className="file-input file-input-sm file-input-info file-input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300" onChange={(e: any) => setSecondaryImg(e.target.files[0])}/>
                 </div>
 
                 <div className="flex gap-2 pt-4 justify-end">
                     <button className="btn btn-sm btn-outline" type="submit">Submit</button>
                     <button className="btn btn-sm btn-outline btn-error" type="reset" onClick={() => reset()}>Reset</button>
-                </div>
+                </div>    
             </form>
+
         </main>
     )
 }
