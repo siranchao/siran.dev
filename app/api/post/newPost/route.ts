@@ -16,12 +16,19 @@ export async function POST(req: Request) {
     }
 
     try {
-        const body: PostData = await req.json()
+        const body: {post: PostData, categories: string[]} = await req.json()
 
+        const val: {name: string}[] = body.categories.map((category) => {
+            return { name: category }
+        })
+  
         const newPost = await prisma.post.create({
             data: {
-                title: body.title,
-                content: JSON.stringify(body),
+                title: body.post.title,
+                content: JSON.stringify(body.post),
+                categories: {
+                    create: val
+                }
             }
         })
 

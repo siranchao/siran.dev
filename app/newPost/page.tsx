@@ -1,12 +1,13 @@
 'use client';
 import { useSession } from "next-auth/react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form"
 import axios from 'axios';
-import { createNewPost } from "../lib/db";
+import { createNewPost, createNewCategory } from "../lib/db";
 import { useRouter } from "next/navigation";
 import { PostData } from "../lib/types";
+import SelectTag from "../components/SelectTag";
 
 const uploadImg = async (img: File, type: string) => {
     const data = new FormData();
@@ -22,11 +23,31 @@ const uploadImg = async (img: File, type: string) => {
     }
 }
 
+const scrollTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+}
+
 
 export default async function NewPost() {
     const router = useRouter();
     const { data: session } = useSession()
     const [msg, setMsg] = useState("");
+
+    //category data
+    const categoryList = useRef<string[]>([]);
+    const newCategory = useRef<HTMLInputElement | null>(null);
+    const [added, setAdded] = useState(false);
+    const addCategory = (item: string) => {
+        if(!categoryList.current.includes(item)) {
+            categoryList.current = [...categoryList.current, item]
+        }
+    }
+    const clearCategory = () => {
+        categoryList.current = []
+    }
 
     //image upload
     const[icon, setIcon] = useState<File>();
@@ -40,7 +61,7 @@ export default async function NewPost() {
         data.primaryImgUrl = primaryImg ? await uploadImg(primaryImg, "img") : "";
         data.secondaryImgUrl = secondaryImg ? await uploadImg(secondaryImg, "img") : "";
 
-        const res = await createNewPost(data, session?.user.accessToken as string);
+        const res = await createNewPost(data, categoryList.current, session?.user.accessToken as string);
 
         if(res.post) {
             setMsg(res.message);
@@ -50,12 +71,23 @@ export default async function NewPost() {
         } else {
             setMsg(res.message);
         }
-
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
+        scrollTop();
     })
+
+    const submitCategory = async(e: any) => {
+        e.preventDefault();
+
+        if(newCategory.current?.value) {
+            const val = newCategory.current?.value as string
+            const name = val.toLowerCase().trim();
+            const categoryName = name.charAt(0).toUpperCase() + name.slice(1);
+
+            const res = await createNewCategory(categoryName, session?.user.accessToken as string);
+            setMsg(res.message);
+            scrollTop(); 
+        }
+    }
+
 
     if (!session?.user.isAdmin) {
         return (
@@ -71,7 +103,6 @@ export default async function NewPost() {
             </div>
         )
     }
-
 
     return (
         <main className="mb-20">
@@ -133,10 +164,23 @@ export default async function NewPost() {
                     <input type="file" id="secondary" name="secondary" className="file-input file-input-sm file-input-info file-input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300" onChange={(e: any) => setSecondaryImg(e.target.files[0])}/>
                 </div>
 
+                <SelectTag addCategory={addCategory} clearCategory={clearCategory}/>
+
                 <div className="flex gap-2 pt-4 justify-end">
-                    <button className="btn btn-sm btn-outline" type="submit">Submit</button>
+                    <button className="btn btn-sm btn-outline dark:text-gray-300" type="submit">Submit</button>
                     <button className="btn btn-sm btn-outline btn-error" type="reset" onClick={() => reset()}>Reset</button>
                 </div>    
+            </form>
+
+            <form className="flex flex-col gap-4 border border-gray-300 p-8 rounded-lg shadow-lg mt-8" onSubmit={submitCategory}>
+                <p className="text-lg mb-4 font-bold tracking-wide">Create new category</p>
+                <div>
+                    <label className="label">Category Name</label>
+                    <div className="flex justify-between items-center">
+                        <input type="text" className="input input-info input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300" ref={newCategory} required/>
+                        <button className="btn btn-sm btn-outline dark:text-gray-300" type="submit">Create</button>
+                    </div>
+                </div>
             </form>
 
         </main>

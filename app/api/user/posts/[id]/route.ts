@@ -14,7 +14,7 @@ export async function GET(req: Request, {params}: {params: {id: string}}) {
     }
 
     try {
-        const likedPosts = await prisma.user.findUnique({
+        const likedPosts = await prisma.user.findFirst({
             where: {
                 id: params.id
             },
