@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react"
-
+import Link from "next/link"
 
 export default function Footer() {
     const [copied, setCopied] = useState('click to copy')
@@ -16,16 +16,23 @@ export default function Footer() {
         })
     }
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 260,
+            behavior: 'smooth',
+        });
+    };
+
     return (
         <footer className="footer footer-center p-10 mt-12 bg-transparent text-base-content rounded dark:text-gray-400">
 
             <div className="flex flex-col w-full border-opacity-50">
                 <div className="grid h-20 card bg-transparent rounded-box place-items-center">
                     <div className="grid grid-flow-col gap-8 font-semibold">
-                        <a className="link link-hover">Home</a> 
-                        <a className="link link-hover">Projects</a> 
-                        <a className="link link-hover">Blogs</a> 
-                        <a className="link link-hover">About</a> 
+                        <Link href="/" className="link link-hover">Home</Link>
+                        <Link href="/projects" className="link link-hover">Projects</Link> 
+                        <Link href="/notes" className="link link-hover">Notes</Link> 
+                        <a onClick={scrollToTop} className="link link-hover">About</a> 
                     </div> 
                 </div>
                 
