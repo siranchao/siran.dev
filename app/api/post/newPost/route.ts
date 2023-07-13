@@ -1,6 +1,6 @@
 import prisma from "@/app/lib/prisma"
 import { verifyJwt } from "@/app/lib/jwt"
-import { PostData } from "@/app/lib/types"
+import { PostData, Tag } from "@/app/lib/types"
 
 
 /**
@@ -16,10 +16,10 @@ export async function POST(req: Request) {
     }
 
     try {
-        const body: {post: PostData, categories: string[]} = await req.json()
+        const body: {post: PostData, categories: Tag[]} = await req.json()
 
-        const val: {name: string}[] = body.categories.map((category) => {
-            return { name: category }
+        const val: {id: string}[] = body.categories.map((item: Tag) => {
+            return { id: item.id }
         })
   
         const newPost = await prisma.post.create({
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
                 title: body.post.title,
                 content: JSON.stringify(body.post),
                 categories: {
-                    create: val
+                    connect: val
                 }
             }
         })

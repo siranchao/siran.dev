@@ -13,3 +13,9 @@ export interface PostData {
     secondaryLink?: string; 
     secondaryUrl?: string; 
 }
+
+
+export interface Tag {
+    id: string;
+    name: string;
+}

@@ -1,12 +1,11 @@
 'use client';
 import { useSession } from "next-auth/react";
 import { useState, useRef } from "react";
-import Link from "next/link";
 import { useForm } from "react-hook-form"
 import axios from 'axios';
 import { createNewPost, createNewCategory } from "../lib/db";
 import { useRouter } from "next/navigation";
-import { PostData } from "../lib/types";
+import { PostData, Tag } from "../lib/types";
 import SelectTag from "../components/SelectTag";
 import Warning from "../components/Warning";
 
@@ -38,11 +37,11 @@ export default async function NewPost() {
     const [msg, setMsg] = useState("");
 
     //category data
-    const categoryList = useRef<string[]>([]);
+    const categoryList = useRef<Tag[]>([]);
     const newCategory = useRef<HTMLInputElement | null>(null);
-    const [added, setAdded] = useState(false);
-    const addCategory = (item: string) => {
-        if(!categoryList.current.includes(item)) {
+
+    const addCategory = (item: Tag) => {
+        if(!categoryList.current.find(tag => tag.id === item.id)) {
             categoryList.current = [...categoryList.current, item]
         }
     }
@@ -62,6 +61,7 @@ export default async function NewPost() {
         data.primaryImgUrl = primaryImg ? await uploadImg(primaryImg, "img") : "";
         data.secondaryImgUrl = secondaryImg ? await uploadImg(secondaryImg, "img") : "";
 
+
         const res = await createNewPost(data, categoryList.current, session?.user.accessToken as string);
 
         if(res.post) {
@@ -80,10 +80,8 @@ export default async function NewPost() {
 
         if(newCategory.current?.value) {
             const val = newCategory.current?.value as string
-            const name = val.toLowerCase().trim();
-            const categoryName = name.charAt(0).toUpperCase() + name.slice(1);
-
-            const res = await createNewCategory(categoryName, session?.user.accessToken as string);
+            const name = val.trim();
+            const res = await createNewCategory(name, session?.user.accessToken as string);
             setMsg(res.message);
             scrollTop(); 
         }
@@ -112,12 +110,12 @@ export default async function NewPost() {
 
                 <div>
                     <label className="label">Post Info *</label>
-                    <textarea className="textarea textarea-bordered w-full max-w-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-300" placeholder="show as post description" {...register("info")} required></textarea>
+                    <textarea rows={5} className="textarea textarea-bordered w-full max-w-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-300" placeholder="show as post description" {...register("info")} required></textarea>
                 </div>
 
                 <div>
                     <label className="label">Post Main Text</label>
-                    <textarea className="textarea textarea-bordered w-full max-w-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-300" placeholder="show as post main text" {...register("mainText")}></textarea>
+                    <textarea rows={5} className="textarea textarea-bordered w-full max-w-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-300" placeholder="show as post main text" {...register("mainText")}></textarea>
                 </div>
 
                 <div>

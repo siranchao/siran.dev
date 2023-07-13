@@ -1,11 +1,11 @@
 import prisma from "@/app/lib/prisma"
 
 /**
- * This api returns a post by id, it's a public API
+ * This api returns the metadata of a post, it's a public API
  * @param req 
- * @param params 
+ * @param params
+ * @returns 
  */
-
 export async function GET(req: Request, {params}: {params: {id: string}}) {
     
     try {
@@ -13,8 +13,8 @@ export async function GET(req: Request, {params}: {params: {id: string}}) {
             where: {
                 id: params.id
             },
-            include: {
-                categories: true
+            select: {
+                title: true,
             }
         })
 
@@ -26,6 +26,6 @@ export async function GET(req: Request, {params}: {params: {id: string}}) {
 
     } catch(error) {
         console.log(error)
-        throw new Error("Error when fetching post data");
+        throw new Error("Error when fetching post metadata");
     }
 }

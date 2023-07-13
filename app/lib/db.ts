@@ -1,7 +1,7 @@
 import Error from "next/error"
-import { PostData } from "./types"
+import { PostData, Tag } from "./types"
 
-export async function createNewPost(postData: PostData, categories: string[], accessToken: string) {
+export async function createNewPost(postData: PostData, categories: Tag[], accessToken: string) {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API as string}/api/post/newPost`, {
             method: "POST",
