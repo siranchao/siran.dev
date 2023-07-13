@@ -6,7 +6,7 @@ import { Metadata } from 'next'
 
 
 export const  metadata: Metadata = {
-  title: 'Siran.dev | Home Page',
+  title: 'Siran.dev | Home',
   description: 'The index page of Siran.dev',
 }
 

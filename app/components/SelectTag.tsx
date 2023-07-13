@@ -25,7 +25,7 @@ export default function SelectTag(props: {
         <>
             <hr/>
             <div className="mt-4">
-                <label className="label">Select Categories (multiple)</label>
+                <label className="label">Select Categories (allow multiple)</label>
                 <select className="select select-bordered w-full max-w-xs mt-2 mr-4 dark:bg-transparent dark:text-gray-300" value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
                     {categories.length > 0 && categories.map((item: string, index: number) => (
                         <option key={index} value={item}>{item}</option>

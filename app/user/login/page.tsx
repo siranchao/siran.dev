@@ -5,7 +5,7 @@ import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation'
 
 
-export default function Login({params}: {params: any}) {
+export default function Login() {
     const searchParams = useSearchParams()
     const [remember, setRemember] = useState(false);
     const [email, setEmail] = useState("");

@@ -4,9 +4,9 @@ import Pagination from "../components/Pagination"
 import Breadcrumbs from "../components/Breadcrumbs"
 
 export const  metadata: Metadata = {
-    title: 'Siran.dev | Project Page',
+    title: 'Siran.dev | Projects',
     description: 'This page list all my projects',
-  }
+}
 
 interface Record {
     title: string
