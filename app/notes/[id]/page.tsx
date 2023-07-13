@@ -5,6 +5,27 @@ import Tag from "@/app/components/Tag";
 import Image from "next/image";
 import { PostData } from "@/app/lib/types";
 import axios from "axios";
+import { Metadata, ResolvingMetadata } from 'next'
+
+type Props = {
+    params: { id: string }
+    searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export async function generateMetadata( { params, searchParams }: Props, parent?: ResolvingMetadata): Promise<Metadata> {
+    // read route params
+    const id = params.id
+ 
+    // fetch data
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API as string}/api/post/metadata/${id}`)
+
+    return {
+        title: res.data.title,
+        description: `Siran.dev - Note title: ${res.data.title}`
+    }
+}
+
+
 
 async function getData(id: string) {
     const res = await axios.get(`${process.env.NEXT_PUBLIC_API as string}/api/post/${id}`)
@@ -105,9 +126,9 @@ export default async function Note({ params }: { params: { id: string } }){
                     <div className="flex gap-2 items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        <span className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">Good to know:</span>
+                        <span className="text-sm leading-relaxed text-gray-500 dark:text-gray-400">Good to know:</span>
                     </div>
-                    <ul className="mt-2 text-sm leading-loose text-gray-600 dark:text-gray-400">
+                    <ul className="mt-2 text-sm leading-loose text-gray-500 dark:text-gray-400">
                         <li>1. Please retain the original link for reference, thank you!</li>
                         <li>2. All resources are collected from the Internet and are used for study purposes only.</li>
                         <li>3. Please do not use for commercial purposes.</li>
