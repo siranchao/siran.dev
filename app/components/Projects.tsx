@@ -7,7 +7,7 @@ export default function Projects() {
 
     return (
         <div className="mb-20">
-          <p className="text-2xl mb-4 font-bold">Recent projects</p>
+          <p className="text-2xl mb-4 font-bold">Recent Projects</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 place-items-center">
             {/* 1 */}
@@ -282,7 +282,7 @@ export default function Projects() {
             </div>
           </div>
         
-          <button className="btn btn-link normal-case mt-4 px-4 text-gray-600 dark:text-gray-400"><Link href={"/projects"}>All Projects</Link></button>
+          <button className="btn btn-link normal-case mt-4 pl-0 text-gray-600 dark:text-gray-400"><Link href={"/projects"}>All Projects</Link></button>
         </div>
     )
 }

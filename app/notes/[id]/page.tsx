@@ -72,7 +72,7 @@ export default async function Note({ params }: { params: { id: string } }){
             {/* Intoduction section */}
             <section className="mb-16">
                 <p className="text-2xl mb-4 font-bold tracking-wide">{content.title}</p>
-                <p className="text-sm text-gray-400 font-light dark:text-gray-600">{new Date(data.createdAt).toDateString()}</p>
+                <p className="text-sm text-gray-400 font-light dark:text-gray-600">{new Date(data.createdAt).toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'})}</p>
                 <div className="mt-2">
                     {data?.categories.length > 0 && data.categories.map((tag: {id: string, name: string}, index: number) => (
                        <Tag key={index} id={tag.id} name={tag.name} color={selectTheme(index)} /> 

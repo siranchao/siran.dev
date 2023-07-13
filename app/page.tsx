@@ -2,6 +2,7 @@ import Intro from "./components/Intro"
 import Skill from "./components/Skill"
 import Projects from "./components/Projects"
 import BackToTop from "./components/BackToTop"
+import Notes from "./components/Notes"
 import { Metadata } from 'next'
 
 
@@ -17,6 +18,7 @@ export default function Home() {
       <Intro />
       <Skill />
       <Projects />
+      <Notes />
       <BackToTop />
     </>
   )
