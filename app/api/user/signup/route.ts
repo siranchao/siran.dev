@@ -3,7 +3,7 @@ import prisma from "@/app/lib/prisma";
 
 interface RequestBody {
     email: string
-    name?: string
+    name: string
     password: string
 }
 
