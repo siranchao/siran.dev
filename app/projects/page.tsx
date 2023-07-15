@@ -70,9 +70,6 @@ const projects: Record[] = [
 
 
 export default function Projects() {
-    const totalPages: number = 1;
-    const currentPage: number = 1;
-
 
     return (
         <div className="mb-20">
@@ -86,7 +83,11 @@ export default function Projects() {
             </div>
             
             <div className="mt-8 flex justify-center">
-                <Pagination totalPages={totalPages} currentPage={currentPage}/>
+                <div className="join">
+                <button className="join-item btn">«</button>
+                <button className="join-item btn btn-active">1</button>
+                <button className="join-item btn">»</button>
+            </div>
             </div>
 
         </div>

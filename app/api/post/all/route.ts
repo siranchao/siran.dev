@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
             tag: searchParams.get("tag") || 'all',
             order: searchParams.get("order") || 'newest'
         }
-
+        let totalPosts: number;
         const condition: any = {
             skip: (query.page - 1) * query.perPage,
             take: query.perPage,
@@ -43,6 +43,17 @@ export async function GET(req: NextRequest) {
                     }
                 }
             }
+            totalPosts = await prisma.post.count({
+                where: {
+                    categories: {
+                        some: {
+                            name: query.tag
+                        }
+                    }
+                }
+            })
+        } else {
+            totalPosts = await prisma.post.count()
         }
 
         if(query.order === 'newest') {
@@ -78,8 +89,9 @@ export async function GET(req: NextRequest) {
         if(!posts) {
             return new Response(JSON.stringify("No data can be found"), {status: 401})
         }
+        const totalPages = Math.ceil(totalPosts / query.perPage)
 
-        return new Response(JSON.stringify(posts), {status: 200})
+        return new Response(JSON.stringify({posts: posts, totalPages: totalPages}), {status: 200})
 
     } catch(error) {
         console.log(error)

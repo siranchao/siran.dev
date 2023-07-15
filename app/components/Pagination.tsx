@@ -1,24 +1,32 @@
-//Pagination component need to re-work!
+'use client'
+import { useState, useEffect } from "react"
 
-export default function Pagination({totalPages, currentPage}: {totalPages: number, currentPage: number}) {
 
-    const pages: number[] = new Array(totalPages).fill(0)
+export default function Pagination({currentPage, displayedPages, selectPage, nextPage, prevPage}: {
+    currentPage: number
+    displayedPages: number[][]
+    selectPage: (page: number) => void
+    nextPage: () => void
+    prevPage: () => void
+}) {
     
+    const [pages, setPages] = useState<number[]>(displayedPages[0]);
+
+    useEffect(() => {
+        setPages(displayedPages.find((item: number[]) => item.includes(currentPage)) as number[])
+    }, [currentPage, displayedPages])
 
     return (
         <div className="join">
-            <button className="join-item btn">«</button>
+            <button className="join-item btn" onClick={() => prevPage()}>«</button>
 
             {pages.map((page: number, index: number) => {
-                if(index < 5) {
-                    return (<button key={index} className={`join-item btn ${index === currentPage-1 && "btn-active"}`}>{index + 1}</button>)
-                }
-                if(index === 5) {
-                    return (<button key={index} className="join-item btn">...</button>)
-                }
+                return (<button key={index} className={`join-item btn ${page === currentPage && "btn-active"}`} onClick={() => selectPage(page)}>
+                    {page}
+                    </button>)
             })}
 
-            <button className="join-item btn">»</button>
+            <button className="join-item btn" onClick={() => nextPage()}>»</button>
         </div>
     )
 }
