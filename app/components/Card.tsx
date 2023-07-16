@@ -10,16 +10,16 @@ function selectTheme(index: number) {
             val = "info"
             break;
         case 1:
-            val = "success"
+            val = "warning"
             break;
         case 2:
-            val = "warning"
+            val = "success"
             break;
          case 3:
             val = "error"
             break;
         default:
-            val = "info"
+            val = "accent"
             break;
     }
     return val;
@@ -45,12 +45,13 @@ export default function Card({ record }: { record: any }) {
                 />}
             </div>
             <div className="w-2/3 h-full p-2">
-                {(record.tag && record.tag.length > 0) ? 
-                record.tag.map(( tag: string, index: number) => (
-                    <div key={index} className={`badge badge-sm badge-outline mb-2 mr-2 badge-${selectTheme(index)}`}>{tag}</div>
-                )) :
-                null
-                }
+                <div className="flex flex-nowrap">
+                    {(record.tag && record.tag.length > 0) ? 
+                    record.tag.map(( tag: string, index: number) => (
+                        index < 3 && <div key={index} className={`badge badge-sm badge-outline mb-2 mr-2 badge-${selectTheme(index)}`}>{tag}</div>
+                    )) :
+                    null}
+                </div>
                 <p className="text-md font-semibold mb-2 line-clamp-1 dark:text-gray-800">{record.title}</p>
                 <p className="text-gray-600 text-sm mb-2 line-clamp-2">{record.description}</p>
                 <p className="text-gray-400 text-xs text-right">{record.date}</p>
