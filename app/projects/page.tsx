@@ -1,6 +1,5 @@
 import Card from "../components/Card"
 import { Metadata } from "next"
-import Pagination from "../components/Pagination"
 import Breadcrumbs from "../components/Breadcrumbs"
 
 export const  metadata: Metadata = {
@@ -76,13 +75,15 @@ export default function Projects() {
             <Breadcrumbs prevRoute="/" currentRoute="Projects"/>
             <p className="text-2xl mb-4 font-bold">Project List</p>
 
-            <div className="grid gap-4 grid-cols-1 place-items-center lg:grid-cols-2">
+            <div className="grid gap-4 grid-cols-1 place-items-center mb-14 lg:grid-cols-2">
                 {projects.map((project: Record, index: number) => (
                     <Card record={project} key={index}/>
                 ))}
             </div>
             
-            <div className="mt-8 flex justify-center">
+
+            {/* To do: Pagination  */}
+            <div className="flex justify-center">
                 <div className="join">
                 <button className="join-item btn">«</button>
                 <button className="join-item btn btn-active">1</button>

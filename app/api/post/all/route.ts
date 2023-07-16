@@ -62,24 +62,10 @@ export async function GET(req: NextRequest) {
             }
         }
 
-        if(query.order === 'oldest') {
-            condition.orderBy = {
-                createdAt: "asc"
-            }
-        }
-
         if(query.order === 'popular') {
             condition.orderBy = {
                 favoritedBy: {
                     _count: "desc"
-                }
-            }
-        }
-
-        if(query.order === 'unpopular') {
-            condition.orderBy = {
-                favoritedBy: {
-                    _count: "asc"
                 }
             }
         }
