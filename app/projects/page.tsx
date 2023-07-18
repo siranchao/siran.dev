@@ -21,7 +21,7 @@ const projects: Record[] = [
         title: 'Kudos App',
         path: 'kudos',
         imgUrl: '/projects/kudos.png',
-        tag: ['Project'],
+        tag: ['Project', 'Full-stack'],
         description: "Create, send, and share kudos with each other in a casual and interesting way!",
         date: 'May 24, 2023'
     },
@@ -29,7 +29,7 @@ const projects: Record[] = [
         title: 'Portable Museum',
         path: 'museum',
         imgUrl: '/projects/museum.png',
-        tag: ['Project'],
+        tag: ['Project', 'Full-stack'],
         description: "An online archive app designed for museum and art lovers!",
         date: 'Feb 13, 2023'
     },
@@ -53,7 +53,7 @@ const projects: Record[] = [
         title: 'Siran.dev',
         path: 'sirandev',
         imgUrl: '/projects/siran.dev.png',
-        tag: ['Project'],
+        tag: ['Project', 'Full-stack'],
         description: "Welcome to my portfolio website, here you can view my works and find useful resources!",
         date: 'Jun 28, 2023'
     },

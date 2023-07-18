@@ -1,8 +1,9 @@
 'use client';
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
-import { ShareIcon, StarIcon, ClipboardDocumentCheckIcon, CheckCircleIcon } from "@heroicons/react/24/solid";
+import { ShareIcon, StarIcon, ClipboardDocumentCheckIcon, CheckCircleIcon, InformationCircleIcon } from "@heroicons/react/24/solid";
 import axios from "axios";
+import Link from "next/link";
 
 
 
@@ -84,7 +85,19 @@ export default function UserActions({postId, updatedAt, favoritedBy}: {postId: s
                 </form>
             </dialog>
 
-            {session && 
+            <dialog id="my_modal_3" className="modal">
+                <form method="dialog" className="modal-box bg-base-200 rounded-md dark:bg-gray-800">
+                    <p className="py-4 text-sm text-center flex justify-center items-center">                    
+                        <InformationCircleIcon className="w-8 h-8 mr-4" fill="#1dcdbc"/>
+                        <span className="mr-2 font-semibold text-gray-600 dark:text-gray-400">{msg}</span>
+                        <Link href="/user/login" className="text-blue-500 font-semibold hover:underline">Login now</Link>
+                    </p>
+                </form>
+                <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                </form>
+            </dialog>
+          
             <section className="mb-16 flex justify-between items-center">
                 <p className="text-sm text-gray-400 font-light dark:text-gray-600">Last update: {new Date(updatedAt).toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'})}</p>
 
@@ -94,12 +107,20 @@ export default function UserActions({postId, updatedAt, favoritedBy}: {postId: s
                         <span>Share</span>
                     </button>
 
-                    <button className="btn btn-xs btn-outline btn-accent normal-case" onClick={handleLikeBtn}>
+                    <button className="btn btn-xs btn-outline btn-accent normal-case" onClick={() => {
+                        if(session) {
+                            handleLikeBtn()
+                        } else {
+                            setMsg("Please log in to star this note.")
+                            // @ts-ignore
+                            document.getElementById("my_modal_3")?.showModal()
+                        }
+                    }}>
                         <StarIcon className="w-4 h-4" stroke="#1dcdbc"/>
                         <span>{liked ? "Unstar" : "Star"}</span>
                     </button>
                 </div>
-            </section>}
+            </section>
         </>
 
     )

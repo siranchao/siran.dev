@@ -9,7 +9,7 @@ import ShowLoading from "../components/ShowLoading"
 import { useSession } from "next-auth/react";
 import { Square3Stack3DIcon, ArrowsUpDownIcon } from "@heroicons/react/24/solid"
 import { Tag } from "../lib/types";
-
+import Warning from "../components/Warning"
 
 const perPage: number = 12
 const paginationRange: number = 6
@@ -116,36 +116,42 @@ export default function FavoriteNotes() {
             <Breadcrumbs prevRoute="/" currentRoute="My Favorites"/>
             <p className="text-2xl mb-4 font-bold">My Favorites: </p>
 
-            <div className="flex flex-col w-full mt-10 mb-8">
-                <div className="flex items-center flex-wrap">
-                    <div className="flex items-center">
-                        <Square3Stack3DIcon className="w-4 h-4 mr-2"/>
-                        <span className="text-sm font-semibold text-gray-600 dark:text-gray-400 mr-4">Category:</span>
-                       
+            {posts.current && posts.current.length > 0 ? 
+                <>
+                    <div className="flex flex-col w-full mt-10 mb-8">
+                        <div className="flex items-center flex-wrap">
+                            <div className="flex items-center">
+                                <Square3Stack3DIcon className="w-4 h-4 mr-2"/>
+                                <span className="text-sm font-semibold text-gray-600 dark:text-gray-400 mr-4">Category:</span>
+                            
+                            </div>
+                            <div><button onClick={() => selectTag("all")} className={`btn btn-sm btn-ghost normal-case rounded-md mx-1 text-gray-600 dark:text-gray-400 ${tag === "all" && "btn-active"}`}>All</button><span className="text-sm text-gray-400">|</span></div>
+                            {tags.current.map((item: string, index: number) => {
+                                if(index === tags.current.length - 1) {
+                                    return <div key={index}><button onClick={() => selectTag(item)} className={`btn btn-sm btn-ghost normal-case rounded-md mx-1 text-gray-600 dark:text-gray-400 ${tag === item && "btn-active"}`}>{item}</button></div>
+                                }
+                                return <div key={index}><button onClick={() => selectTag(item)} className={`btn btn-sm btn-ghost normal-case rounded-md text-gray-600 mx-1 dark:text-gray-400 ${tag === item && "btn-active"}`}>{item}</button><span className="text-sm text-gray-400">|</span></div>
+                            })}
+                        </div> 
                     </div>
-                    <div><button onClick={() => selectTag("all")} className={`btn btn-sm btn-ghost normal-case rounded-md mx-1 text-gray-600 dark:text-gray-400 ${tag === "all" && "btn-active"}`}>All</button><span className="text-sm text-gray-400">|</span></div>
-                    {tags.current.map((item: string, index: number) => {
-                        if(index === tags.current.length - 1) {
-                            return <div key={index}><button onClick={() => selectTag(item)} className={`btn btn-sm btn-ghost normal-case rounded-md mx-1 text-gray-600 dark:text-gray-400 ${tag === item && "btn-active"}`}>{item}</button></div>
-                        }
-                        return <div key={index}><button onClick={() => selectTag(item)} className={`btn btn-sm btn-ghost normal-case rounded-md text-gray-600 mx-1 dark:text-gray-400 ${tag === item && "btn-active"}`}>{item}</button><span className="text-sm text-gray-400">|</span></div>
-                    })}
-                </div> 
-            </div>
 
+                    {loading ? <ShowLoading/> :
+                        <div className="grid gap-4 grid-cols-1 place-items-center mb-14 lg:grid-cols-2">
+                        {displayedPosts[currentPage-1].length > 0 && displayedPosts[currentPage-1].map((post: any, index: number) => (
+                            <NoteCard record={post} key={index}/>
+                        ))}
+                    </div>}
 
-            {loading ? <ShowLoading/> :
-                <div className="grid gap-4 grid-cols-1 place-items-center mb-14 lg:grid-cols-2">
-                {displayedPosts[currentPage-1].length > 0 && displayedPosts[currentPage-1].map((post: any, index: number) => (
-                    <NoteCard record={post} key={index}/>
-                ))}
-            </div>}
-
-            { displayedPosts.length > 0 && 
-            <div className="flex justify-center">
-                <Pagination currentPage={currentPage} displayedPages={convertToPageArray(displayedPosts.length)} selectPage={selectPage} nextPage={nextPage} prevPage={prevPage}/>
-            </div>}
+                    { displayedPosts.length > 0 && 
+                    <div className="flex justify-center">
+                        <Pagination currentPage={currentPage} displayedPages={convertToPageArray(displayedPosts.length)} selectPage={selectPage} nextPage={nextPage} prevPage={prevPage}/>
+                    </div>}
+                </> : 
+                <div className="mt-10">
+                    <Warning msg="Your favorite list is empty, try to add some!"/>  
+                </div>
             
+            }
 
         </div>
     )
