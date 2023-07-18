@@ -16,13 +16,6 @@ export default function Footer() {
         })
     }
 
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 260,
-            behavior: 'smooth',
-        });
-    };
-
     return (
         <footer className="footer footer-center p-10 mt-12 bg-transparent text-base-content rounded dark:text-gray-400">
 
@@ -32,7 +25,7 @@ export default function Footer() {
                         <Link href="/" className="link link-hover">Home</Link>
                         <Link href="/projects" className="link link-hover">Projects</Link> 
                         <Link href="/notes" className="link link-hover">Notes</Link> 
-                        <a onClick={scrollToTop} className="link link-hover">About</a> 
+                        <a href="https://www.linkedin.com/in/siran-chao/" target="_blank" className="link link-hover">About</a> 
                     </div> 
                 </div>
                 

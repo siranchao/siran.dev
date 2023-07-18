@@ -14,7 +14,12 @@ export async function GET(req: Request, {params}: {params: {id: string}}) {
                 id: params.id
             },
             include: {
-                categories: true
+                categories: true,
+                favoritedBy: {
+                    select: {
+                        id: true
+                    }
+                }
             }
         })
 

@@ -1,5 +1,4 @@
 import prisma from "@/app/lib/prisma"
-import { count } from "console"
 import { NextRequest } from "next/server"
 
 /**

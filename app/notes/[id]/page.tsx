@@ -6,6 +6,8 @@ import Image from "next/image";
 import { PostData } from "@/app/lib/types";
 import axios from "axios";
 import { Metadata, ResolvingMetadata } from 'next'
+import Link from "next/link";
+import UserActions from "@/app/components/userActions";
 
 type Props = {
     params: { id: string }
@@ -25,7 +27,15 @@ export async function generateMetadata( { params, searchParams }: Props, parent?
     }
 }
 
+async function getRelevantPosts(tags: {id: string, name: string}[]) {
+    const params: string = tags.map((item) => item.name).toString()
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API as string}/api/post/guess/?tags=${params}`)
+    if(res.status !== 200) {
+        return null
+    }
 
+    return res.data
+}
 
 async function getData(id: string) {
     const res = await axios.get(`${process.env.NEXT_PUBLIC_API as string}/api/post/${id}`)
@@ -60,6 +70,7 @@ function selectTheme(index: number) {
 export default async function Note({ params }: { params: { id: string } }){
     const data = await getData(params.id)
     const content: PostData = JSON.parse(data.content)
+    const relevantPosts = await getRelevantPosts(data.categories)
 
     if(!data) {
         return <Warning msg={"No data can be found, please try again"} />
@@ -121,14 +132,29 @@ export default async function Note({ params }: { params: { id: string } }){
                 </div>
             </section>
 
-            <section className="mb-16 mt-20">
+
+            {/* You might also like */}
+            {(relevantPosts && relevantPosts.length > 0) && 
+            <section className="mb-16">
+                <p className="text-xl mb-4 font-semibold">You might also like:</p>
+                <ul className="text-sm list-disc pl-4 leading-loose text-gray-600 dark:text-gray-400">
+                    {relevantPosts.map((post: {id: string, title: string}, index: number) => (
+                        <li key={index} className="hover:font-semibold duration-200 ease-in">
+                            <Link href={`/notes/${post.id}`}>{post.title}</Link>
+                        </li>
+                    ))}
+                </ul>
+            </section>}
+
+            {/* good to know */}
+            <section className="mb-10">
                 <div className="m-auto w-full flex flex-col gap-2 py-4 px-8 items-start bg-gray-200 dark:bg-gray-800">
                     <div className="flex gap-2 items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <span className="text-sm leading-relaxed text-gray-500 dark:text-gray-400">Good to know:</span>
                     </div>
-                    <ul className="mt-2 text-sm leading-loose text-gray-500 dark:text-gray-400">
+                    <ul className="mt-2 text-sm italic leading-loose text-gray-500 dark:text-gray-400">
                         <li>1. Please retain the original link for reference, thank you!</li>
                         <li>2. All resources are collected from the Internet and are used for study purposes only.</li>
                         <li>3. Please do not use for commercial purposes.</li>
@@ -137,6 +163,8 @@ export default async function Note({ params }: { params: { id: string } }){
                 </div>
             </section>
 
+            {/* user interation */}
+            <UserActions postId={data.id} updatedAt={data.updatedAt} favoritedBy={data.favoritedBy} />
 
             <BackToTop />
         </main>

@@ -31,12 +31,12 @@ export default function Filter({selectTag, selectOrder, tag, order}: {
                     <span className="text-sm font-semibold text-gray-600 dark:text-gray-400 mr-4">Category:</span>
                     
                 </div>
-                <div><button onClick={() => selectTag("all")} className={`btn btn-xs btn-ghost normal-case rounded-md mx-1 text-gray-600 dark:text-gray-400 ${tag === "all" && "btn-active"}`}>All</button><span className="text-sm text-gray-400">|</span></div>
+                <div><button onClick={() => selectTag("all")} className={`btn btn-sm btn-ghost normal-case rounded-md mx-1 text-gray-600 dark:text-gray-400 ${tag === "all" && "btn-active"}`}>All</button><span className="text-sm text-gray-400">|</span></div>
                 {list.current.map((item: string, index: number) => {
                     if(index === list.current.length - 1) {
-                        return <div key={index}><button onClick={() => selectTag(item)} className={`btn btn-xs btn-ghost normal-case rounded-md mx-1 text-gray-600 dark:text-gray-400 ${tag === item && "btn-active"}`}>{item}</button></div>
+                        return <div key={index}><button onClick={() => selectTag(item)} className={`btn btn-sm btn-ghost normal-case rounded-md mx-1 text-gray-600 dark:text-gray-400 ${tag === item && "btn-active"}`}>{item}</button></div>
                     }
-                    return <div key={index}><button onClick={() => selectTag(item)} className={`btn btn-xs btn-ghost normal-case rounded-md text-gray-600 mx-1 dark:text-gray-400 ${tag === item && "btn-active"}`}>{item}</button><span className="text-sm text-gray-400">|</span></div>
+                    return <div key={index}><button onClick={() => selectTag(item)} className={`btn btn-sm btn-ghost normal-case rounded-md text-gray-600 mx-1 dark:text-gray-400 ${tag === item && "btn-active"}`}>{item}</button><span className="text-sm text-gray-400">|</span></div>
                 })}
             </div> 
 
@@ -49,11 +49,11 @@ export default function Filter({selectTag, selectOrder, tag, order}: {
                 </div>
 
                 <div>
-                    <button className={`btn btn-xs btn-ghost normal-case rounded-md mx-1 text-gray-600 dark:text-gray-400 ${order === "newest" && "btn-active"}`} onClick={() => selectOrder("newest")}>Newest</button><span className="text-sm text-gray-400">|</span>
+                    <button className={`btn btn-sm btn-ghost normal-case rounded-md mx-1 text-gray-600 dark:text-gray-400 ${order === "newest" && "btn-active"}`} onClick={() => selectOrder("newest")}>Newest</button><span className="text-sm text-gray-400">|</span>
                 </div>
 
                 <div>
-                    <button className={`btn btn-xs btn-ghost normal-case rounded-md mx-1 text-gray-600 dark:text-gray-400 ${order === "popular" && "btn-active"}`} onClick={() => selectOrder("popular")}>Hotest</button> 
+                    <button className={`btn btn-sm btn-ghost normal-case rounded-md mx-1 text-gray-600 dark:text-gray-400 ${order === "popular" && "btn-active"}`} onClick={() => selectOrder("popular")}>Hotest</button> 
                 </div>
             </div>
         </div>
