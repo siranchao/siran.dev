@@ -19,12 +19,21 @@ export async function GET(req: Request, {params}: {params: {id: string}}) {
                 id: params.id
             },
             select: {
-                favoritePosts: true
+                favoritePosts: {
+                    include: {
+                        categories: true,
+                        favoritedBy: {
+                            select: {
+                                id: true
+                            }
+                        }
+                    }
+                }
             }
         })
 
         if(!likedPosts) {
-            return new Response("No data can be found", {status: 401})
+            return new Response(null, {status: 401})
         }
 
         return new Response(JSON.stringify(likedPosts), {status: 200})

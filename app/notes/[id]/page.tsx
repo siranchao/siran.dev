@@ -7,7 +7,7 @@ import { PostData } from "@/app/lib/types";
 import axios from "axios";
 import { Metadata, ResolvingMetadata } from 'next'
 import Link from "next/link";
-import UserActions from "@/app/components/userActions";
+import UserActions from "@/app/components/UserActions";
 
 type Props = {
     params: { id: string }

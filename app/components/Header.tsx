@@ -28,7 +28,7 @@ export default function Header() {
                         <li><a onClick={scrollToBottom}>Contact Me</a></li>
                         {session && session.user ? 
                             <>
-                                <li><a>My Favorite</a></li>
+                                <li><Link href="/favorites">My Favorites</Link></li>
                                 {session?.user.isAdmin && <li><Link href="/newPost">New Post</Link></li>}
                                 <li><a onClick={() => signOut()}>Sign out</a></li>
                             </>
@@ -58,7 +58,7 @@ export default function Header() {
                         <ul tabIndex={0} className="dropdown-content z-[1] menu mt-4 p-2 shadow bg-base-100 rounded-box w-40 dark:bg-gray-100 dark:text-gray-800 ">
                             <p className="font-semibold text-md py-2 pl-2">Hello! {session.user.name}</p>
                             <hr/>
-                            <li><a>My Favorite</a></li>
+                            <li><Link href="/favorites">My Favorites</Link></li>
                             {session?.user.isAdmin && <li><Link href="/newPost">New Post</Link></li>}
                             <li><a onClick={() => signOut()}>Sign out</a></li>
                         </ul>

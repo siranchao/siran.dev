@@ -1,7 +1,6 @@
 'use client'
 import { useState, useEffect, useRef } from "react"
 import NoteCard from "@/app/components/NoteCard"
-import { Metadata } from "next"
 import Pagination from "@/app/components/Pagination"
 import Breadcrumbs from "@/app/components/Breadcrumbs"
 import ShowLoading from "@/app/components/ShowLoading"
@@ -12,10 +11,6 @@ import { ArrowsUpDownIcon } from "@heroicons/react/24/solid"
 const perPage: number = 12
 const paginationRange: number = 6
 
-export const  metadata: Metadata = {
-    title: 'Siran.dev | Notes',
-    description: 'This page list all my notes for a specific category',
-}
 
 //convert total pages number to 2D array for display
 function convertToArray(totalPages: number) {

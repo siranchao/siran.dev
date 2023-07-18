@@ -1,7 +1,6 @@
 'use client'
 import { useState, useEffect, useRef } from "react"
 import NoteCard from "../components/NoteCard"
-import { Metadata } from "next"
 import Pagination from "../components/Pagination"
 import Breadcrumbs from "../components/Breadcrumbs"
 import axios from "axios"
@@ -12,10 +11,6 @@ import Filter from "../components/Filter"
 const perPage: number = 12
 const paginationRange: number = 6
 
-export const  metadata: Metadata = {
-    title: 'Siran.dev | Notes',
-    description: 'This page list all my notes',
-}
 
 //convert total pages number to 2D array for display
 function convertToArray(totalPages: number) {
@@ -86,29 +81,28 @@ export default function Notes() {
     }, [currentPage, tag, order])
 
 
-
-
-
     return (
-        <div className="mb-20">
-            <Breadcrumbs prevRoute="/" currentRoute="Notes"/>
-            <p className="text-2xl mb-4 font-bold">Note List</p>
+        <>
+            <div className="mb-20">
+                <Breadcrumbs prevRoute="/" currentRoute="Notes"/>
+                <p className="text-2xl mb-4 font-bold">Note List</p>
 
-            <Filter selectTag={selectTag} selectOrder={selectOrder} tag={tag} order={order}/>
+                <Filter selectTag={selectTag} selectOrder={selectOrder} tag={tag} order={order}/>
 
-            {loading ? <ShowLoading/> :
-                <div className="grid gap-4 grid-cols-1 place-items-center mb-14 lg:grid-cols-2">
-                {notes.length > 0 && notes.map((post: any, index: number) => (
-                    <NoteCard record={post} key={index}/>
-                ))}
-            </div>}
+                {loading ? <ShowLoading/> :
+                    <div className="grid gap-4 grid-cols-1 place-items-center mb-14 lg:grid-cols-2">
+                    {notes.length > 0 && notes.map((post: any, index: number) => (
+                        <NoteCard record={post} key={index}/>
+                    ))}
+                </div>}
 
-            { totalPages.current > 0 && 
-            <div className="flex justify-center">
-                <Pagination currentPage={currentPage} displayedPages={displayedPages.current} selectPage={selectPage} nextPage={nextPage} prevPage={prevPage}/>
-            </div>}
-            
+                { totalPages.current > 0 && 
+                <div className="flex justify-center">
+                    <Pagination currentPage={currentPage} displayedPages={displayedPages.current} selectPage={selectPage} nextPage={nextPage} prevPage={prevPage}/>
+                </div>}
+                
+            </div>
+        </>
 
-        </div>
     )
 }

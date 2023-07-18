@@ -30,7 +30,11 @@ export async function GET(req: NextRequest) {
             take: query.perPage,
             include: {
                 categories: true,
-                favoritedBy: true
+                favoritedBy: {
+                    select: {
+                        id: true
+                    }
+                }
             }
         }
 
