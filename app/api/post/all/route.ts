@@ -1,6 +1,8 @@
 import prisma from "@/app/lib/prisma"
 import { NextRequest } from "next/server"
 
+export const dynamic = 'force-dynamic';
+
 /**
  * This api returns a post list based on query parameters, it's a public API
  * @param req 

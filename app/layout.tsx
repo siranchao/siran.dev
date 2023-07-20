@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Providers from './components/Providers'
 import { Metadata } from 'next'
 
+export const dynamic = 'force-dynamic'
 
 const inter = Inter({ subsets: ['latin'] })
 
