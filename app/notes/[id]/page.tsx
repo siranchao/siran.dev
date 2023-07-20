@@ -128,7 +128,7 @@ export default async function Note({ params }: { params: { id: string } }){
                     </p>
                     { content.secondaryLink && <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{content.secondaryLink}: <span className="ml-2"><a className="text-blue-500 hover:underline" href={content.secondaryUrl} target="_blank">{content.secondaryUrl}</a></span> 
                     </p>}
-                    <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">Page URL: <span className="ml-2"><a className="text-blue-500 hover:underline" href={`${process.env.NEXT_PUBLIC_API as string}/notes/${params.id}/`} target="_blank">{`${process.env.NEXT_PUBLIC_API as string}/notes/${params.id}/`}</a></span> 
+                    <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">Page URL: <span className="ml-2"><a className="text-blue-500 hover:underline" href={`${process.env.NEXT_PUBLIC_API as string}/notes/${params.id}/`} target="_blank">{`${process.env.NEXT_PUBLIC_API as string}notes/${params.id}/`}</a></span> 
                     </p>
                 </div>
             </section>
