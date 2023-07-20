@@ -1,9 +1,9 @@
 # Siran.dev: My personal website
 [![React](https://img.shields.io/badge/React-%2361DAFB.svg?&style=for-the-badge&logo=React&logoColor=white)]()
 [![Next.js](https://img.shields.io/badge/next.js-%23663399.svg?&style=for-the-badge&logo=Next.js&logoColor=white)]()
-[![Node.js](https://img.shields.io/badge/TailwindCSS-%23339933.svg?&style=for-the-badge&logo=Node.js&logoColor=white)]()
-[![Postgres](https://img.shields.io/badge/Postgres-%23000000.svg?&style=for-the-badge&logo=Express&logoColor=white)]()
-[![Prisma](https://img.shields.io/badge/Prisma-%2347A248.svg?&style=for-the-badge&logo=MongoDB&logoColor=white)]()
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-%23339933.svg?&style=for-the-badge&logo=TailwindCSS&logoColor=white)]()
+[![Postgres](https://img.shields.io/badge/Postgres-%23000000.svg?&style=for-the-badge&logo=Postgres&logoColor=white)]()
+[![Prisma](https://img.shields.io/badge/Prisma-%2347A248.svg?&style=for-the-badge&logo=Prisma&logoColor=white)]()
 
 
 Portable Museum app is a full-stack web application using React + Next 13 app router and Next Api handler
