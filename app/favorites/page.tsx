@@ -116,7 +116,9 @@ export default function FavoriteNotes() {
             <Breadcrumbs prevRoute="/" currentRoute="My Favorites"/>
             <p className="text-2xl mb-4 font-bold">My Favorites: </p>
 
-            {posts.current && posts.current.length > 0 ? 
+            {loading ? <ShowLoading/>
+            : 
+            posts.current && posts.current.length > 0 ? 
                 <>
                     <div className="flex flex-col w-full mt-10 mb-8">
                         <div className="flex items-center flex-wrap">
@@ -134,25 +136,24 @@ export default function FavoriteNotes() {
                             })}
                         </div> 
                     </div>
-
-                    {loading ? <ShowLoading/> :
-                        <div className="grid gap-4 grid-cols-1 place-items-center mb-14 lg:grid-cols-2">
+            
+                    <div className="grid gap-4 grid-cols-1 place-items-center mb-14 lg:grid-cols-2">
                         {displayedPosts[currentPage-1].length > 0 && displayedPosts[currentPage-1].map((post: any, index: number) => (
                             <NoteCard record={post} key={index}/>
                         ))}
-                    </div>}
+                    </div>
 
                     { displayedPosts.length > 0 && 
                     <div className="flex justify-center">
                         <Pagination currentPage={currentPage} displayedPages={convertToPageArray(displayedPosts.length)} selectPage={selectPage} nextPage={nextPage} prevPage={prevPage}/>
                     </div>}
-                </> : 
+                </> 
+                :
                 <div className="mt-10">
                     <Warning msg="Your favorite list is empty, try to add some!"/>  
                 </div>
-            
             }
-
+            
         </div>
     )
 }

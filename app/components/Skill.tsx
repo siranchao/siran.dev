@@ -7,7 +7,7 @@ export default function Skill() {
             <div className="flex flex-col w-full border-opacity-50 mb-20">
                 <div>
                     <p className="text-2xl mb-4 font-bold">More about me</p>
-                    <p className="text-gray-600 mb-4 dark:text-gray-400">I&apos;m passionated about coding, cooking, video gaming, and pets. Always excited to learn and apply my skills in a professional setting. Connect with me if you interested.</p>
+                    <p className="text-gray-600 mb-4 dark:text-gray-400">I&apos;m a full-stack developer and enthusiastic programmer. I always excited to learn and apply my skills in a professional setting. Connect with me if you interested.</p>
                     
                     <div className="flex items-center justify-between">
                         <div className="flex gap-4">
@@ -65,17 +65,17 @@ export default function Skill() {
                                     <a href="https://react.dev/" target="_blank" className="hover:underline">React</a>
                                 </li>
                                 <li>
-                                    <a href="https://vuejs.org/" target="_blank" className="hover:underline">Vue</a>
-                                </li>
+                                    <a href="https://nextjs.org/" target="_blank" className="hover:underline">Next 13</a>
+                                </li> 
                                 <li>
                                     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" className="hover:underline">JavaScript</a>
                                 </li>
                                 <li>
                                     <a href="https://www.typescriptlang.org/" target="_blank" className="hover:underline">TypeScript</a>
-                                </li>           
+                                </li> 
                                 <li>
-                                    <a href="https://nextjs.org/" target="_blank" className="hover:underline">Next 13</a>
-                                </li>           
+                                    <a href="https://vuejs.org/" target="_blank" className="hover:underline">Vue</a>
+                                </li>            
                                 <li>
                                     <a href="https://tailwindcss.com/" target="_blank" className="hover:underline">Tailwind</a>
                                 </li>
@@ -141,6 +141,9 @@ export default function Skill() {
                                     <a href="https://code.visualstudio.com/" target="_blank" className="hover:underline">VS Code</a>
                                 </li>
                                 <li>
+                                    <a href="https://powerplatform.microsoft.com/" target="_blank" className="hover:underline">Power Platform</a>
+                                </li>   
+                                <li>
                                     <a href="https://azure.microsoft.com/en-ca" target="_blank" className="hover:underline">Microsoft Azure</a>
                                 </li>  
                                 <li>
@@ -149,9 +152,7 @@ export default function Skill() {
                                 <li>
                                     <a href="https://www.prisma.io/" target="_blank" className="hover:underline">Prisma</a>
                                 </li>
-                                <li>
-                                    <a href="https://powerplatform.microsoft.com/" target="_blank" className="hover:underline">Power Platform</a>
-                                </li>     
+  
                                 <li>
                                     <a href="https://www.ibm.com/products/ibm-i?utm_content=SRCWW&p1=Search&p4=43700074687253318&p5=e&gclid=Cj0KCQjwnMWkBhDLARIsAHBOftpLeWZ1xpODou4e7sHTE5ytwNhW2NehNhfFNsq4oDk_uoMX7you0sQaAp7dEALw_wcB&gclsrc=aw.ds" target="_blank" className="hover:underline">IBM i</a>
                                 </li>
