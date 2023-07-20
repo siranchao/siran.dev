@@ -17,7 +17,7 @@ export default function Pagination({currentPage, displayedPages, selectPage, nex
     }, [currentPage, displayedPages])
 
     return (
-        <div className="join">
+        <div className="join dark:bg-gray-200">
             <button className="join-item btn" onClick={() => prevPage()}>«</button>
 
             {pages.map((page: number, index: number) => {

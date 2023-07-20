@@ -10,16 +10,16 @@ function selectTheme(index: number) {
             val = "info"
             break;
         case 1:
-            val = "warning"
-            break;
-        case 2:
             val = "success"
             break;
+        case 2:
+            val = "warning"
+            break;
          case 3:
-            val = "error"
+            val = "accent"
             break;
         default:
-            val = "accent"
+            val = "error"
             break;
     }
     return val;
@@ -33,7 +33,7 @@ export default function Card({ record }: { record: any }) {
     }
 
     return (
-        <div className="bg-gray-100 rounded-lg shadow-md flex items-center cursor-pointer hover:shadow-2xl hover:-translate-y-1 duration-200 ease-in w-full h-36"
+        <div className="bg-gray-100 rounded-lg shadow-md flex items-center cursor-pointer hover:shadow-2xl hover:-translate-y-1 duration-200 ease-in w-full h-36 dark:bg-gray-200"
         onClick={clickCard}>
             <div className="w-1/3">
                 {record.imgUrl && <Image

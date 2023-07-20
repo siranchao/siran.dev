@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { CodeBracketIcon, ServerStackIcon, WrenchScrewdriverIcon } from "@heroicons/react/24/solid"
 
 export default function Skill() {
 
@@ -47,16 +48,11 @@ export default function Skill() {
                 <div className="flex flex-col items-center gap-4 lg:flex-row">
                     <div className="w-3/4 h-full lg:w-full shadow-md rounded-lg hover:shadow-2xl hover:scale-105 duration-200 ease-in dark:shadow-2xl">
                         <div className="bg-info-content flex flex-col items-center justify-center py-2 rounded-t-lg">
-                            <Image
-                                src="/dev/html.png"
-                                alt="html"
-                                width={25}
-                                height={25}
-                            />
-                            <p className="text-md font-semibold text-white">Front End</p>
+                            <CodeBracketIcon className="w-6 h-6 text-gray-200 dark:text-gray-400"/>
+                            <p className="text-md font-semibold text-gray-200 dark:text-gray-400">Front End</p>
                         </div>
 
-                        <div className="text-center p-4 text-sm text-gray-600 font-semibold">
+                        <div className="text-center p-4 text-sm text-gray-500 font-semibold">
                             <ul>
                                 <li>
                                     <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" className="hover:underline">HTML/CSS</a>
@@ -85,16 +81,11 @@ export default function Skill() {
 
                     <div className="w-3/4 h-full lg:w-full shadow-md rounded-lg hover:shadow-2xl hover:scale-105 duration-200 ease-in dark:shadow-2xl">
                         <div className="bg-info-content flex flex-col items-center justify-center py-2 rounded-t-lg">
-                            <Image
-                                src="/dev/server.png"
-                                alt="html"
-                                width={25}
-                                height={25}
-                            />
-                            <p className="text-md font-semibold text-white">Back End</p>
+                            <ServerStackIcon className="w-6 h-6 text-gray-200 dark:text-gray-400"/>
+                            <p className="text-md font-semibold text-gray-200 dark:text-gray-400">Back End</p>
                         </div>
 
-                        <div className="text-center p-4 text-sm text-gray-600 font-semibold">
+                        <div className="text-center p-4 text-sm text-gray-500 font-semibold">
                             <ul>
                                 <li>
                                     <a href="https://www.typescriptlang.org/" target="_blank" className="hover:underline">TypeScript</a>
@@ -123,16 +114,11 @@ export default function Skill() {
 
                     <div className="w-3/4 h-full lg:w-full shadow-md rounded-lg hover:shadow-2xl hover:scale-105 duration-200 ease-in dark:shadow-2xl">
                         <div className="bg-info-content flex flex-col items-center justify-center py-2 rounded-t-lg">
-                            <Image
-                                src="/dev/tool.png"
-                                alt="html"
-                                width={25}
-                                height={25}
-                            />
-                            <p className="text-md font-semibold text-white">Others</p>
+                            <WrenchScrewdriverIcon className="w-6 h-6 text-gray-200 dark:text-gray-400"/>
+                            <p className="text-md font-semibold text-gray-200 dark:text-gray-400">Others</p>
                         </div>
 
-                        <div className="text-center p-4 text-sm text-gray-600 font-semibold">
+                        <div className="text-center p-4 text-sm text-gray-500 font-semibold">
                             <ul>
                                 <li>
                                     <a href="https://git-scm.com/" target="_blank" className="hover:underline">Git</a>

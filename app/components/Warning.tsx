@@ -11,7 +11,7 @@ export default function Warning({msg}: {msg: string}) {
             </div>
 
             <div className="mt-8 flex justify-center">
-                <Link href="/"><button className="btn btn-sm btn-outline">Back to Home</button></Link>
+                <Link href="/"><button className="btn btn-sm btn-outline dark:text-gray-400">Back to Home</button></Link>
             </div>
         </div>
     )

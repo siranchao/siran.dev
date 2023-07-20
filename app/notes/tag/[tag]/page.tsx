@@ -84,7 +84,7 @@ export default function TagNotes({ params }: { params: { tag: string } }) {
             <Breadcrumbs prevRoute="/" currentRoute={`${params.tag} Notes`}/>
             <p className="text-2xl mb-4 font-bold">Category: {params.tag}</p>
 
-            <div className="flex justify-end w-full mt-10 mb-8 ">
+            <div className="flex justify-start w-full mt-10 mb-8 ">
                 <div className="flex items-center">
                     <div className="flex items-center">
                         <ArrowsUpDownIcon className="w-4 h-4 mr-2"/>
