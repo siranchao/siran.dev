@@ -21,7 +21,7 @@ export default function Actions({postId, updatedAt, favoritedBy}: {postId: strin
 
     const handleCopy = () => {
         navigator.clipboard.
-        writeText(`${process.env.NEXT_PUBLIC_API as string}/notes/${postId}/`)
+        writeText(`${process.env.NEXT_PUBLIC_API as string}notes/${postId}/`)
         .then(() => {
             setMsg(`Page link has been copied to clipboard!`)
             // @ts-ignore
