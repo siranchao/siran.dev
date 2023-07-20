@@ -1,12 +1,13 @@
 import Warning from "@/app/components/Warning";
 import BackToTop from "@/app/components/BackToTop";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
+import Actions from "@/app/components/Actions";
 import Tag from "@/app/components/Tag";
 import Image from "next/image";
 import { PostData } from "@/app/lib/types";
 import axios from "axios";
 import Link from "next/link";
-import UserActions from "@/app/components/UserActions";
+
 
 
 type Props = {
@@ -164,7 +165,7 @@ export default async function Note({ params }: { params: { id: string } }){
             </section>
 
             {/* user interation */}
-            <UserActions postId={data.id} updatedAt={data.updatedAt} favoritedBy={data.favoritedBy} />
+            <Actions postId={data.id} updatedAt={data.updatedAt} favoritedBy={data.favoritedBy} />
 
             <BackToTop />
         </main>

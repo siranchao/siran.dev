@@ -7,7 +7,7 @@ import Link from "next/link";
 
 
 
-export default function UserActions({postId, updatedAt, favoritedBy}: {postId: string, updatedAt: string, favoritedBy: {id: string}[]}) {
+export default function Actions({postId, updatedAt, favoritedBy}: {postId: string, updatedAt: string, favoritedBy: {id: string}[]}) {
     const { data: session } = useSession()
     const [liked, setLiked] = useState<boolean>()
     const [msg, setMsg] = useState<string>("")
