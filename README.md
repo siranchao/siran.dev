@@ -1,7 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Siran.dev: My personal website
+[![React](https://img.shields.io/badge/React-%2361DAFB.svg?&style=for-the-badge&logo=React&logoColor=white)]()
+[![Next.js](https://img.shields.io/badge/next.js-%23663399.svg?&style=for-the-badge&logo=Next.js&logoColor=white)]()
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-%23339933.svg?&style=for-the-badge&logo=TailwindCSS&logoColor=white)]()
+[![Postgres](https://img.shields.io/badge/Postgres-%23000000.svg?&style=for-the-badge&logo=Postgres&logoColor=white)]()
+[![Prisma](https://img.shields.io/badge/Prisma-%2347A248.svg?&style=for-the-badge&logo=Prisma&logoColor=white)]()
+
+
+Portable Museum app is a full-stack web application using React + Next 13 app router and Next Api handler
+- The app showchase my recent projects and my note collections
+- User can view, share all the resouces uploaded on this site
+- Support custom credentials for authentication, Logged in user is able to save their favourite post for future read  
+- Admin user is able to upload and manage note resources on this site
+
+
+Coding stack: Full-stack Next app
+- Including: React, Next 13, TypeScript, Tailwind CSS, Prisma, Postgres
+- Application deployed on Vercel, database server is hosted on Goodle Cloud
+- App URL: [tbd]("#")
+
+
 
 ## Getting Started
-
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 First, run the development server:
 
 ```bash
