@@ -5,19 +5,18 @@ import Tag from "@/app/components/Tag";
 import Image from "next/image";
 import { PostData } from "@/app/lib/types";
 import axios from "axios";
-import { Metadata, ResolvingMetadata } from 'next'
 import Link from "next/link";
 import UserActions from "@/app/components/UserActions";
+
 
 type Props = {
     params: { id: string }
     searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export async function generateMetadata( { params, searchParams }: Props, parent?: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata( { params, searchParams }: Props) {
     // read route params
     const id = params.id
- 
     // fetch data
     const res = await axios.get(`${process.env.NEXT_PUBLIC_API as string}/api/post/metadata/${id}`)
 
@@ -30,6 +29,7 @@ export async function generateMetadata( { params, searchParams }: Props, parent?
 async function getRelevantPosts(tags: {id: string, name: string}[]) {
     const params: string = tags.map((item) => item.name).toString()
     const res = await axios.get(`${process.env.NEXT_PUBLIC_API as string}/api/post/guess/?tags=${params}`)
+
     if(res.status !== 200) {
         return null
     }
