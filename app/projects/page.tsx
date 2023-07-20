@@ -84,11 +84,11 @@ export default function Projects() {
 
             {/* To do: Pagination  */}
             <div className="flex justify-center">
-                <div className="join">
-                <button className="join-item btn">«</button>
-                <button className="join-item btn btn-active">1</button>
-                <button className="join-item btn">»</button>
-            </div>
+                <div className="join dark:bg-gray-200">
+                    <button className="join-item btn">«</button>
+                    <button className="join-item btn btn-active">1</button>
+                    <button className="join-item btn">»</button>
+                </div>
             </div>
 
         </div>

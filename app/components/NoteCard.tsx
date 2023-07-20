@@ -35,7 +35,7 @@ export default function NoteCard({ record }: { record: any }) {
 
 
     return (
-        <div className="bg-gray-100 rounded-lg shadow-md flex items-center cursor-pointer hover:shadow-2xl hover:-translate-y-1 duration-200 ease-in w-full h-36"
+        <div className="bg-gray-100 rounded-lg shadow-md flex items-center cursor-pointer hover:shadow-2xl hover:-translate-y-1 duration-200 ease-in w-full h-36 dark:bg-gray-200"
         onClick={clickCard}>
             <div className="w-1/3">
                 {record.content.iconUrl && <Image

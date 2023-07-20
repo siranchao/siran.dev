@@ -33,7 +33,12 @@ const scrollTop = () => {
 
 export default async function NewPost() {
     const router = useRouter();
-    const { data: session } = useSession()
+    const { data: session } = useSession({
+        required: true,
+        onUnauthenticated() {
+            router.push('/user/login');
+        }
+})
     const [msg, setMsg] = useState("");
 
     //category data

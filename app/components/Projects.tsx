@@ -62,7 +62,7 @@ export default function Projects() {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 place-items-center">
             {/* Card */}
             {data.map((record: any, index: number) => (
-                        <div key={index} className="card card-compact w-3/4 h-full md:w-full shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100">
+                        <div key={index} className="card card-compact w-3/4 h-full md:w-full shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100 dark:bg-gray-200">
                             {/* add project logo here */}
                             <Image
                                 src={record.img}

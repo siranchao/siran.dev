@@ -7,9 +7,10 @@ import axios from "axios"
 import { PostData } from "../lib/types"
 import ShowLoading from "../components/ShowLoading"
 import { useSession } from "next-auth/react";
-import { Square3Stack3DIcon, ArrowsUpDownIcon } from "@heroicons/react/24/solid"
+import { Square3Stack3DIcon } from "@heroicons/react/24/solid"
 import { Tag } from "../lib/types";
 import Warning from "../components/Warning"
+import { useRouter } from "next/navigation"
 
 const perPage: number = 12
 const paginationRange: number = 6
@@ -41,7 +42,15 @@ function convertArray(list: any[]){
 }
 
 export default function FavoriteNotes() {
-    const { data: session } = useSession()
+    const router = useRouter()
+    const { data: session } = useSession({
+            required: true,
+            onUnauthenticated() {
+                router.push('/user/login');
+            }
+    })
+
+
     const [loading, setLoading] = useState<boolean>(true)
     
     //control states
@@ -102,10 +111,9 @@ export default function FavoriteNotes() {
                     })
                 })
                 tags.current = Array.from(new Set(allTags))
-
                 setLoading(false)
             })
-        }
+        } 
 
     },[session])
 
