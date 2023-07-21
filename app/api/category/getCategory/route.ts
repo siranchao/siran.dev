@@ -12,6 +12,11 @@ export async function GET(req: Request) {
             select: {
                 id: true,
                 name: true
+            },
+            orderBy: {
+                posts: {
+                    _count: "desc"
+                }
             }
         })
 

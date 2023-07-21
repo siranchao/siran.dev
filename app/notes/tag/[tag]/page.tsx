@@ -82,7 +82,7 @@ export default function TagNotes({ params }: { params: { tag: string } }) {
     return (
         <div className="mb-20">
             <Breadcrumbs prevRoute="/" currentRoute={`${params.tag.replace("%20", " ")} Notes`}/>
-            <p className="text-2xl mb-4 font-bold">Category: {params.tag}</p>
+            <p className="text-2xl mb-4 font-bold">Category: {params.tag.replace("%20", " ")}</p>
 
             <div className="flex justify-start w-full mt-10 mb-8 ">
                 <div className="flex items-center">
