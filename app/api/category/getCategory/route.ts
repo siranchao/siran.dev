@@ -8,7 +8,13 @@ import prisma from "@/app/lib/prisma"
  */
 export async function GET(req: Request) {
     try {
-        const categories = await prisma.category.findMany()
+        const categories = await prisma.category.findMany({
+            select: {
+                id: true,
+                name: true
+            }
+        })
+
         if (categories) {
             return new Response(JSON.stringify(categories), {status: 200})
         } else {

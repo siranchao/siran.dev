@@ -8,6 +8,15 @@ export async function GET(req: Request) {
 
     try {
         const posts = await prisma.post.findMany({
+            where: {
+              published: true  
+            },
+            select: {
+                title: true,
+                id: true,
+                content: true,
+                createdAt: true
+            },
             orderBy: {
                 createdAt: "desc"
             },
