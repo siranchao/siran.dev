@@ -3,12 +3,6 @@ import { NextRequest } from "next/server"
 
 export const dynamic = 'force-dynamic';
 
-const header = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, PATCH',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-}
-
 /**
  * This api returns a post list based on query parameters, it's a public API
  * @param req 
@@ -84,11 +78,11 @@ export async function GET(req: NextRequest) {
         const posts = await prisma.post.findMany(condition)
 
         if(!posts) {
-            return new Response(JSON.stringify("No data can be found"), {status: 401, headers: header})
+            return new Response(JSON.stringify("No data can be found"), {status: 401})
         }
         const totalPages = Math.ceil(totalPosts / query.perPage)
 
-        return new Response(JSON.stringify({posts: posts, totalPages: totalPages}), {status: 200, headers: header})
+        return new Response(JSON.stringify({posts: posts, totalPages: totalPages}), {status: 200})
 
     } catch(error) {
         console.log(error)

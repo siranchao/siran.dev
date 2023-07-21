@@ -7,11 +7,6 @@ interface RequestBody {
     password: string
 }
 
-const header = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-}
 
 export async function POST(req: Request) {
     try {
@@ -25,7 +20,7 @@ export async function POST(req: Request) {
         })
 
         if (user) {
-            return new Response(JSON.stringify("User already exists"), {status: 400, headers: header})
+            return new Response(JSON.stringify("User already exists"), {status: 400})
         }
 
         //create user
@@ -38,7 +33,7 @@ export async function POST(req: Request) {
         })
         const { password, ...userWithoutPassword } = newUser;
 
-        return new Response(JSON.stringify(userWithoutPassword), {status: 200, headers: header})
+        return new Response(JSON.stringify(userWithoutPassword), {status: 200})
 
     } catch (err) {
         console.log(err)
