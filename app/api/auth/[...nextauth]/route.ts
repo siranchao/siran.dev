@@ -13,24 +13,8 @@ const handler = NextAuth({
             },
 
             async authorize(credentials, req) {
-                // const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/login`, {
-                //   method: "POST",
-                //   headers: {
-                //     "Content-Type": "application/json"
-                //   },
-                //   body: JSON.stringify({
-                //     email: credentials?.email,
-                //     password: credentials?.password,
-                //   })
-                // })
-                //const user = await res.json()
-
-                const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/api/login`, {
-                  data: JSON.stringify({
-                    "email": credentials?.email,
-                    "password": credentials?.password
-                  })
-                })
+                
+                const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/api/login`, credentials)
           
                 //return the user to next-auth session
                 if (res.status === 200) {
