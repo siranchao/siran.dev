@@ -2,6 +2,11 @@ import prisma from "@/app/lib/prisma"
 import { verifyJwt } from "@/app/lib/jwt"
 import { PostData, Tag } from "@/app/lib/types"
 
+const header = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, PATCH',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+}
 
 /**
  * This api create a new post record in database, it's a protected API
@@ -12,7 +17,7 @@ import { PostData, Tag } from "@/app/lib/types"
 export async function POST(req: Request) {
     const accessToken = req.headers.get("Authorization")
     if(!accessToken || !verifyJwt(accessToken)) {
-        return new Response("Not authorized request", {status: 401})
+        return new Response("Not authorized request", {status: 401, headers: header})
     }
 
     try {
@@ -33,9 +38,9 @@ export async function POST(req: Request) {
         })
 
         if(newPost) {
-            return new Response(JSON.stringify("successfully created new post"), {status: 200})
+            return new Response(JSON.stringify("successfully created new post"), {status: 200, headers: header})
         } else {
-            return new Response(JSON.stringify("Unable to create new post"), {status: 400})
+            return new Response(JSON.stringify("Unable to create new post"), {status: 400, headers: header})
         }
 
         
