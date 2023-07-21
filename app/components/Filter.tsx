@@ -15,7 +15,7 @@ export default function Filter({selectTag, selectOrder, tag, order}: {
     const list = useRef<string[]>([]);
     
     useEffect(() => {
-        axios.get(`api/category/getCategory`)
+        axios.get(`${process.env.NEXT_PUBLIC_URL}/api/category/getCategory`)
         .then(res => {
             const val: string[] = res.data.map((item: Tag) => item.name)
             list.current = val

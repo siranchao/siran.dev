@@ -35,7 +35,7 @@ export default function Actions({postId, updatedAt, favoritedBy}: {postId: strin
 
     const handleLikeBtn = async () => {
         if(liked) {
-            const res = await axios.patch(`api/user/unlike/${session?.user?.id}`, 
+            const res = await axios.patch(`${process.env.NEXT_PUBLIC_URL}/api/user/unlike/${session?.user?.id}`, 
             { data: {id: postId} }, 
             { headers: {"Authorization": session?.user?.accessToken as string} })
 
@@ -44,7 +44,7 @@ export default function Actions({postId, updatedAt, favoritedBy}: {postId: strin
                 setMsg("This note has been removed from your favorite list.")
             }
         } else {
-            const res = await axios.patch(`api/user/like/${session?.user?.id}`, 
+            const res = await axios.patch(`${process.env.NEXT_PUBLIC_URL}/api/user/like/${session?.user?.id}`, 
             { data: {id: postId} }, 
             { headers: {"Authorization": session?.user?.accessToken as string} })
 

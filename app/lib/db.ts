@@ -3,7 +3,7 @@ import { PostData, Tag } from "./types"
 
 export async function createNewPost(postData: PostData, categories: Tag[], accessToken: string) {
     try {
-        const res = await fetch(`api/post/newPost`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/post/newPost`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export async function createNewPost(postData: PostData, categories: Tag[], acces
 
 export async function createNewCategory(name: string, accessToken: string) {
     try {
-        const res = await fetch(`api/category/newCategory`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/category/newCategory`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

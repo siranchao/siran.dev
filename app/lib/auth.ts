@@ -3,7 +3,7 @@
 export async function signUp(email: string, name: string, password: string) {
     
     try {
-        const res = await fetch(`api/user/signup`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/user/signup`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

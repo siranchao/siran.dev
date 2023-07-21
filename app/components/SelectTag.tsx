@@ -15,7 +15,7 @@ export default function SelectTag(props: {
     const [categoryList, setCategoryList] = useState<Tag[]>([]);
 
     useEffect(() => {
-        axios.get(`api/category/getCategory`)
+        axios.get(`${process.env.NEXT_PUBLIC_URL}/api/category/getCategory`)
         .then(res => {
             setCategories(res.data)
         })
