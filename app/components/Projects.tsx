@@ -40,7 +40,7 @@ const data = [
         desc: "Welcome to my portfolio website, here you can view my works and find useful resources!",
         link: "/projects/sirandev",
         gitHub: "https://github.com/siranchao/siran.dev",
-        site: "#"
+        site: "https://www.siran.dev/"
     },
     {
         img: "/projects/powerapps2.png",

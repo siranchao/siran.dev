@@ -1,5 +1,6 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
+import axios from "axios";
 
 
 const handler = NextAuth({
@@ -12,22 +13,29 @@ const handler = NextAuth({
             },
 
             async authorize(credentials, req) {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/login`, {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json"
-                  },
-                  body: JSON.stringify({
-                    email: credentials?.email,
-                    password: credentials?.password,
+                // const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/login`, {
+                //   method: "POST",
+                //   headers: {
+                //     "Content-Type": "application/json"
+                //   },
+                //   body: JSON.stringify({
+                //     email: credentials?.email,
+                //     password: credentials?.password,
+                //   })
+                // })
+                //const user = await res.json()
+
+                const res = await axios.post(`${process.env.NEXT_PUBLIC_URL}/api/login`, {
+                  data: JSON.stringify({
+                    "email": credentials?.email,
+                    "password": credentials?.password
                   })
                 })
-                const user = await res.json()
           
                 //return the user to next-auth session
                 if (res.status === 200) {
 
-                  return user
+                  return res.data
                 } else {
                   // If you return null then an error will be displayed advising the user to check their details.
                   return null
