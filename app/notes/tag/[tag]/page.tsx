@@ -58,7 +58,7 @@ export default function TagNotes({ params }: { params: { tag: string } }) {
 
 
     useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_API as string}/api/post/all/?perPage=${perPage}&page=${currentPage}&tag=${params.tag}&order=${order}`)
+        axios.get(`api/post/all/?perPage=${perPage}&page=${currentPage}&tag=${params.tag}&order=${order}`)
         .then(res => {
             const displayedNotes: any[] = res.data.posts.map((post: any) => {
                 const content: PostData = JSON.parse(post.content)

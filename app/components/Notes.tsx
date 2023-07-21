@@ -4,7 +4,7 @@ import Link from "next/link";
 
 async function getData() {
     try {
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_API as string}/api/post/recent`)
+        const res = await axios.get(`api/post/recent`)
   
         if(res.status !== 200) {
             return null

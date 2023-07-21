@@ -93,7 +93,7 @@ export default function FavoriteNotes() {
 
     useEffect(() => {
         if(session) {
-            axios.get(`${process.env.NEXT_PUBLIC_API as string}/api/user/posts/${session?.user?.id}`, {
+            axios.get(`api/user/posts/${session?.user?.id}`, {
                 headers: {"Authorization": session?.user?.accessToken as string}
             })
             .then(res => {

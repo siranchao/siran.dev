@@ -63,7 +63,7 @@ export default function Notes() {
 
 
     useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_API as string}/api/post/all/?perPage=${perPage}&page=${currentPage}&tag=${tag}&order=${order}`)
+        axios.get(`api/post/all/?perPage=${perPage}&page=${currentPage}&tag=${tag}&order=${order}`)
         .then(res => {
             const displayedNotes: any[] = res.data.posts.map((post: any) => {
                 const content: PostData = JSON.parse(post.content)
