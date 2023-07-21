@@ -8,6 +8,12 @@ interface RequestBody {
     remember?: boolean
 }
 
+const header = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+}
+
 export async function POST(req: Request) {
     try {
         const body: RequestBody = await req.json();
@@ -19,7 +25,7 @@ export async function POST(req: Request) {
         })
     
         if (!user) {
-            return new Response(JSON.stringify("User not found"), {status: 401})
+            return new Response(JSON.stringify("User not found"), {status: 401, headers: header})
         }
     
         if (user && (await bcrypt.compare(body.password, user.password))) {
@@ -32,9 +38,9 @@ export async function POST(req: Request) {
                 accessToken
             }
 
-            return new Response(JSON.stringify(res), {status: 200})
+            return new Response(JSON.stringify(res), {status: 200, headers: header})
         } else {
-            return new Response(JSON.stringify("Wrong password"), {status: 401})
+            return new Response(JSON.stringify("Wrong password"), {status: 401, headers: header})
         }
 
     } catch(err: any) {
