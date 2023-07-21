@@ -19,7 +19,7 @@ export async function generateMetadata( { params, searchParams }: Props) {
     // read route params
     const id = params.id
     // fetch data
-    const res = await axios.get(`api/post/metadata/${id}`)
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/post/metadata/${id}`)
 
     return {
         title: res.data.title,
@@ -29,7 +29,7 @@ export async function generateMetadata( { params, searchParams }: Props) {
 
 async function getRelevantPosts(tags: {id: string, name: string}[]) {
     const params: string = tags.map((item) => item.name).toString()
-    const res = await axios.get(`api/post/guess/?tags=${params}`)
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/post/guess/?tags=${params}`)
 
     if(res.status !== 200) {
         return null
@@ -39,7 +39,7 @@ async function getRelevantPosts(tags: {id: string, name: string}[]) {
 }
 
 async function getData(id: string) {
-    const res = await axios.get(`api/post/${id}`)
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/post/${id}`)
     if(res.status !== 200) {
         return null
     }
