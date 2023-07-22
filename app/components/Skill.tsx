@@ -35,7 +35,7 @@ export default function Skill() {
                                     /></a>
                         </div>
 
-                        <a className="btn btn-ghost btn-sm normal-case dark:text-gray-400" href="https://drive.google.com/file/d/1eQ1LZAWp7i2yiGTptSDv-SlWkpTTQ56X/view?usp=sharing" target="_blank">
+                        <a className="btn btn-ghost btn-sm normal-case dark:text-gray-400" href={`${process.env.NEXT_PUBLIC_RESUME as string}`} target="_blank">
                             <svg className="w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                                 <g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Complete"> <g id="download"> <g> <path className="dark:stroke-current" d="M3,12.3v7a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2v-7" fill="none" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path> <g> <polyline className="dark:stroke-current" data-name="Right" fill="none" id="Right-2" points="7.9 12.3 12 16.3 16.1 12.3" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></polyline> <line className="dark:stroke-current" fill="none" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="12" x2="12" y1="2.7" y2="14.2"></line> </g> </g> </g> </g> </g></svg>
                             Resume
