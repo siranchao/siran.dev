@@ -90,7 +90,7 @@ export default function Museum() {
                 <p className="text-sm font-regular leading-relaxed text-gray-600 dark:text-gray-400">All artwork infomation are fetched from The Metropolitan Museum of Art Collection API: <a className="text-blue-500  hover:underline" href="https://metmuseum.github.io/" target="_blank">visit to learn more</a></p>
                 <br />
                 <p className="text-sm font-regular leading-relaxed text-gray-600 dark:text-gray-400">Demo Account:</p>
-                <p className="text-sm font-regular leading-relaxed text-gray-600 dark:text-gray-400">Email: demo-user</p>
+                <p className="text-sm font-regular leading-relaxed text-gray-600 dark:text-gray-400">Username: Demo-user</p>
                 <p className="text-sm font-regular leading-relaxed text-gray-600 dark:text-gray-400">Password: 123demo</p>
             </section>
 
