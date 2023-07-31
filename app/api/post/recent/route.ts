@@ -9,7 +9,7 @@ export async function GET(req: Request) {
     try {
         const posts = await prisma.post.findMany({
             where: {
-              published: true  
+                published: true
             },
             select: {
                 title: true,
@@ -17,10 +17,7 @@ export async function GET(req: Request) {
                 content: true,
                 createdAt: true
             },
-            orderBy: {
-                createdAt: "desc"
-            },
-            take: 5
+            take: -5
         })
         
         if(!posts || posts.length === 0) {
