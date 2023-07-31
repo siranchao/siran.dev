@@ -93,7 +93,7 @@ export default async function Note({ params }: { params: { id: string } }){
                 <br/>
                 <div className="pt-2">
                     {content.info.split('\n').map((line: string, index: number) => 
-                        <p key={index} className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{line}</p>
+                        line ? <p key={index} className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{line}</p> : <br key={index}/>
                     )}
                 </div>
                 
@@ -121,7 +121,7 @@ export default async function Note({ params }: { params: { id: string } }){
                 <section className="mb-16">
                     <p className="text-xl mb-4 font-semibold underline">{content.subtitle}</p>
                     {content.mainText.split('\n').map((line: string, index: number) => 
-                        <p key={index} className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{line}</p>
+                        line ? <p key={index} className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{line}</p> : <br key={index}/>
                     )}
                 </section>
             }
