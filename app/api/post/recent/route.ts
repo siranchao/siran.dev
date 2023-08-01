@@ -1,5 +1,7 @@
 import prisma from "@/app/lib/prisma"
 
+export const dynamic = 'force-dynamic';
+
 /**
  * This api returns recent posts, it's a public API
  * @param req 
