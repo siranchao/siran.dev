@@ -136,7 +136,7 @@ export default async function NewPost() {
                 </div>
 
                 <div>
-                    <label className="label">Video URL</label>
+                    <label className="label">Video URL (use YouTube embed url)</label>
                     <input type="text" className="input input-bordered w-full max-w-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-300" {...register("videoUrl")} />
                 </div>
 
