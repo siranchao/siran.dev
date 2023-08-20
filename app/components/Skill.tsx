@@ -68,13 +68,13 @@ export default function Skill() {
                                 </li>
                                 <li>
                                     <a href="https://www.typescriptlang.org/" target="_blank" className="hover:underline">TypeScript</a>
-                                </li> 
-                                <li>
-                                    <a href="https://vuejs.org/" target="_blank" className="hover:underline">Vue</a>
-                                </li>            
+                                </li>         
                                 <li>
                                     <a href="https://tailwindcss.com/" target="_blank" className="hover:underline">Tailwind</a>
                                 </li>
+                                <li>
+                                    <a href="https://webpack.js.org/" target="_blank" className="hover:underline">Webpack</a>
+                                </li>    
                             </ul>
                         </div>
                     </div>
@@ -88,16 +88,10 @@ export default function Skill() {
                         <div className="text-center p-4 text-sm text-gray-500 font-semibold">
                             <ul>
                                 <li>
-                                    <a href="https://www.typescriptlang.org/" target="_blank" className="hover:underline">TypeScript</a>
-                                </li>
-                                <li>
                                     <a href="https://nodejs.org/en" target="_blank" className="hover:underline">NodeJS</a>
                                 </li>
                                 <li>
                                     <a href="https://expressjs.com/" target="_blank" className="hover:underline">Express</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.java.com/en/" target="_blank" className="hover:underline">Java</a>
                                 </li>
                                 <li>
                                     <a href="https://learn.microsoft.com/en-us/cpp/cpp/?view=msvc-170" target="_blank" className="hover:underline">C++</a>
@@ -107,6 +101,12 @@ export default function Skill() {
                                 </li>
                                 <li>
                                     <a href="https://www.postgresql.org/" target="_blank" className="hover:underline">PostgreSQL</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.typescriptlang.org/" target="_blank" className="hover:underline">TypeScript</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.java.com/en/" target="_blank" className="hover:underline">Java</a>
                                 </li>
                             </ul>
                         </div>
