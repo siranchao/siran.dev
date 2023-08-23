@@ -94,16 +94,16 @@ export default function Skill() {
                                     <a href="https://expressjs.com/" target="_blank" className="hover:underline">Express</a>
                                 </li>
                                 <li>
-                                    <a href="https://learn.microsoft.com/en-us/cpp/cpp/?view=msvc-170" target="_blank" className="hover:underline">C++</a>
+                                    <a href="https://graphql.org/" target="_blank" className="hover:underline">GraphQL</a>
+                                </li>
+                                <li>
+                                    <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" className="hover:underline">REST API</a>
                                 </li>
                                 <li>
                                     <a href="https://www.mongodb.com/" target="_blank" className="hover:underline">MongoDB</a>
                                 </li>
                                 <li>
                                     <a href="https://www.postgresql.org/" target="_blank" className="hover:underline">PostgreSQL</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.typescriptlang.org/" target="_blank" className="hover:underline">TypeScript</a>
                                 </li>
                                 <li>
                                     <a href="https://www.java.com/en/" target="_blank" className="hover:underline">Java</a>
@@ -124,21 +124,20 @@ export default function Skill() {
                                     <a href="https://git-scm.com/" target="_blank" className="hover:underline">Git</a>
                                 </li>
                                 <li>
-                                    <a href="https://code.visualstudio.com/" target="_blank" className="hover:underline">VS Code</a>
-                                </li>
-                                <li>
                                     <a href="https://powerplatform.microsoft.com/" target="_blank" className="hover:underline">Power Platform</a>
                                 </li>   
                                 <li>
                                     <a href="https://azure.microsoft.com/en-ca" target="_blank" className="hover:underline">Microsoft Azure</a>
                                 </li>  
                                 <li>
+                                    <a href="https://www.linux.org/" target="_blank" className="hover:underline">Linux Basic</a>
+                                </li>
+                                <li>
                                     <a href="https://www.docker.com/" target="_blank" className="hover:underline">Docker</a>
                                 </li>
                                 <li>
-                                    <a href="https://www.prisma.io/" target="_blank" className="hover:underline">Prisma</a>
+                                    <a href="https://en.wikipedia.org/wiki/CI/CD" target="_blank" className="hover:underline">CI/CD</a>
                                 </li>
-  
                                 <li>
                                     <a href="https://www.ibm.com/products/ibm-i?utm_content=SRCWW&p1=Search&p4=43700074687253318&p5=e&gclid=Cj0KCQjwnMWkBhDLARIsAHBOftpLeWZ1xpODou4e7sHTE5ytwNhW2NehNhfFNsq4oDk_uoMX7you0sQaAp7dEALw_wcB&gclsrc=aw.ds" target="_blank" className="hover:underline">IBM i</a>
                                 </li>
