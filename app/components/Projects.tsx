@@ -3,6 +3,14 @@ import Link from "next/link"
 
 const data = [
     {
+        img: "/projects/carhub.png",
+        title: "CarHub - Demo",
+        desc: "A simple frontend application demo built with latest React and Next.js",
+        link: "/projects/carhub",
+        gitHub: "https://github.com/siranchao/auto_lab",
+        site: "https://auto-lab-gamma.vercel.app/"
+    },
+    {
         img: "/projects/kudos.png",
         title: "Kudos",
         desc: "Create, send, and share kudos with each other in a casual and interesting way!",
@@ -17,14 +25,6 @@ const data = [
         link: "/projects/museum",
         gitHub: "https://github.com/siranchao/my_museum",
         site: "https://my-museum.vercel.app/"
-    },
-    {
-        img: "/projects/kitchen.svg",
-        title: "Siran's Kitchen",
-        desc: "A simple web app to record and share your favorite food recipes",
-        link: "/projects/kitchen",
-        gitHub: "https://github.com/siranchao/siran_kitchen",
-        site: "https://siran-kitchen.cyclic.app/"
     },
     {
         img: "/projects/powerapps.png",
@@ -49,7 +49,15 @@ const data = [
         link: "/projects/apm",
         gitHub: "https://github.com/siranchao/ops_apm",
         site: "https://youtu.be/sGeUa2qqNys"
-    }
+    },
+    // {
+    //     img: "/projects/kitchen.svg",
+    //     title: "Siran's Kitchen",
+    //     desc: "A simple web app to record and share your favorite food recipes",
+    //     link: "/projects/kitchen",
+    //     gitHub: "https://github.com/siranchao/siran_kitchen",
+    //     site: "https://siran-kitchen.cyclic.app/"
+    // }
 ]
 
 

@@ -61,20 +61,20 @@ export default function Skill() {
                                     <a href="https://react.dev/" target="_blank" className="hover:underline">React</a>
                                 </li>
                                 <li>
-                                    <a href="https://nextjs.org/" target="_blank" className="hover:underline">Next 13</a>
+                                    <a href="https://nextjs.org/" target="_blank" className="hover:underline">Next.js</a>
                                 </li> 
                                 <li>
                                     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" className="hover:underline">JavaScript</a>
                                 </li>
                                 <li>
                                     <a href="https://www.typescriptlang.org/" target="_blank" className="hover:underline">TypeScript</a>
-                                </li>         
+                                </li>    
+                                <li>
+                                    <a href="https://reactnative.dev/" target="_blank" className="hover:underline">React Native</a>
+                                </li>      
                                 <li>
                                     <a href="https://tailwindcss.com/" target="_blank" className="hover:underline">Tailwind</a>
                                 </li>
-                                <li>
-                                    <a href="https://webpack.js.org/" target="_blank" className="hover:underline">Webpack</a>
-                                </li>    
                             </ul>
                         </div>
                     </div>
@@ -94,6 +94,9 @@ export default function Skill() {
                                     <a href="https://expressjs.com/" target="_blank" className="hover:underline">Express</a>
                                 </li>
                                 <li>
+                                    <a href="https://www.java.com/en/" target="_blank" className="hover:underline">Java</a>
+                                </li>
+                                <li>
                                     <a href="https://graphql.org/" target="_blank" className="hover:underline">GraphQL</a>
                                 </li>
                                 <li>
@@ -105,9 +108,7 @@ export default function Skill() {
                                 <li>
                                     <a href="https://www.postgresql.org/" target="_blank" className="hover:underline">PostgreSQL</a>
                                 </li>
-                                <li>
-                                    <a href="https://www.java.com/en/" target="_blank" className="hover:underline">Java</a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -120,17 +121,15 @@ export default function Skill() {
 
                         <div className="text-center p-4 text-sm text-gray-500 font-semibold">
                             <ul>
-                                <li>
-                                    <a href="https://git-scm.com/" target="_blank" className="hover:underline">Git</a>
-                                </li>
-                                <li>
-                                    <a href="https://powerplatform.microsoft.com/" target="_blank" className="hover:underline">Power Platform</a>
-                                </li>   
+
                                 <li>
                                     <a href="https://azure.microsoft.com/en-ca" target="_blank" className="hover:underline">Microsoft Azure</a>
                                 </li>  
                                 <li>
-                                    <a href="https://www.linux.org/" target="_blank" className="hover:underline">Linux Basic</a>
+                                    <a href="https://powerplatform.microsoft.com/" target="_blank" className="hover:underline">Power Platform</a>
+                                </li>   
+                                <li>
+                                    <a href="https://git-scm.com/" target="_blank" className="hover:underline">Git</a>
                                 </li>
                                 <li>
                                     <a href="https://www.docker.com/" target="_blank" className="hover:underline">Docker</a>
@@ -141,7 +140,9 @@ export default function Skill() {
                                 <li>
                                     <a href="https://www.ibm.com/products/ibm-i?utm_content=SRCWW&p1=Search&p4=43700074687253318&p5=e&gclid=Cj0KCQjwnMWkBhDLARIsAHBOftpLeWZ1xpODou4e7sHTE5ytwNhW2NehNhfFNsq4oDk_uoMX7you0sQaAp7dEALw_wcB&gclsrc=aw.ds" target="_blank" className="hover:underline">IBM i</a>
                                 </li>
-
+                                <li>
+                                    <a href="https://www.linux.org/" target="_blank" className="hover:underline">Linux Basic</a>
+                                </li>
                             </ul>
                         </div>
                     </div>

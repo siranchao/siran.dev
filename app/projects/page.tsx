@@ -18,10 +18,18 @@ interface Record {
 
 const projects: Record[] = [
     {
+        title: 'CarHub - Demo',
+        path: 'carhub',
+        imgUrl: '/projects/carhub.png',
+        tag: ['Frontend', 'Demo'],
+        description: "A simple frontend application demo built with latest React and Next.js",
+        date: 'Sep 9, 2023'
+    },
+    {
         title: 'Kudos App',
         path: 'kudos',
         imgUrl: '/projects/kudos.png',
-        tag: ['Project', 'Full-stack'],
+        tag: ['Full-stack', 'React', 'Next.js'],
         description: "Create, send, and share kudos with each other in a casual and interesting way!",
         date: 'May 24, 2023'
     },
@@ -29,7 +37,7 @@ const projects: Record[] = [
         title: 'Portable Museum',
         path: 'museum',
         imgUrl: '/projects/museum.png',
-        tag: ['Project', 'Full-stack'],
+        tag: ['Full-stack', 'React', 'Next.js'],
         description: "An online archive app designed for museum and art lovers!",
         date: 'Feb 13, 2023'
     },
@@ -37,7 +45,7 @@ const projects: Record[] = [
         title: "Siran's Kitchen",
         path: 'kitchen',
         imgUrl: '/projects/kitchen.svg',
-        tag: ['Project'],
+        tag: ['Vanilla', 'NodeJS'],
         description: "A simple web app to record and share your favorite food recipes",
         date: 'Sep 22, 2022'
     },
@@ -45,7 +53,7 @@ const projects: Record[] = [
         title: 'Delegation of Authority Registry',
         path: 'doa',
         imgUrl: '/projects/powerapps.png',
-        tag: ['Project', 'Low-code'],
+        tag: ['OPS Project', 'Low-code'],
         description: "A low-code application allows users to register and manage their delegation of authority process",
         date: 'Aug 15, 2022'
     },
@@ -53,7 +61,7 @@ const projects: Record[] = [
         title: 'Siran.dev',
         path: 'sirandev',
         imgUrl: '/projects/siran.dev.png',
-        tag: ['Project', 'Full-stack'],
+        tag: ['Full-stack', 'React', 'Next.js'],
         description: "Welcome to my portfolio website, here you can view my works and find useful resources!",
         date: 'Jun 28, 2023'
     },
@@ -61,7 +69,7 @@ const projects: Record[] = [
         title: 'Application Portfolio Manager (APM)',
         path: 'apm',
         imgUrl: '/projects/powerapps2.png',
-        tag: ['Project', 'Low-code'],
+        tag: ['OPS Project', 'Low-code'],
         description: "A lightweight system app for managing, querying, and analyzing massive information from an enterprise level SQL database",
         date: 'Jan 5, 2023'
     },
