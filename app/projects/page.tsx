@@ -21,7 +21,7 @@ const projects: Record[] = [
         title: 'CarHub - Demo',
         path: 'carhub',
         imgUrl: '/projects/carhub.png',
-        tag: ['Frontend', 'Demo'],
+        tag: ['Frontend', 'React'],
         description: "A simple frontend application demo built with latest React and Next.js",
         date: 'Sep 9, 2023'
     },
@@ -37,7 +37,7 @@ const projects: Record[] = [
         title: 'Portable Museum',
         path: 'museum',
         imgUrl: '/projects/museum.png',
-        tag: ['Full-stack', 'React', 'Next.js'],
+        tag: ['React', 'Next 12'],
         description: "An online archive app designed for museum and art lovers!",
         date: 'Feb 13, 2023'
     },
@@ -53,7 +53,7 @@ const projects: Record[] = [
         title: 'Delegation of Authority Registry',
         path: 'doa',
         imgUrl: '/projects/powerapps.png',
-        tag: ['OPS Project', 'Low-code'],
+        tag: ['OPS', 'PowerApps'],
         description: "A low-code application allows users to register and manage their delegation of authority process",
         date: 'Aug 15, 2022'
     },
@@ -69,7 +69,7 @@ const projects: Record[] = [
         title: 'Application Portfolio Manager (APM)',
         path: 'apm',
         imgUrl: '/projects/powerapps2.png',
-        tag: ['OPS Project', 'Low-code'],
+        tag: ['OPS', 'PowerApps'],
         description: "A lightweight system app for managing, querying, and analyzing massive information from an enterprise level SQL database",
         date: 'Jan 5, 2023'
     },
