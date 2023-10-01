@@ -6,17 +6,19 @@
 [![Prisma](https://img.shields.io/badge/Prisma-%2347A248.svg?&style=for-the-badge&logo=Prisma&logoColor=white)]()
 
 
-Portable Museum app is a full-stack web application using React + Next 13 app router and Next Api handler
+Siran.dev is a full-stack web application using React + Next 13 app router and Next Api handler
+
 - The app showchase my recent projects and my note collections
 - User can view, share all the resouces uploaded on this site
 - Support custom credentials for authentication, Logged in user is able to save their favourite post for future read  
 - Admin user is able to upload and manage note resources on this site
 
 
-Coding stack: Full-stack Next app
+## Coding stack:
+- Next 13 app router + react
 - Including: React, Next 13, TypeScript, Tailwind CSS, Prisma, Postgres
 - Application deployed on Vercel, database server is hosted on Goodle Cloud
-- App URL: [tbd]("#")
+- App URL: [www.siran.dev]("www.siran.dev")
 
 
 

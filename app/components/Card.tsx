@@ -45,10 +45,13 @@ export default function Card({ record }: { record: any }) {
                 />}
             </div>
             <div className="w-2/3 h-full p-2">
-                <div className="flex flex-nowrap">
+                <div className="flex flex-nowrap overflow-hidden">
                     {(record.tag && record.tag.length > 0) ? 
                     record.tag.map(( tag: string, index: number) => (
-                        index < 3 && <div key={index} className={`badge badge-sm badge-outline mb-2 mr-2 badge-${selectTheme(index)}`}>{tag}</div>
+                        index < 3 && 
+                        <div key={index} className={`badge badge-sm badge-outline mb-2 mr-2 badge-${selectTheme(index)}`}>
+                            <span className="whitespace-nowrap">{tag}</span>
+                        </div>
                     )) :
                     null}
                 </div>

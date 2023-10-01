@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Intro() {
 
@@ -11,15 +12,16 @@ export default function Intro() {
 
                 </div>
 
-                <div className="">
+                <div className="w-52 h-52 overflow-hidden rounded-lg shadow-lg">
+                    <a href="https://www.linkedin.com/in/siran-chao/">                    
                     <Image
                         src="/myself.jpg"
                         alt="Myself"
-                        width={200}
-                        height={200}
+                        width={208}
+                        height={208}
                         priority
-                        className="rounded-lg shadow-lg"
-                    />
+                        className="cursor-pointer transition-all duration-200 ease-in hover:scale-125"
+                    /></a>
                 </div>
             </div>
         </>

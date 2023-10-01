@@ -1,10 +1,6 @@
 import prisma from "@/app/lib/prisma"
 
-const header = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-}
+
 
 /**
  * This api fetch all category names, it's a public API
@@ -12,11 +8,22 @@ const header = {
  */
 export async function GET(req: Request) {
     try {
-        const categories = await prisma.category.findMany()
+        const categories = await prisma.category.findMany({
+            select: {
+                id: true,
+                name: true
+            },
+            orderBy: {
+                posts: {
+                    _count: "desc"
+                }
+            }
+        })
+
         if (categories) {
-            return new Response(JSON.stringify(categories), {status: 200, headers: header})
+            return new Response(JSON.stringify(categories), {status: 200})
         } else {
-            return new Response(JSON.stringify("No data can be found"), {status: 401, headers: header})
+            return new Response(JSON.stringify("No data can be found"), {status: 401})
         }
 
     } catch(error) {

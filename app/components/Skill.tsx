@@ -35,7 +35,7 @@ export default function Skill() {
                                     /></a>
                         </div>
 
-                        <a className="btn btn-ghost btn-sm normal-case dark:text-gray-400" href="https://drive.google.com/file/d/1eQ1LZAWp7i2yiGTptSDv-SlWkpTTQ56X/view?usp=sharing" target="_blank">
+                        <a className="btn btn-ghost btn-sm normal-case dark:text-gray-400" href={`${process.env.NEXT_PUBLIC_RESUME as string}`} target="_blank">
                             <svg className="w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                                 <g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Complete"> <g id="download"> <g> <path className="dark:stroke-current" d="M3,12.3v7a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2v-7" fill="none" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path> <g> <polyline className="dark:stroke-current" data-name="Right" fill="none" id="Right-2" points="7.9 12.3 12 16.3 16.1 12.3" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></polyline> <line className="dark:stroke-current" fill="none" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="12" x2="12" y1="2.7" y2="14.2"></line> </g> </g> </g> </g> </g></svg>
                             Resume
@@ -52,28 +52,25 @@ export default function Skill() {
                             <p className="text-md font-semibold text-gray-200 dark:text-gray-400">Front End</p>
                         </div>
 
-                        <div className="text-center p-4 text-sm text-gray-500 font-semibold">
+                        <div className="text-center p-4 text-sm text-gray-500 font-normal">
                             <ul>
                                 <li>
-                                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" className="hover:underline">HTML/CSS</a>
-                                </li>
-                                <li>
-                                    <a href="https://react.dev/" target="_blank" className="hover:underline">React</a>
-                                </li>
-                                <li>
-                                    <a href="https://nextjs.org/" target="_blank" className="hover:underline">Next 13</a>
-                                </li> 
-                                <li>
-                                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" className="hover:underline">JavaScript</a>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" className="hover:underline">JavaScript(ES6)</a>
                                 </li>
                                 <li>
                                     <a href="https://www.typescriptlang.org/" target="_blank" className="hover:underline">TypeScript</a>
-                                </li> 
+                                </li>  
                                 <li>
-                                    <a href="https://vuejs.org/" target="_blank" className="hover:underline">Vue</a>
-                                </li>            
+                                    <a href="https://nextjs.org/" target="_blank" className="hover:underline">React + Next.js</a>
+                                </li>
                                 <li>
-                                    <a href="https://tailwindcss.com/" target="_blank" className="hover:underline">Tailwind</a>
+                                    <a href="https://redux.js.org/" target="_blank" className="hover:underline">Zustand / Jotai / Redux</a>
+                                </li>    
+                                <li>
+                                    <a href="https://tailwindcss.com/" target="_blank" className="hover:underline">CSS / Sass / Tailwind</a>
+                                </li>
+                                <li>
+                                    <a href="https://vitejs.dev/" target="_blank" className="hover:underline">Webpack / Vite</a>
                                 </li>
                             </ul>
                         </div>
@@ -85,29 +82,33 @@ export default function Skill() {
                             <p className="text-md font-semibold text-gray-200 dark:text-gray-400">Back End</p>
                         </div>
 
-                        <div className="text-center p-4 text-sm text-gray-500 font-semibold">
+                        <div className="text-center p-4 text-sm text-gray-500 font-normal">
                             <ul>
-                                <li>
-                                    <a href="https://www.typescriptlang.org/" target="_blank" className="hover:underline">TypeScript</a>
-                                </li>
                                 <li>
                                     <a href="https://nodejs.org/en" target="_blank" className="hover:underline">NodeJS</a>
                                 </li>
+
                                 <li>
-                                    <a href="https://expressjs.com/" target="_blank" className="hover:underline">Express</a>
+                                    <a href="https://expressjs.com/" target="_blank" className="hover:underline">Express.js</a>
                                 </li>
+
                                 <li>
-                                    <a href="https://www.java.com/en/" target="_blank" className="hover:underline">Java</a>
+                                    <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" className="hover:underline">REST API</a>
                                 </li>
-                                <li>
-                                    <a href="https://learn.microsoft.com/en-us/cpp/cpp/?view=msvc-170" target="_blank" className="hover:underline">C++</a>
-                                </li>
+
                                 <li>
                                     <a href="https://www.mongodb.com/" target="_blank" className="hover:underline">MongoDB</a>
                                 </li>
+                                
                                 <li>
                                     <a href="https://www.postgresql.org/" target="_blank" className="hover:underline">PostgreSQL</a>
                                 </li>
+
+                                <li>
+                                    <a href="https://graphql.org/" target="_blank" className="hover:underline">GraphQL</a>
+                                </li>
+                          
+
                             </ul>
                         </div>
                     </div>
@@ -118,31 +119,31 @@ export default function Skill() {
                             <p className="text-md font-semibold text-gray-200 dark:text-gray-400">Others</p>
                         </div>
 
-                        <div className="text-center p-4 text-sm text-gray-500 font-semibold">
+                        <div className="text-center p-4 text-sm text-gray-500 font-normal">
                             <ul>
+                                <li>
+                                    <a href="https://jestjs.io/" target="_blank" className="hover:underline">Jest</a>
+                                </li>
+
+                                <li>
+                                    <a href="https://azure.microsoft.com/en-ca" target="_blank" className="hover:underline">Microsoft Azure</a>
+                                </li> 
+
+                                <li>
+                                    <a href="https://powerplatform.microsoft.com/" target="_blank" className="hover:underline">Power Platform</a>
+                                </li> 
+
                                 <li>
                                     <a href="https://git-scm.com/" target="_blank" className="hover:underline">Git</a>
                                 </li>
-                                <li>
-                                    <a href="https://code.visualstudio.com/" target="_blank" className="hover:underline">VS Code</a>
-                                </li>
-                                <li>
-                                    <a href="https://powerplatform.microsoft.com/" target="_blank" className="hover:underline">Power Platform</a>
-                                </li>   
-                                <li>
-                                    <a href="https://azure.microsoft.com/en-ca" target="_blank" className="hover:underline">Microsoft Azure</a>
-                                </li>  
+
                                 <li>
                                     <a href="https://www.docker.com/" target="_blank" className="hover:underline">Docker</a>
                                 </li>
-                                <li>
-                                    <a href="https://www.prisma.io/" target="_blank" className="hover:underline">Prisma</a>
-                                </li>
-  
-                                <li>
-                                    <a href="https://www.ibm.com/products/ibm-i?utm_content=SRCWW&p1=Search&p4=43700074687253318&p5=e&gclid=Cj0KCQjwnMWkBhDLARIsAHBOftpLeWZ1xpODou4e7sHTE5ytwNhW2NehNhfFNsq4oDk_uoMX7you0sQaAp7dEALw_wcB&gclsrc=aw.ds" target="_blank" className="hover:underline">IBM i</a>
-                                </li>
 
+                                <li>
+                                    <a href="https://github.com/features/actions" target="_blank" className="hover:underline">Github Actions</a>
+                                </li>
                             </ul>
                         </div>
                     </div>

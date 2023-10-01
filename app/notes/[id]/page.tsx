@@ -19,7 +19,7 @@ export async function generateMetadata( { params, searchParams }: Props) {
     // read route params
     const id = params.id
     // fetch data
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_API as string}/api/post/metadata/${id}`)
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/post/metadata/${id}`)
 
     return {
         title: res.data.title,
@@ -29,7 +29,7 @@ export async function generateMetadata( { params, searchParams }: Props) {
 
 async function getRelevantPosts(tags: {id: string, name: string}[]) {
     const params: string = tags.map((item) => item.name).toString()
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_API as string}/api/post/guess/?tags=${params}`)
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/post/guess/?tags=${params}`)
 
     if(res.status !== 200) {
         return null
@@ -39,7 +39,7 @@ async function getRelevantPosts(tags: {id: string, name: string}[]) {
 }
 
 async function getData(id: string) {
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_API as string}/api/post/${id}`)
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/post/${id}`)
     if(res.status !== 200) {
         return null
     }
@@ -91,7 +91,12 @@ export default async function Note({ params }: { params: { id: string } }){
                     ))}
                 </div>
                 <br/>
-                <p className="text-sm pt-2 leading-relaxed text-gray-600 dark:text-gray-400">{content.info}</p>
+                <div className="pt-2">
+                    {content.info.split('\n').map((line: string, index: number) => 
+                        line ? <p key={index} className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{line}</p> : <br key={index}/>
+                    )}
+                </div>
+                
             </section>
 
 
@@ -115,7 +120,9 @@ export default async function Note({ params }: { params: { id: string } }){
             {content.mainText && 
                 <section className="mb-16">
                     <p className="text-xl mb-4 font-semibold underline">{content.subtitle}</p>
-                    <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{content.mainText}</p>
+                    {content.mainText.split('\n').map((line: string, index: number) => 
+                        line ? <p key={index} className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{line}</p> : <br key={index}/>
+                    )}
                 </section>
             }
 
@@ -128,7 +135,7 @@ export default async function Note({ params }: { params: { id: string } }){
                     </p>
                     { content.secondaryLink && <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{content.secondaryLink}: <span className="ml-2"><a className="text-blue-500 hover:underline" href={content.secondaryUrl} target="_blank">{content.secondaryUrl}</a></span> 
                     </p>}
-                    <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">Page URL: <span className="ml-2"><a className="text-blue-500 hover:underline" href={`${process.env.NEXT_PUBLIC_API as string}/notes/${params.id}/`} target="_blank">{`${process.env.NEXT_PUBLIC_API as string}notes/${params.id}/`}</a></span> 
+                    <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">Page URL: <span className="ml-2"><a className="text-blue-500 hover:underline" href={`${process.env.NEXT_PUBLIC_URL as string}/notes/${params.id}/`} target="_blank">{`${process.env.NEXT_PUBLIC_URL as string}notes/${params.id}/`}</a></span> 
                     </p>
                 </div>
             </section>
