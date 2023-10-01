@@ -11,6 +11,13 @@ import Filter from "../components/Filter"
 const perPage: number = 12
 const paginationRange: number = 6
 
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    })
+}
+
 
 //convert total pages number to 2D array for display
 function convertToArray(totalPages: number) {
@@ -76,6 +83,9 @@ export default function Notes() {
         })
         .catch(error => {
             console.log(error)
+        })
+        .finally(() => {
+            scrollToTop()
         })
 
     }, [currentPage, tag, order])

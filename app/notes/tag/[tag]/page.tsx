@@ -11,6 +11,12 @@ import { ArrowsUpDownIcon } from "@heroicons/react/24/solid"
 const perPage: number = 12
 const paginationRange: number = 6
 
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    })
+}
 
 //convert total pages number to 2D array for display
 function convertToArray(totalPages: number) {
@@ -71,6 +77,9 @@ export default function TagNotes({ params }: { params: { tag: string } }) {
         })
         .catch(error => {
             console.log(error)
+        })
+        .finally(() => {
+            scrollToTop()
         })
 
     }, [currentPage, order, params.tag])

@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
 
 export default function Intro() {
 
@@ -20,7 +19,7 @@ export default function Intro() {
                         width={208}
                         height={208}
                         priority
-                        className="cursor-pointer transition-all duration-200 ease-in hover:scale-125"
+                        className="cursor-pointer transition-all duration-200 ease-in hover:scale-x-125 hover:scale-y-125"
                     /></a>
                 </div>
             </div>
