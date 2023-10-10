@@ -3,20 +3,20 @@ import Link from "next/link"
 
 const data = [
     {
+        img: "/projects/shopee.png",
+        title: "Shopee E-Commerce",
+        desc: "E-commerce platform with Dashboard & CMS, and simple online store template",
+        link: "/projects/shopee",
+        gitHub: "https://github.com/siranchao/shopee-admin",
+        site: "https://shopee-admin-ecru.vercel.app/"
+    },
+    {
         img: "/projects/carhub.png",
         title: "CarHub - Demo",
         desc: "A simple frontend application demo built with latest React and Next.js",
         link: "/projects/carhub",
         gitHub: "https://github.com/siranchao/auto_lab",
         site: "https://auto-lab-gamma.vercel.app/"
-    },
-    {
-        img: "/projects/kudos.png",
-        title: "Kudos",
-        desc: "Create, send, and share kudos with each other in a casual and interesting way!",
-        link: "/projects/kudos",
-        gitHub: "https://github.com/siranchao/kudos",
-        site: "https://kudos-clone.vercel.app/"
     },
     {
         img: "/projects/museum.png",
@@ -35,12 +35,12 @@ const data = [
         site: "https://youtu.be/Wo__SPS7CUM"
     },
     {
-        img: "/projects/siran.dev.png",
-        title: "Siran.dev",
-        desc: "Welcome to my portfolio website, here you can view my works and find useful resources!",
-        link: "/projects/sirandev",
-        gitHub: "https://github.com/siranchao/siran.dev",
-        site: "https://www.siran.dev/"
+        img: "/projects/kudos.png",
+        title: "Kudos",
+        desc: "Create, send, and share kudos with each other in a casual and interesting way!",
+        link: "/projects/kudos",
+        gitHub: "https://github.com/siranchao/kudos",
+        site: "https://kudos-clone.vercel.app/"
     },
     {
         img: "/projects/powerapps2.png",
@@ -50,6 +50,14 @@ const data = [
         gitHub: "https://github.com/siranchao/ops_apm",
         site: "https://youtu.be/sGeUa2qqNys"
     },
+    // {
+    //     img: "/projects/siran.dev.png",
+    //     title: "Siran.dev",
+    //     desc: "Welcome to my portfolio website, here you can view my works and find useful resources!",
+    //     link: "/projects/sirandev",
+    //     gitHub: "https://github.com/siranchao/siran.dev",
+    //     site: "https://www.siran.dev/"
+    // },
     // {
     //     img: "/projects/kitchen.svg",
     //     title: "Siran's Kitchen",
@@ -65,7 +73,7 @@ export default function Projects() {
 
     return (
         <div className="mb-20">
-          <p className="text-2xl mb-4 font-bold">Recent Projects</p>
+          <p className="text-2xl mb-4 font-bold">My Projects</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 place-items-center">
             {/* Card */}
