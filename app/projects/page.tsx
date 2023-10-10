@@ -18,12 +18,29 @@ interface Record {
 
 const projects: Record[] = [
     {
+        title: 'Shopee E-Commerce',
+        path: 'shopee',
+        imgUrl: '/projects/shopee.png',
+        tag: ['Full-stack', 'React', 'Next.js'],
+        description: "E-commerce platform with Dashboard & CMS, and simple online store template.",
+        date: 'Oct 8, 2023'
+    },
+    {
         title: 'CarHub - Demo',
         path: 'carhub',
         imgUrl: '/projects/carhub.png',
         tag: ['Frontend', 'React'],
         description: "A simple frontend application demo built with latest React and Next.js",
         date: 'Sep 9, 2023'
+    },
+
+    {
+        title: 'Portable Museum',
+        path: 'museum',
+        imgUrl: '/projects/museum.png',
+        tag: ['React', 'Next 12'],
+        description: "An online archive app designed for museum and art lovers!",
+        date: 'Feb 13, 2023'
     },
     {
         title: 'Kudos App',
@@ -34,20 +51,12 @@ const projects: Record[] = [
         date: 'May 24, 2023'
     },
     {
-        title: 'Portable Museum',
-        path: 'museum',
-        imgUrl: '/projects/museum.png',
-        tag: ['React', 'Next 12'],
-        description: "An online archive app designed for museum and art lovers!",
-        date: 'Feb 13, 2023'
-    },
-    {
-        title: "Siran's Kitchen",
-        path: 'kitchen',
-        imgUrl: '/projects/kitchen.svg',
-        tag: ['Vanilla', 'NodeJS'],
-        description: "A simple web app to record and share your favorite food recipes",
-        date: 'Sep 22, 2022'
+        title: 'Siran.dev',
+        path: 'sirandev',
+        imgUrl: '/projects/siran.dev.png',
+        tag: ['Full-stack', 'React', 'Next.js'],
+        description: "Welcome to my portfolio website, here you can view my works and find useful resources!",
+        date: 'Jun 28, 2023'
     },
     {
         title: 'Delegation of Authority Registry',
@@ -58,20 +67,20 @@ const projects: Record[] = [
         date: 'Aug 15, 2022'
     },
     {
-        title: 'Siran.dev',
-        path: 'sirandev',
-        imgUrl: '/projects/siran.dev.png',
-        tag: ['Full-stack', 'React', 'Next.js'],
-        description: "Welcome to my portfolio website, here you can view my works and find useful resources!",
-        date: 'Jun 28, 2023'
-    },
-    {
         title: 'Application Portfolio Manager (APM)',
         path: 'apm',
         imgUrl: '/projects/powerapps2.png',
         tag: ['OPS', 'PowerApps'],
         description: "A lightweight system app for managing, querying, and analyzing massive information from an enterprise level SQL database",
         date: 'Jan 5, 2023'
+    },
+    {
+        title: "Siran's Kitchen",
+        path: 'kitchen',
+        imgUrl: '/projects/kitchen.svg',
+        tag: ['Vanilla', 'NodeJS'],
+        description: "A simple web app to record and share your favorite food recipes",
+        date: 'Sep 22, 2022'
     },
 ]
 

@@ -55,22 +55,22 @@ export default function Skill() {
                         <div className="text-center p-4 text-sm text-gray-500 font-normal">
                             <ul>
                                 <li>
-                                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" className="hover:underline">JavaScript(ES6)</a>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" className="hover:underline line-clamp-1">JavaScript(ES6)</a>
                                 </li>
                                 <li>
-                                    <a href="https://www.typescriptlang.org/" target="_blank" className="hover:underline">TypeScript</a>
+                                    <a href="https://www.typescriptlang.org/" target="_blank" className="hover:underline line-clamp-1">TypeScript</a>
                                 </li>  
                                 <li>
-                                    <a href="https://nextjs.org/" target="_blank" className="hover:underline">React + Next.js</a>
+                                    <a href="https://nextjs.org/" target="_blank" className="hover:underline line-clamp-1">React + Next.js</a>
                                 </li>
                                 <li>
-                                    <a href="https://redux.js.org/" target="_blank" className="hover:underline">Zustand / Jotai / Redux</a>
+                                    <a href="https://redux.js.org/" target="_blank" className="hover:underline line-clamp-1">Zustand / Jotai / Redux</a>
                                 </li>    
                                 <li>
-                                    <a href="https://tailwindcss.com/" target="_blank" className="hover:underline">CSS / Sass / Tailwind</a>
+                                    <a href="https://tailwindcss.com/" target="_blank" className="hover:underline line-clamp-1">CSS / Sass / Tailwind</a>
                                 </li>
                                 <li>
-                                    <a href="https://vitejs.dev/" target="_blank" className="hover:underline">Webpack / Vite</a>
+                                    <a href="https://vitejs.dev/" target="_blank" className="hover:underline line-clamp-1">Webpack / Vite</a>
                                 </li>
                             </ul>
                         </div>
@@ -85,27 +85,27 @@ export default function Skill() {
                         <div className="text-center p-4 text-sm text-gray-500 font-normal">
                             <ul>
                                 <li>
-                                    <a href="https://nodejs.org/en" target="_blank" className="hover:underline">NodeJS</a>
+                                    <a href="https://nodejs.org/en" target="_blank" className="hover:underline line-clamp-1">NodeJS</a>
                                 </li>
 
                                 <li>
-                                    <a href="https://expressjs.com/" target="_blank" className="hover:underline">Express.js</a>
+                                    <a href="https://expressjs.com/" target="_blank" className="hover:underline line-clamp-1">Express.js</a>
                                 </li>
 
                                 <li>
-                                    <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" className="hover:underline">REST API</a>
+                                    <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" className="hover:underline line-clamp-1">REST API</a>
                                 </li>
 
                                 <li>
-                                    <a href="https://www.mongodb.com/" target="_blank" className="hover:underline">MongoDB</a>
+                                    <a href="https://www.mongodb.com/" target="_blank" className="hover:underline line-clamp-1">MongoDB</a>
                                 </li>
                                 
                                 <li>
-                                    <a href="https://www.postgresql.org/" target="_blank" className="hover:underline">PostgreSQL</a>
+                                    <a href="https://www.postgresql.org/" target="_blank" className="hover:underline line-clamp-1">PostgreSQL</a>
                                 </li>
 
                                 <li>
-                                    <a href="https://graphql.org/" target="_blank" className="hover:underline">GraphQL</a>
+                                    <a href="https://graphql.org/" target="_blank" className="hover:underline line-clamp-1">GraphQL</a>
                                 </li>
                           
 
@@ -122,27 +122,27 @@ export default function Skill() {
                         <div className="text-center p-4 text-sm text-gray-500 font-normal">
                             <ul>
                                 <li>
-                                    <a href="https://jestjs.io/" target="_blank" className="hover:underline">Jest</a>
+                                    <a href="https://jestjs.io/" target="_blank" className="hover:underline line-clamp-1">Jest</a>
                                 </li>
 
                                 <li>
-                                    <a href="https://azure.microsoft.com/en-ca" target="_blank" className="hover:underline">Microsoft Azure</a>
+                                    <a href="https://azure.microsoft.com/en-ca" target="_blank" className="hover:underline line-clamp-1">Microsoft Azure</a>
                                 </li> 
 
                                 <li>
-                                    <a href="https://powerplatform.microsoft.com/" target="_blank" className="hover:underline">Power Platform</a>
+                                    <a href="https://powerplatform.microsoft.com/" target="_blank" className="hover:underline line-clamp-1">Power Platform</a>
                                 </li> 
 
                                 <li>
-                                    <a href="https://git-scm.com/" target="_blank" className="hover:underline">Git</a>
+                                    <a href="https://git-scm.com/" target="_blank" className="hover:underline line-clamp-1">Git</a>
                                 </li>
 
                                 <li>
-                                    <a href="https://www.docker.com/" target="_blank" className="hover:underline">Docker</a>
+                                    <a href="https://www.docker.com/" target="_blank" className="hover:underline line-clamp-1">Docker</a>
                                 </li>
 
                                 <li>
-                                    <a href="https://github.com/features/actions" target="_blank" className="hover:underline">Github Actions</a>
+                                    <a href="https://github.com/features/actions" target="_blank" className="hover:underline line-clamp-1">Github Actions</a>
                                 </li>
                             </ul>
                         </div>
