@@ -92,12 +92,12 @@ export default function ShopeePage() {
             </section>
 
             {/* Demo video section */}
-            {/* <section className="mb-16">
+            <section className="mb-16">
                 <p className="text-xl mb-4 font-semibold underline align-left">Demo video</p>
                 <div className="flex gap-4 flex-col items-center ">
-                    <iframe src="https://www.youtube.com/embed/sGeUa2qqNys" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="rounded-lg shadow-xl aspect-video w-full md:w-4/5 lg:w-3/4"></iframe>
+                    <iframe src="https://www.youtube.com/embed/stRBZmJWm-8?si=4HKJO3w8Xf725sk9" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="rounded-lg shadow-xl aspect-video w-full md:w-4/5 lg:w-3/4"></iframe>
                 </div>
-            </section> */}
+            </section>
 
             {/* Features section */}
             <section className="mb-16">
