@@ -15,7 +15,7 @@ export default function ShopeePage() {
                 <br/>
                 <div className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
                     <p>
-                    Shopee is an open-source platform aim to help small businesses to engage online e-commerce more efficiently. The project consits of two separate applications: <strong>Shoppe-Admin</strong>, a web-based admin dashboard & CMS tool; and <strong>Shoppe-Store</strong>, a simple e-commerce shop template. The project was built with the main coding stack: <strong>TypeScript + React + Next.js + Tailwind + Prisma + MySQL</strong>
+                    Shopee is an open-source platform aim to help small businesses to engage e-commerce more efficiently. The project consits of two separate applications: <strong>Shoppe-Admin</strong>, a web-based admin dashboard & CMS tool; and <strong>Shoppe-Store</strong>, a simple e-commerce shop template. The project was built with the main coding stack: <strong>TypeScript + React + Next.js + Tailwind + Prisma + MySQL</strong>
                     </p>
                     <br />
                     <p>
