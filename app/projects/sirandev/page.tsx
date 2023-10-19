@@ -54,12 +54,14 @@ export default function SiranDev() {
             <section className="mb-16">
                 <p className="text-xl mb-4 font-semibold underline">Tech stack</p>
                 <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">This application is built on lastest Next 13 version with React, Next App router, and Next API. Without using any separate server application, it use Next API&apos;s built-in features to handle REST API. Also the backend side is using Prisma as ORM to handle the interaction with the Postgres database.</p>
-                <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">To minimize the hosting cost, I&apos;ve created a low-tier virtual machine on Google Cloud and deploy a Postgres database server using Docker. In addition, the application itself is hosted on Vercel.</p>
+                <br />
+                <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">To minimize the hosting cost, I&apos;ve created a docker container to host a Postgres database. And deployed on VM using Google Cloud Platform. In addition, the static sources of both frontend and backend are hosted on Vercel.</p>
                 <br />
                 <ul className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
                     <li><span className="font-semibold pr-2">Front-end:</span> React, TypeScript, Next13, Tailwind, DaisyUI, Next-themes</li>
-                    <li><span className="font-semibold pr-2">Back-end:</span> Next API, Next-auth, Cloudinary, Prisma, Postgres, JWT</li>
-                    <li><span className="font-semibold pr-2">Deployment:</span> Vercel, Google Cloud, Docker</li>
+                    <li><span className="font-semibold pr-2">Back-end:</span> REST API, Prisma(ORM), JWT, Next-auth, Cloudinary</li>
+                    <li><span className="font-semibold pr-2">Database:</span> Postgres, Google Cloud, Docker</li>
+                    <li><span className="font-semibold pr-2">App Deployment:</span> Vercel</li>
                 </ul>
             </section>
 

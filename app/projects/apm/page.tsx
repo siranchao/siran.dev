@@ -16,7 +16,7 @@ export default function Apm() {
                 <br/>
                 <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">This is an official prototype application developed by Rapid Prototype Design Unit(RPDU) - Enterprise Technology Division of Ontario Government. The goal was to develop a lightweight system application for managing, querying, and analyzing massive information from an enterprise level SQL database.</p>
                 <br/>
-                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">App Demo: <a className="text-blue-500 font-regular hover:underline" href="https://www.youtube.com/watch?v=sGeUa2qqNys" target="_blank">see demo video</a></p>
+                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">App Demo: <a className="text-blue-500 font-regular hover:underline" href="https://www.youtube.com/watch?v=ZTjdyVZpngI" target="_blank">see demo video</a></p>
                 <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub Repo: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/ops_apm" target="_blank">https://github.com/siranchao/ops_apm</a></p>
                 <br/>
                 <div className="flex gap-4 flex-wrap">
@@ -40,7 +40,7 @@ export default function Apm() {
 
             {/* App image section */}
             <section className="flex gap-4 flex-col items-center mb-16">
-                <iframe src="https://www.youtube.com/embed/sGeUa2qqNys" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="rounded-lg shadow-xl aspect-video w-full md:w-4/5 lg:w-3/4"></iframe>
+                <iframe src="https://www.youtube.com/embed/ZTjdyVZpngI?si=DtJiPafdBnofujR-" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="rounded-lg shadow-xl aspect-video w-full md:w-4/5 lg:w-3/4"></iframe>
             </section>
 
             {/* Tech stack section */}

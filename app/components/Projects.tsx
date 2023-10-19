@@ -27,13 +27,14 @@ const data = [
         site: "https://my-museum.vercel.app/"
     },
     {
-        img: "/projects/powerapps.png",
-        title: "Delegation of Authority Registry",
-        desc: "A low-code application allows users to register and manage their delegation of authority process",
-        link: "/projects/doa",
-        gitHub: "https://github.com/siranchao/ops_doa",
-        site: "https://youtu.be/Wo__SPS7CUM"
+        img: "/projects/powerapps2.png",
+        title: "Application Portfolio Manager",
+        desc: "A lightweight system app for managing, querying, and analyzing massive information from an enterprise level SQL database",
+        link: "/projects/apm",
+        gitHub: "https://github.com/siranchao/ops_apm",
+        site: "https://youtu.be/ZTjdyVZpngI?si=rSJnLjDVIUAzpF-v"
     },
+
     {
         img: "/projects/kudos.png",
         title: "Kudos",
@@ -43,20 +44,20 @@ const data = [
         site: "https://kudos-clone.vercel.app/"
     },
     {
-        img: "/projects/powerapps2.png",
-        title: "Application Portfolio Manager",
-        desc: "A lightweight system app for managing, querying, and analyzing massive information from an enterprise level SQL database",
-        link: "/projects/apm",
-        gitHub: "https://github.com/siranchao/ops_apm",
-        site: "https://youtu.be/sGeUa2qqNys"
+        img: "/projects/siran.dev.png",
+        title: "Siran.dev",
+        desc: "Welcome to my portfolio website, here you can view my works and find useful resources!",
+        link: "/projects/sirandev",
+        gitHub: "https://github.com/siranchao/siran.dev",
+        site: "https://www.siran.dev/"
     },
     // {
-    //     img: "/projects/siran.dev.png",
-    //     title: "Siran.dev",
-    //     desc: "Welcome to my portfolio website, here you can view my works and find useful resources!",
-    //     link: "/projects/sirandev",
-    //     gitHub: "https://github.com/siranchao/siran.dev",
-    //     site: "https://www.siran.dev/"
+    //     img: "/projects/powerapps.png",
+    //     title: "Delegation of Authority Registry",
+    //     desc: "A low-code application allows users to register and manage their delegation of authority process",
+    //     link: "/projects/doa",
+    //     gitHub: "https://github.com/siranchao/ops_doa",
+    //     site: "https://youtu.be/Wo__SPS7CUM"
     // },
     // {
     //     img: "/projects/kitchen.svg",
