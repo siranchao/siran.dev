@@ -33,7 +33,6 @@ const projects: Record[] = [
         description: "A simple frontend application demo built with latest React and Next.js",
         date: 'Sep 9, 2023'
     },
-
     {
         title: 'Portable Museum',
         path: 'museum',
@@ -41,6 +40,14 @@ const projects: Record[] = [
         tag: ['React', 'Next 12'],
         description: "An online archive app designed for museum and art lovers!",
         date: 'Feb 13, 2023'
+    },
+    {
+        title: 'Application Portfolio Manager (APM)',
+        path: 'apm',
+        imgUrl: '/projects/powerapps2.png',
+        tag: ['OPS', 'PowerApps'],
+        description: "A lightweight system app for managing, querying, and analyzing massive information from an enterprise level SQL database",
+        date: 'Jan 5, 2023'
     },
     {
         title: 'Kudos App',
@@ -65,14 +72,6 @@ const projects: Record[] = [
         tag: ['OPS', 'PowerApps'],
         description: "A low-code application allows users to register and manage their delegation of authority process",
         date: 'Aug 15, 2022'
-    },
-    {
-        title: 'Application Portfolio Manager (APM)',
-        path: 'apm',
-        imgUrl: '/projects/powerapps2.png',
-        tag: ['OPS', 'PowerApps'],
-        description: "A lightweight system app for managing, querying, and analyzing massive information from an enterprise level SQL database",
-        date: 'Jan 5, 2023'
     },
     {
         title: "Siran's Kitchen",
