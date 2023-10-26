@@ -16,8 +16,8 @@ export default function Museum() {
                 <br/>
                 <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">Portable Museum is an online archive designed for searching, browsing, and collecting over two million artworks from the Metropolitan Museum of Art. This application is fully mobile responsive and primarily built on MERN stack plus Next.js and deployed on Vercel.</p>
                 <br/>
-                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">App URL: <a className="text-blue-500 font-regular hover:underline" href="https://my-museum-siranchao.vercel.app/" target="_blank">https://my-museum-siranchao.vercel.app/</a></p>
-                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub Repo: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/my_museum" target="_blank">https://github.com/siranchao/my_museum</a></p>
+                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">URL: <a className="text-blue-500 font-regular hover:underline" href="https://my-museum-siranchao.vercel.app/" target="_blank">https://my-museum-siranchao.vercel.app/</a></p>
+                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/my_museum" target="_blank">https://github.com/siranchao/my_museum</a></p>
                 <br/>
                 <div className="flex gap-4 flex-wrap">
                     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">

@@ -17,7 +17,7 @@ export default function Doa() {
                 <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">This is an official application developed by Rapid Prototype Design Unit(RPDU) - Enterprise Technology Division of Ontario Government. This application was built with Microsoft low-code platform, allows users to register and manage their delegation of authority procedures.</p>
                 <br/>
                 <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">App Demo: <a className="text-blue-500 font-regular hover:underline" href="https://www.youtube.com/watch?v=Wo__SPS7CUM" target="_blank">see demo video</a></p>
-                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub Repo: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/ops_doa" target="_blank">https://github.com/siranchao/ops_doa</a></p>
+                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/ops_doa" target="_blank">https://github.com/siranchao/ops_doa</a></p>
                 <br/>
                 <div className="flex gap-4 flex-wrap">
                     <a href="https://powerapps.microsoft.com/en-au/" target="_blank">
