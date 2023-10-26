@@ -25,14 +25,14 @@ export default function ShopeePage() {
                 <br/>
 
                 <p className="mb-1 text-sm underline font-semibold leading-relaxed text-gray-600 dark:text-gray-400">Admin Dashboard & CMS</p>
-                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">App URL: <a className="text-blue-500 font-regular hover:underline" href="https://shopee-admin-ecru.vercel.app/" target="_blank">https://shopee-admin-ecru.vercel.app/</a></p>
-                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub Repo: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/shopee-admin" target="_blank">https://github.com/siranchao/shopee-admin</a></p>
+                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">URL: <a className="text-blue-500 font-regular hover:underline" href="https://shopee-admin-ecru.vercel.app/" target="_blank">https://shopee-admin-ecru.vercel.app/</a></p>
+                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/shopee-admin" target="_blank">https://github.com/siranchao/shopee-admin</a></p>
 
                 <br />
 
                 <p className="mb-1 text-sm underline font-semibold leading-relaxed text-gray-600 dark:text-gray-400">Shopee Store</p>
-                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">App URL: <a className="text-blue-500 font-regular hover:underline" href="https://shopee-store-psi.vercel.app/" target="_blank">https://shopee-store-psi.vercel.app/</a></p>
-                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub Repo: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/shopee-store" target="_blank">https://github.com/siranchao/shopee-store</a></p>
+                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">URL: <a className="text-blue-500 font-regular hover:underline" href="https://shopee-store-psi.vercel.app/" target="_blank">https://shopee-store-psi.vercel.app/</a></p>
+                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/shopee-store" target="_blank">https://github.com/siranchao/shopee-store</a></p>
 
                 <br/>
 

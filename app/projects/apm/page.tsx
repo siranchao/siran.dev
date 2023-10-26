@@ -17,7 +17,7 @@ export default function Apm() {
                 <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">This is an official prototype application developed by Rapid Prototype Design Unit(RPDU) - Enterprise Technology Division of Ontario Government. The goal was to develop a lightweight system application for managing, querying, and analyzing massive information from an enterprise level SQL database.</p>
                 <br/>
                 <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">App Demo: <a className="text-blue-500 font-regular hover:underline" href="https://www.youtube.com/watch?v=ZTjdyVZpngI" target="_blank">see demo video</a></p>
-                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub Repo: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/ops_apm" target="_blank">https://github.com/siranchao/ops_apm</a></p>
+                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/ops_apm" target="_blank">https://github.com/siranchao/ops_apm</a></p>
                 <br/>
                 <div className="flex gap-4 flex-wrap">
                     <a href="https://powerapps.microsoft.com/en-au/" target="_blank">

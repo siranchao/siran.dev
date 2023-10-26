@@ -18,8 +18,8 @@ export default function CarHub() {
                     CarHub is a simple frontend application demo built with latest React and Next.js. This project simulates a car rental application in real business settings. User can search, filter and browse car information and calculate rental prices based on their selections. The purpose of this app is to showcase the ability to use new Next 13 app router to create a hybrid frontend with both SSR and CSR. 
                 </p>
                 <br/>
-                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">App URL: <a className="text-blue-500 font-regular hover:underline" href="https://auto-lab-gamma.vercel.app/" target="_blank">https://auto-lab-gamma.vercel.app/</a></p>
-                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub Repo: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/auto_lab" target="_blank">https://github.com/siranchao/auto_lab</a></p>
+                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">URL: <a className="text-blue-500 font-regular hover:underline" href="https://auto-lab-gamma.vercel.app/" target="_blank">https://auto-lab-gamma.vercel.app/</a></p>
+                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/auto_lab" target="_blank">https://github.com/siranchao/auto_lab</a></p>
                 <br/>
                 <div className="flex gap-4 flex-wrap">
                     <a href="https://www.typescriptlang.org/" target="_blank">

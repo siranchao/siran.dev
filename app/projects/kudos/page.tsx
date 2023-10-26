@@ -16,8 +16,8 @@ export default function Kudos() {
                 <br/>
                 <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">Kudos is a mobile-first, full-stack web application that allows users to create, send, and share kudos with each other in a casual and interesting way. This application is built using MERN stack plus Next.js and deployed on Vercel.</p>
                 <br/>
-                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">App URL: <a className="text-blue-500 font-regular hover:underline" href="https://kudos-clone.vercel.app/" target="_blank">https://kudos-clone.vercel.app/</a></p>
-                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub Repo: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/kudos" target="_blank">https://github.com/siranchao/kudos</a></p>
+                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">URL: <a className="text-blue-500 font-regular hover:underline" href="https://kudos-clone.vercel.app/" target="_blank">https://kudos-clone.vercel.app/</a></p>
+                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/kudos" target="_blank">https://github.com/siranchao/kudos</a></p>
                 <br/>
                 <div className="flex gap-4 flex-wrap">
                     <a href="https://www.typescriptlang.org/" target="_blank">
