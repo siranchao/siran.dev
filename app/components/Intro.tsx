@@ -7,7 +7,7 @@ export default function Intro() {
             <div  className="grid grid-cols-1 md:grid-cols-3 gap-4 place-items-center mb-20">
                 <div className="col-span-2">
                     <p className="text-4xl mb-8 font-bold tracking-wide">Hey, I&apos;m Siran</p>
-                    <p className="text-gray-600 dark:text-gray-400">Welcome to my personal site. Here you can checkout my recent projects and discover more cool stuff. Hope you like it!</p>
+                    <p className="text-gray-600 dark:text-gray-400">Welcome to my digital nook. Here I share what I&apos;ve been working on recently and things I found interesting. Hope you like it!</p>
 
                 </div>
 

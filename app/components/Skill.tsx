@@ -7,8 +7,8 @@ export default function Skill() {
         <>
             <div className="flex flex-col w-full border-opacity-50 mb-20">
                 <div>
-                    <p className="text-2xl mb-4 font-bold">More about me</p>
-                    <p className="text-gray-600 mb-4 dark:text-gray-400">I&apos;m a full-stack developer and enthusiastic programmer. I always excited to learn and apply my skills in a professional setting. Connect with me if you interested.</p>
+                    <p className="text-2xl mb-4 font-bold">About me</p>
+                    <p className="text-gray-600 mb-4 dark:text-gray-400">I&apos;m a web developer enthusiastic about full-stack development. I always excited to learn and apply my skills in a professional setting. Connect with me if you interested &#128515;</p>
                     
                     <div className="flex items-center justify-between">
                         <div className="flex gap-4">
@@ -93,6 +93,10 @@ export default function Skill() {
                                 </li>
 
                                 <li>
+                                    <a href="https://www.python.org/" target="_blank" className="hover:underline line-clamp-1">Python</a>
+                                </li>
+
+                                <li>
                                     <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" className="hover:underline line-clamp-1">REST API</a>
                                 </li>
 
@@ -102,12 +106,7 @@ export default function Skill() {
                                 
                                 <li>
                                     <a href="https://www.postgresql.org/" target="_blank" className="hover:underline line-clamp-1">PostgreSQL</a>
-                                </li>
-
-                                <li>
-                                    <a href="https://graphql.org/" target="_blank" className="hover:underline line-clamp-1">GraphQL</a>
-                                </li>
-                          
+                                </li>        
 
                             </ul>
                         </div>

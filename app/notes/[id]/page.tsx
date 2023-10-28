@@ -91,30 +91,19 @@ export default async function Note({ params }: { params: { id: string } }){
                     ))}
                 </div>
                 <br/>
+
+                {/* Head description */}
                 <div className="pt-2">
                     {content.info.split('\n').map((line: string, index: number) => 
                         line ? <p key={index} className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{line}</p> : <br key={index}/>
                     )}
                 </div>
-                
             </section>
-
 
             {/* Image section */}
             <section className="flex gap-4 flex-col items-center mb-16">
-                {content.primaryImgUrl && <Image src={content.primaryImgUrl} alt="primary-img" width={500} height={400} className="rounded-lg shadow-xl"/>}
-                {content.secondaryImgUrl && <Image src={content.secondaryImgUrl} alt="secondary-img" width={500} height={400} className="rounded-lg shadow-xl"/>}            
+                {content.primaryImgUrl && <Image src={content.primaryImgUrl} alt="primary-img" width={500} height={400} className="rounded-lg shadow-xl"/>}       
             </section>
-
-
-            {/* video section */}
-            {content.videoUrl && 
-                <section className="mb-16">
-                    <p className="text-xl mb-4 font-semibold underline">Demo video</p>
-                    <iframe src={content.videoUrl} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="m-auto rounded-lg shadow-xl aspect-video w-full md:w-4/5 lg:w-3/4"></iframe>
-                </section>
-            }
-
 
             {/* Subtitle section */}
             {content.mainText && 
@@ -126,6 +115,18 @@ export default async function Note({ params }: { params: { id: string } }){
                 </section>
             }
 
+            {/* Image section */}
+            <section className="flex gap-4 flex-col items-center mb-16">
+                {content.secondaryImgUrl && <Image src={content.secondaryImgUrl} alt="secondary-img" width={500} height={400} className="rounded-lg shadow-xl"/>}            
+            </section>
+
+            {/* video section */}
+            {content.videoUrl && 
+                <section className="mb-16">
+                    <p className="text-xl mb-4 font-semibold underline">Video</p>
+                    <iframe src={content.videoUrl} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="m-auto rounded-lg shadow-xl aspect-video w-full md:w-4/5 lg:w-3/4"></iframe>
+                </section>
+            }
 
             {/* URL info section */}
             <section className="mb-16">
@@ -148,7 +149,7 @@ export default async function Note({ params }: { params: { id: string } }){
                 <ul className="text-sm list-disc pl-4 leading-loose text-gray-600 dark:text-gray-400">
                     {relevantPosts.map((post: {id: string, title: string}, index: number) => (
                         <li key={index} className="hover:font-semibold duration-200 ease-in">
-                            <Link href={`/notes/${post.id}`}>{post.title}</Link>
+                            <Link href={`/notes/${post.id}`} className="line-clamp-1">{post.title}</Link>
                         </li>
                     ))}
                 </ul>

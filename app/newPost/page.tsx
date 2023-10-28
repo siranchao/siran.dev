@@ -109,13 +109,13 @@ export default async function NewPost() {
                 </div>
 
                 <div>
-                    <label className="label">Post Subtitle *</label>
-                    <input type="text" placeholder="show as sub-title" className="input input-bordered w-full max-w-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-300" {...register("subtitle")} required/>
+                    <label className="label">Post Info *</label>
+                    <textarea rows={5} className="textarea textarea-bordered w-full max-w-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-300" placeholder="show as post description" {...register("info")} required></textarea>
                 </div>
 
                 <div>
-                    <label className="label">Post Info *</label>
-                    <textarea rows={5} className="textarea textarea-bordered w-full max-w-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-300" placeholder="show as post description" {...register("info")} required></textarea>
+                    <label className="label">Post Subtitle *</label>
+                    <input type="text" placeholder="show as sub-title" className="input input-bordered w-full max-w-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-300" {...register("subtitle")} required/>
                 </div>
 
                 <div>
