@@ -3,10 +3,17 @@ import Link from "next/link"
 import Image from "next/image"
 import ThemeBtn from "./ThemeBtn"
 import { useSession, signOut, signIn } from "next-auth/react";
+import { useDispatch } from "react-redux";
+import { reset as resetFullList } from "@/features/fullList/fullListSlice";
+import { reset as resetCategoryList } from "@/features/categoryList/categoryListSlice";
 
 export default function Header() {
-
     const {data: session} = useSession();
+    const dispatch = useDispatch();
+    const handleClick = () => {
+        dispatch(resetFullList());
+        dispatch(resetCategoryList());
+    }
 
     const scrollToBottom = () => {
         window.scrollTo({
@@ -38,7 +45,7 @@ export default function Header() {
                         
                     </ul>
                 </div>
-                <Link href="/" className="cursor-pointer p-0">
+                <Link href="/" className="cursor-pointer p-0" onClick={handleClick}>
                     <Image src="/logo.svg" alt="logo" width={120} height={120} />
                 </Link>
                 
