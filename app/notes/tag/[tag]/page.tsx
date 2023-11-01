@@ -7,6 +7,8 @@ import ShowLoading from "@/app/components/ShowLoading"
 import axios from "axios"
 import { PostData } from "@/app/lib/types"
 import { ArrowsUpDownIcon } from "@heroicons/react/24/solid"
+import { useSelector, useDispatch } from "react-redux"
+import { setCurrentPage, setOrder } from "@/features/categoryList/categoryListSlice"
 
 const perPage: number = 12
 const paginationRange: number = 6
@@ -40,28 +42,24 @@ export default function TagNotes({ params }: { params: { tag: string } }) {
     const [loading, setLoading] = useState<boolean>(true)
     
     //control states
-    const [currentPage, setCurrentPage] = useState<number>(1);
-    const [order, setOrder] = useState<string>("newest")
+    const dispatch = useDispatch()
+    const { currentPage, order } = useSelector((store: any) => store.categoryList)
     const [notes, setNotes] = useState<any[]>([])
-
-    //pagination controls
     const displayedPages = useRef<number[][]>([])
+
     const selectPage = (page: number) => {
-        setCurrentPage(page)
+        dispatch(setCurrentPage(page))
     }
     const prevPage = () => {
-        if(currentPage > 1) setCurrentPage(currentPage - 1)
+        if(currentPage > 1) dispatch(setCurrentPage(currentPage - 1))
     }
     const nextPage = () => {
-        if(currentPage < totalPages.current) setCurrentPage(currentPage + 1)
+        if(currentPage < totalPages.current) dispatch(setCurrentPage(currentPage + 1))
     }
-
-    //control filters
     const selectOrder = (order: string) => {
-        setOrder(order)
-        setCurrentPage(1)
+        dispatch(setOrder(order))
+        dispatch(setCurrentPage(1))
     }
-
 
     useEffect(() => {
         axios.get(`${process.env.NEXT_PUBLIC_URL}/api/post/all/?perPage=${perPage}&page=${currentPage}&tag=${params.tag}&order=${order}`)
@@ -83,9 +81,6 @@ export default function TagNotes({ params }: { params: { tag: string } }) {
         })
 
     }, [currentPage, order, params.tag])
-
-
-
 
 
     return (
@@ -121,8 +116,6 @@ export default function TagNotes({ params }: { params: { tag: string } }) {
             <div className="flex justify-center">
                 <Pagination currentPage={currentPage} displayedPages={displayedPages.current} selectPage={selectPage} nextPage={nextPage} prevPage={prevPage}/>
             </div>}
-            
-
         </div>
     )
 }

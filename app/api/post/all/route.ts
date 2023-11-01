@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
     try {
         const searchParams = req.nextUrl.searchParams
         const query: queryData = {
-            perPage: Number(searchParams.get("perPage")) || 10,
+            perPage: Number(searchParams.get("perPage")) || 12,
             page: Number(searchParams.get("page")) || 1,
             tag: searchParams.get("tag") || 'all',
             order: searchParams.get("order") || 'newest'

@@ -7,6 +7,8 @@ import axios from "axios"
 import { PostData } from "../lib/types"
 import ShowLoading from "../components/ShowLoading"
 import Filter from "../components/Filter"
+import { useSelector, useDispatch } from "react-redux"
+import { setCurrentPage, setTag, setOrder } from "@/features/fullList/fullListSlice"
 
 const perPage: number = 12
 const paginationRange: number = 6
@@ -41,33 +43,32 @@ export default function Notes() {
     const [loading, setLoading] = useState<boolean>(true)
     
     //control states
-    const [currentPage, setCurrentPage] = useState<number>(1);
-    const [tag, setTag] = useState<string>("all")
-    const [order, setOrder] = useState<string>("newest")
+    const dispatch = useDispatch()
+    const { currentPage, tag, order } = useSelector((store: any) => store.fullList)
     const [notes, setNotes] = useState<any[]>([])
-
-    //pagination controls
     const displayedPages = useRef<number[][]>([])
+
     const selectPage = (page: number) => {
-        setCurrentPage(page)
+        dispatch(setCurrentPage(page))
     }
     const prevPage = () => {
-        if(currentPage > 1) setCurrentPage(currentPage - 1)
+        if(currentPage > 1) {
+            dispatch(setCurrentPage(currentPage - 1))
+        }    
     }
     const nextPage = () => {
-        if(currentPage < totalPages.current) setCurrentPage(currentPage + 1)
+        if(currentPage < totalPages.current) {
+            dispatch(setCurrentPage(currentPage + 1))
+        }
     }
-
-    //control filters
     const selectTag = (tag: string) => {
-        setTag(tag)
-        setCurrentPage(1)
+        dispatch(setTag(tag))
+        dispatch(setCurrentPage(1))
     }
     const selectOrder = (order: string) => {
-        setOrder(order)
-        setCurrentPage(1)
+        dispatch(setOrder(order))
+        dispatch(setCurrentPage(1))
     }
-
 
     useEffect(() => {
         axios.get(`${process.env.NEXT_PUBLIC_URL}/api/post/all/?perPage=${perPage}&page=${currentPage}&tag=${tag}&order=${order}`)
@@ -89,7 +90,6 @@ export default function Notes() {
         })
 
     }, [currentPage, tag, order])
-
 
     return (
         <>
