@@ -79,7 +79,7 @@ export default function Projects() {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 place-items-center">
             {/* Card */}
             {data.map((record: any, index: number) => (
-                        <div key={index} className="card card-compact w-3/4 h-full md:w-full shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100 dark:bg-gray-200">
+                        <div key={index} className="group card card-compact w-3/4 h-full md:w-full shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100 dark:bg-gray-200">
                             {/* add project logo here */}
                             <Image
                                 src={record.img}
@@ -94,7 +94,7 @@ export default function Projects() {
                                 <p className="text-gray-600 line-clamp-3">{record.desc}</p>
                                 {/* add page route for this project */}
                                 <div className="card-actions mt-2 flex justify-between items-center">
-                                    <Link href={record.link} className="btn btn-ghost btn-sm p-0 normal-case text-accent-focus">Read More</Link>
+                                    <Link href={record.link} className="btn btn-ghost btn-sm p-0 normal-case text-accent-focus duration-200 ease-in group-hover:underline">Read More</Link>
                                     
                                     {/* add github link and app link */}
                                     <div className="flex gap-4 items-center">

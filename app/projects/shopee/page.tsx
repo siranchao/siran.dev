@@ -118,8 +118,12 @@ export default function ShopeePage() {
             <section className="mb-16">
                 <p className="text-xl mb-4 font-semibold underline">Additional info</p>
                 <p className="text-sm font-regular leading-relaxed text-gray-600 dark:text-gray-400">
-                    Shopee Admin requires user account to login, it is suggest to use gmail or facebook account to proceed for sake of simplicity.
+                    Shopee Admin support OAuth authentication, it is suggest to use <strong>gmail</strong> or <strong>facebook</strong> account to proceed for sake of simplicity.
                 </p>
+                <br />
+                <p className="text-sm font-regular leading-relaxed text-gray-600 dark:text-gray-400">Alternatively, you can use this <strong>demo account:</strong></p>
+                <p className="text-sm font-regular leading-relaxed text-gray-600 dark:text-gray-400">Username: demo-user</p>
+                <p className="text-sm font-regular leading-relaxed text-gray-600 dark:text-gray-400">Password: demo1234</p>
                 <br />
                 <p className="text-sm font-regular leading-relaxed text-gray-600 dark:text-gray-400">
                     In Shopee Store, users will be redirect to Stripe payment page after checkout. Currently the project is using test payment method, so you can use <a className="text-blue-500  hover:underline" href="https://stripe.com/docs/testing?testing-method=card-numbers#visa" target="_blank">test card info</a> to stimulate the process. For more information please visit <a className="text-blue-500  hover:underline" href="https://stripe.com/en-ca" target="_blank">Stripe.com</a>
