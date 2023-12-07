@@ -11,12 +11,12 @@ const data = [
         site: "https://shopee-admin-ecru.vercel.app/"
     },
     {
-        img: "/projects/carhub.png",
-        title: "CarHub - Demo",
-        desc: "A simple frontend application demo built with latest React and Next.js",
-        link: "/projects/carhub",
-        gitHub: "https://github.com/siranchao/auto_lab",
-        site: "https://auto-lab-gamma.vercel.app/"
+        img: "/projects/robot.png",
+        title: "Clerk.io - AI Assistant",
+        desc: "Modern SaaS platform leveraging LLM and LangChain to build an AI powered document chatbot",
+        link: "/projects/clerkio",
+        gitHub: "https://github.com/siranchao/clerk.io",
+        site: "https://clerk-io.vercel.app/"
     },
     {
         img: "/projects/museum.png",
@@ -44,29 +44,21 @@ const data = [
         site: "https://kudos-clone.vercel.app/"
     },
     {
-        img: "/projects/siran.dev.png",
-        title: "Siran.dev",
-        desc: "Welcome to my portfolio website, here you can view my works and find useful resources!",
-        link: "/projects/sirandev",
-        gitHub: "https://github.com/siranchao/siran.dev",
-        site: "https://www.siran.dev/"
+        img: "/projects/carhub.png",
+        title: "CarHub - Demo",
+        desc: "A simple frontend application demo built with latest React and Next.js",
+        link: "/projects/carhub",
+        gitHub: "https://github.com/siranchao/auto_lab",
+        site: "https://auto-lab-gamma.vercel.app/"
     },
     // {
-    //     img: "/projects/powerapps.png",
-    //     title: "Delegation of Authority Registry",
-    //     desc: "A low-code application allows users to register and manage their delegation of authority process",
-    //     link: "/projects/doa",
-    //     gitHub: "https://github.com/siranchao/ops_doa",
-    //     site: "https://youtu.be/Wo__SPS7CUM"
+    //     img: "/projects/siran.dev.png",
+    //     title: "Siran.dev",
+    //     desc: "Welcome to my portfolio website, here you can view my works and find useful resources!",
+    //     link: "/projects/sirandev",
+    //     gitHub: "https://github.com/siranchao/siran.dev",
+    //     site: "https://www.siran.dev/"
     // },
-    // {
-    //     img: "/projects/kitchen.svg",
-    //     title: "Siran's Kitchen",
-    //     desc: "A simple web app to record and share your favorite food recipes",
-    //     link: "/projects/kitchen",
-    //     gitHub: "https://github.com/siranchao/siran_kitchen",
-    //     site: "https://siran-kitchen.cyclic.app/"
-    // }
 ]
 
 

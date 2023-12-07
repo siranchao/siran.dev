@@ -26,12 +26,12 @@ const projects: Record[] = [
         date: 'Oct 8, 2023'
     },
     {
-        title: 'CarHub - Demo',
-        path: 'carhub',
-        imgUrl: '/projects/carhub.png',
-        tag: ['Frontend', 'React'],
-        description: "A simple frontend application demo built with latest React and Next.js",
-        date: 'Sep 9, 2023'
+        title: 'Clerk.io - AI Assistant',
+        path: 'clerkio',
+        imgUrl: '/projects/robot.png',
+        tag: ['Full-stack', 'React', 'LLM'],
+        description: "An AI powered document chatbot and SaaS project",
+        date: 'Dec 6, 2023'
     },
     {
         title: 'Portable Museum',
@@ -48,6 +48,14 @@ const projects: Record[] = [
         tag: ['OPS', 'PowerApps'],
         description: "A lightweight system app for managing, querying, and analyzing massive information from an enterprise level SQL database",
         date: 'Jan 5, 2023'
+    },
+    {
+        title: 'CarHub - Demo',
+        path: 'carhub',
+        imgUrl: '/projects/carhub.png',
+        tag: ['Frontend', 'React'],
+        description: "A simple frontend application demo built with latest React and Next.js",
+        date: 'Sep 9, 2023'
     },
     {
         title: 'Kudos App',
