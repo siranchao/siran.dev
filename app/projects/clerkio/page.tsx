@@ -61,6 +61,16 @@ export default function ClerkioPage() {
                 <Image src="https://res.cloudinary.com/siran-chao/image/upload/v1701897773/Clerk.io/3_gzcolv.jpg" alt="demo" width={500} height={400} className="rounded-lg shadow-xl"/>
             </section>
 
+
+            {/* Demo video section */}
+            <section className="mb-16">
+                <p className="text-xl mb-4 font-semibold underline align-left">Demo video</p>
+                <div className="flex gap-4 flex-col items-center ">
+                    <iframe src="https://www.youtube.com/embed/GENHOcXq1-8?si=Th_UZBGj7b6AiP7e" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="rounded-lg shadow-xl aspect-video w-full md:w-4/5 lg:w-3/4"></iframe>
+                </div>
+            </section>
+
+
             {/* Tech stack section */}
             <section className="mb-16">
                 <p className="text-xl mb-4 font-semibold underline">Tech stack</p>
@@ -86,16 +96,8 @@ export default function ClerkioPage() {
                 <div className="relative flex flex-row justify-center items-center mb-16">
                     <Image src="https://res.cloudinary.com/siran-chao/image/upload/v1701895525/Clerk.io/mind-map-L_s31gun.png" alt="mind-map" width={700} height={500} className="rounded-lg shadow-xl" quality={100}/>
                 </div>
-    
             </section>
 
-            {/* Demo video section */}
-            {/* <section className="mb-16">
-                <p className="text-xl mb-4 font-semibold underline align-left">Demo video</p>
-                <div className="flex gap-4 flex-col items-center ">
-                    <iframe src="https://www.youtube.com/embed/stRBZmJWm-8?si=4HKJO3w8Xf725sk9" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="rounded-lg shadow-xl aspect-video w-full md:w-4/5 lg:w-3/4"></iframe>
-                </div>
-            </section> */}
 
             {/* Features section */}
             <section className="mb-16">
