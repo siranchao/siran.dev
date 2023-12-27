@@ -55,16 +55,16 @@ export default function Skill() {
                         <div className="text-center p-4 text-sm text-gray-500 font-normal">
                             <ul>
                                 <li>
-                                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" className="hover:underline line-clamp-1">JavaScript</a>
-                                </li>
-                                <li>
                                     <a href="https://www.typescriptlang.org/" target="_blank" className="hover:underline line-clamp-1">TypeScript</a>
                                 </li>  
                                 <li>
                                     <a href="https://nextjs.org/" target="_blank" className="hover:underline line-clamp-1">React / Next.js</a>
                                 </li>
                                 <li>
-                                    <a href="https://redux.js.org/" target="_blank" className="hover:underline line-clamp-1">Zustand / Jotai / Redux</a>
+                                    <a href="https://reactnative.dev/" target="_blank" className="hover:underline line-clamp-1">React Native</a>
+                                </li>
+                                <li>
+                                    <a href="https://redux.js.org/" target="_blank" className="hover:underline line-clamp-1">Zustand / Redux</a>
                                 </li>    
                                 <li>
                                     <a href="https://tailwindcss.com/" target="_blank" className="hover:underline line-clamp-1">CSS / Sass / Tailwind</a>
@@ -123,26 +123,21 @@ export default function Skill() {
                                 <li>
                                     <a href="https://graphql.org/" target="_blank" className="hover:underline line-clamp-1">GraphQL</a>
                                 </li>
-
-                                <li>
-                                    <a href="https://azure.microsoft.com/en-ca" target="_blank" className="hover:underline line-clamp-1">Microsoft Azure</a>
-                                </li> 
-
-                                <li>
-                                    <a href="https://powerplatform.microsoft.com/" target="_blank" className="hover:underline line-clamp-1">Power Platform</a>
-                                </li> 
-
                                 <li>
                                     <a href="https://git-scm.com/" target="_blank" className="hover:underline line-clamp-1">Git</a>
                                 </li>
-
                                 <li>
                                     <a href="https://www.docker.com/" target="_blank" className="hover:underline line-clamp-1">Docker</a>
                                 </li>
-
                                 <li>
-                                    <a href="https://github.com/features/actions" target="_blank" className="hover:underline line-clamp-1">Github Actions</a>
+                                    <a href="https://github.com/features/actions" target="_blank" className="hover:underline line-clamp-1">CI/CD</a>
                                 </li>
+                                <li>
+                                    <a href="https://azure.microsoft.com/en-ca" target="_blank" className="hover:underline line-clamp-1">Microsoft Azure</a>
+                                </li> 
+                                <li>
+                                    <a href="https://powerplatform.microsoft.com/" target="_blank" className="hover:underline line-clamp-1">Power Platform</a>
+                                </li> 
                             </ul>
                         </div>
                     </div>
