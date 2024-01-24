@@ -8,7 +8,8 @@ const data = [
         desc: "E-commerce platform with Dashboard & CMS, and simple online store template",
         link: "/projects/shopee",
         gitHub: "https://github.com/siranchao/shopee-admin",
-        site: "https://shopee-admin-ecru.vercel.app/"
+        site: "https://shopee-admin-ecru.vercel.app/",
+        new: true
     },
     {
         img: "/projects/robot.png",
@@ -16,7 +17,8 @@ const data = [
         desc: "Modern SaaS platform leveraging LLM and LangChain to build an AI powered document chatbot",
         link: "/projects/clerkio",
         gitHub: "https://github.com/siranchao/clerk.io",
-        site: "https://clerk-io.vercel.app/"
+        site: "https://clerk-io.vercel.app/",
+        new: true
     },
     {
         img: "/projects/museum.png",
@@ -24,7 +26,8 @@ const data = [
         desc: "An online archive app designed for museum and art lovers!",
         link: "/projects/museum",
         gitHub: "https://github.com/siranchao/my_museum",
-        site: "https://my-museum.vercel.app/"
+        site: "https://my-museum.vercel.app/",
+        new: false
     },
     {
         img: "/projects/powerapps2.png",
@@ -32,7 +35,8 @@ const data = [
         desc: "A lightweight system app for managing, querying, and analyzing massive information from an enterprise level SQL database",
         link: "/projects/apm",
         gitHub: "https://github.com/siranchao/ops_apm",
-        site: "https://youtu.be/ZTjdyVZpngI?si=rSJnLjDVIUAzpF-v"
+        site: "https://youtu.be/ZTjdyVZpngI?si=rSJnLjDVIUAzpF-v",
+        new: false
     },
 
     {
@@ -41,7 +45,8 @@ const data = [
         desc: "Create, send, and share kudos with each other in a casual and interesting way!",
         link: "/projects/kudos",
         gitHub: "https://github.com/siranchao/kudos",
-        site: "https://kudos-clone.vercel.app/"
+        site: "https://kudos-clone.vercel.app/",
+        new: false
     },
     {
         img: "/projects/carhub.png",
@@ -49,7 +54,8 @@ const data = [
         desc: "A simple frontend application demo built with latest React and Next.js",
         link: "/projects/carhub",
         gitHub: "https://github.com/siranchao/auto_lab",
-        site: "https://auto-lab-gamma.vercel.app/"
+        site: "https://auto-lab-gamma.vercel.app/",
+        new: false
     },
     // {
     //     img: "/projects/siran.dev.png",
@@ -57,7 +63,8 @@ const data = [
     //     desc: "Welcome to my portfolio website, here you can view my works and find useful resources!",
     //     link: "/projects/sirandev",
     //     gitHub: "https://github.com/siranchao/siran.dev",
-    //     site: "https://www.siran.dev/"
+    //     site: "https://www.siran.dev/",
+    //      new: false
     // },
 ]
 
@@ -72,6 +79,16 @@ export default function Projects() {
             {/* Card */}
             {data.map((record: any, index: number) => (
                         <div key={index} className="group card card-compact w-3/4 h-full md:w-full shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100 dark:bg-gray-200">
+                            {record.new && (
+                                <Image 
+                                    src='/utils/new2.webp' 
+                                    alt='new' 
+                                    width={35} 
+                                    height={35} 
+                                    className='absolute top-1 left-1'
+                                />
+                            )}
+
                             {/* add project logo here */}
                             <Image
                                 src={record.img}

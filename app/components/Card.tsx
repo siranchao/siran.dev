@@ -35,13 +35,24 @@ export default function Card({ record }: { record: any }) {
     return (
         <div className="bg-gray-100 rounded-lg shadow-md flex items-center cursor-pointer hover:shadow-2xl hover:-translate-y-1 duration-200 ease-in w-full h-36 dark:bg-gray-200"
         onClick={clickCard}>
-            <div className="w-1/3">
+
+            <div className="w-1/3 relative h-full">
+                {record.new && (
+                    <Image 
+                        src='/utils/new2.webp'
+                        alt='new'
+                        width={30}
+                        height={30}
+                        className='absolute top-1 left-1'
+                    />
+                )}
+
                 {record.imgUrl && <Image
                     src={record.imgUrl}
                     alt="Desc Image"
                     width={60}
                     height={60}
-                    className="m-auto rounded-lg"
+                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg"
                 />}
             </div>
             <div className="w-2/3 h-full p-2">

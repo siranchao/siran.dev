@@ -14,6 +14,7 @@ interface Record {
     tag?: string[]
     description: string
     date: string
+    new: boolean
 }
 
 const projects: Record[] = [
@@ -23,7 +24,8 @@ const projects: Record[] = [
         imgUrl: '/projects/shopee.png',
         tag: ['Full-stack', 'React', 'Next.js'],
         description: "E-commerce platform with Dashboard & CMS, and simple online store template.",
-        date: 'Oct 8, 2023'
+        date: 'Oct 8, 2023',
+        new: true
     },
     {
         title: 'Clerk.io - AI Assistant',
@@ -31,7 +33,8 @@ const projects: Record[] = [
         imgUrl: '/projects/robot.png',
         tag: ['Full-stack', 'React', 'LLM'],
         description: "An AI powered document chatbot and SaaS project",
-        date: 'Dec 6, 2023'
+        date: 'Dec 6, 2023',
+        new: true
     },
     {
         title: 'Portable Museum',
@@ -39,7 +42,8 @@ const projects: Record[] = [
         imgUrl: '/projects/museum.png',
         tag: ['React', 'Next 12'],
         description: "An online archive app designed for museum and art lovers!",
-        date: 'Feb 13, 2023'
+        date: 'Feb 13, 2023',
+        new: false
     },
     {
         title: 'Application Portfolio Manager (APM)',
@@ -47,7 +51,8 @@ const projects: Record[] = [
         imgUrl: '/projects/powerapps2.png',
         tag: ['OPS', 'PowerApps'],
         description: "A lightweight system app for managing, querying, and analyzing massive information from an enterprise level SQL database",
-        date: 'Jan 5, 2023'
+        date: 'Jan 5, 2023',
+        new: false
     },
     {
         title: 'CarHub - Demo',
@@ -55,7 +60,8 @@ const projects: Record[] = [
         imgUrl: '/projects/carhub.png',
         tag: ['Frontend', 'React'],
         description: "A simple frontend application demo built with latest React and Next.js",
-        date: 'Sep 9, 2023'
+        date: 'Sep 9, 2023',
+        new: false
     },
     {
         title: 'Kudos App',
@@ -63,7 +69,8 @@ const projects: Record[] = [
         imgUrl: '/projects/kudos.png',
         tag: ['Full-stack', 'React', 'Next.js'],
         description: "Create, send, and share kudos with each other in a casual and interesting way!",
-        date: 'May 24, 2023'
+        date: 'May 24, 2023',
+        new: false
     },
     {
         title: 'Siran.dev',
@@ -71,7 +78,8 @@ const projects: Record[] = [
         imgUrl: '/projects/siran.dev.png',
         tag: ['Full-stack', 'React', 'Next.js'],
         description: "Welcome to my portfolio website, here you can view my works and find useful resources!",
-        date: 'Jun 28, 2023'
+        date: 'Jun 28, 2023',
+        new: false
     },
     {
         title: 'Delegation of Authority Registry',
@@ -79,7 +87,8 @@ const projects: Record[] = [
         imgUrl: '/projects/powerapps.png',
         tag: ['OPS', 'PowerApps'],
         description: "A low-code application allows users to register and manage their delegation of authority process",
-        date: 'Aug 15, 2022'
+        date: 'Aug 15, 2022',
+        new: false
     },
     {
         title: "Siran's Kitchen",
@@ -87,7 +96,8 @@ const projects: Record[] = [
         imgUrl: '/projects/kitchen.svg',
         tag: ['Vanilla', 'NodeJS'],
         description: "A simple web app to record and share your favorite food recipes",
-        date: 'Sep 22, 2022'
+        date: 'Sep 22, 2022',
+        new: false
     },
 ]
 
