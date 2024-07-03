@@ -18,7 +18,7 @@ Siran.dev is a full-stack web application using React + Next 13 app router and N
 - Next 13 app router + react
 - Including: React, Next 13, TypeScript, Tailwind CSS, Prisma, Postgres
 - Application deployed on Vercel, database server is hosted on Goodle Cloud
-- App URL: [www.siran.dev]("www.siran.dev")
+- App URL: www.siran.dev
 
 
 
