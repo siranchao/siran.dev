@@ -16,7 +16,7 @@ export default function Kitchen() {
                 <br/>
                 <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">This web application was designed for record and publish my personal food recipes! Use sample node.js, express, and javaScript(Handlebars) to create a server application in order to implement sever-side rendering. This project is deployed on Cyclic</p>
                 <br/>
-                <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">URL: <a className="text-blue-500 font-regular hover:underline" href="https://siran-kitchen.cyclic.app/" target="_blank">https://siran-kitchen.cyclic.app/</a></p>
+                {/* <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">URL: <a className="text-blue-500 font-regular hover:underline" href="https://siran-kitchen.cyclic.app/" target="_blank">https://siran-kitchen.cyclic.app/</a></p> */}
                 <p className="text-sm font-semibold leading-relaxed text-gray-600 dark:text-gray-400">GitHub: <a className="text-blue-500 font-regular hover:underline" href="https://github.com/siranchao/siran_kitchen" target="_blank">https://github.com/siranchao/siran_kitchen</a></p>
                 <br/>
                 <div className="flex gap-4 flex-wrap">
