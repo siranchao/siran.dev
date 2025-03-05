@@ -8,7 +8,7 @@ const data = [
         desc: "E-commerce platform with Dashboard & CMS, and simple online store template",
         link: "/projects/shopee",
         gitHub: "https://github.com/siranchao/shopee-admin",
-        site: "https://shopee-admin-ecru.vercel.app/",
+        site: "https://www.youtube.com/watch?v=stRBZmJWm-8",
         new: true
     },
     {
@@ -17,7 +17,7 @@ const data = [
         desc: "Modern SaaS platform leveraging LLM and LangChain to build an AI powered document chatbot",
         link: "/projects/clerkio",
         gitHub: "https://github.com/siranchao/clerk.io",
-        site: "https://clerk-io.vercel.app/",
+        site: "https://www.youtube.com/watch?v=GENHOcXq1-8",
         new: true
     },
     {
@@ -45,7 +45,7 @@ const data = [
         desc: "Create, send, and share kudos with each other in a casual and interesting way!",
         link: "/projects/kudos",
         gitHub: "https://github.com/siranchao/kudos",
-        site: "https://kudos-clone.vercel.app/",
+        //site: "https://kudos-clone.vercel.app/",
         new: false
     },
     {
@@ -54,18 +54,9 @@ const data = [
         desc: "A simple frontend application demo built with latest React and Next.js",
         link: "/projects/carhub",
         gitHub: "https://github.com/siranchao/auto_lab",
-        site: "https://auto-lab-gamma.vercel.app/",
+        //site: "https://auto-lab-gamma.vercel.app/",
         new: false
     },
-    // {
-    //     img: "/projects/siran.dev.png",
-    //     title: "Siran.dev",
-    //     desc: "Welcome to my portfolio website, here you can view my works and find useful resources!",
-    //     link: "/projects/sirandev",
-    //     gitHub: "https://github.com/siranchao/siran.dev",
-    //     site: "https://www.siran.dev/",
-    //      new: false
-    // },
 ]
 
 

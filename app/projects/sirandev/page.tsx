@@ -32,9 +32,6 @@ export default function SiranDev() {
                     <a href="https://nodejs.org/en" target="_blank">
                         <Image src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="node" width={35} height={35} />
                     </a>
-                    <a href="https://tailwindcss.com/" target="_blank">
-                        <Image src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-plain.svg" alt="twcss" width={35} height={35} />
-                    </a>
                     <a href="https://www.docker.com/" target="_blank">
                         <Image src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-plain-wordmark.svg" alt="docker" width={35} height={35} />
                     </a>
