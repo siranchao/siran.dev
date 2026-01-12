@@ -62,84 +62,84 @@ const data = [
 
 export default function Projects() {
   return (
-    <div className="mb-20">
-      <p className="text-2xl mb-4 font-bold">My Projects</p>
+    <section>
+      <div className="flex items-center justify-between">
+        <h2 className="text-2xl font-bold text-base-content">Featured Projects</h2>
+        <Link href="/projects" className="text-sm text-blue-600 hover:underline">
+          All Projects →
+        </Link>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 place-items-center">
-        {/* Card */}
-        {data.map((record: any, index: number) => (
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        {data.slice(0, 3).map((record: any, index: number) => (
           <div
             key={index}
-            className="group card card-compact w-3/4 h-full md:w-full shadow-md hover:shadow-2xl duration-200 ease-in bg-gray-100 dark:bg-gray-200"
+            className="group overflow-hidden rounded-2xl bg-base-100 shadow-sm hover:shadow-md transition-shadow ring-1 ring-base-300/60"
           >
-            {record.new && (
+            <div className="relative w-full aspect-[16/10] bg-base-200">
+              {record.new && (
+                <span className="absolute top-3 right-3 z-10 px-2 py-1 text-[10px] font-semibold rounded-full bg-red-500 text-white">
+                  NEW
+                </span>
+              )}
               <Image
-                src="/utils/new2.webp"
-                alt="new"
-                width={35}
-                height={35}
-                className="absolute top-1 left-1"
+                src={record.img}
+                alt={record.title}
+                fill
+                className="object-cover"
               />
-            )}
+            </div>
 
-            {/* add project logo here */}
-            <Image
-              src={record.img}
-              alt="image"
-              width={50}
-              height={50}
-              className="m-auto pt-8 pb-4"
-            />
-            <div className="card-body">
-              {/* add project name and description here */}
-              <h3 className="card-title text-lg dark:text-gray-800 line-clamp-1">
-                {record.title}
-              </h3>
-              <p className="text-gray-600 line-clamp-3">{record.desc}</p>
-              {/* add page route for this project */}
-              <div className="card-actions mt-2 flex justify-between items-center">
+            <div className="p-5">
+              <p className="font-semibold text-base-content line-clamp-1">{record.title}</p>
+              <p className="mt-2 text-sm text-base-content/60 line-clamp-2">{record.desc}</p>
+
+              <div className="mt-4 flex items-center justify-between">
                 <Link
                   href={record.link}
-                  className="btn btn-ghost btn-sm p-0 normal-case text-accent-focus duration-200 ease-in group-hover:underline hover:bg-transparent"
+                  className="text-sm text-blue-600 hover:underline"
                 >
                   Read More
                 </Link>
 
-                {/* add github link and app link */}
-                <div className="flex gap-4 items-center">
-                  <div className="tooltip" data-tip="source code">
-                    <a href={record.gitHub} target="_blank">
-                      <Image
-                        src="/icon/github.svg"
-                        alt="github"
-                        width={25}
-                        height={25}
-                        className="fill-current"
-                      />
-                    </a>
-                  </div>
+                <div className="flex gap-3 items-center">
+                  <a
+                    href={record.gitHub}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="h-9 w-9 rounded-lg bg-base-200 hover:bg-base-300 transition-colors flex items-center justify-center"
+                    aria-label="source code"
+                  >
+                    <Image
+                      src="/icon/github.svg"
+                      alt="github"
+                      width={18}
+                      height={18}
+                      className="fill-current"
+                    />
+                  </a>
 
-                  <div className="tooltip" data-tip="visit site">
-                    <a href={record.site} target="_blank">
-                      <Image
-                        src="/dev/url.svg"
-                        alt="url"
-                        width={25}
-                        height={25}
-                        className="fill-current"
-                      />
-                    </a>
-                  </div>
+                  <a
+                    href={record.site}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="h-9 w-9 rounded-lg bg-base-200 hover:bg-base-300 transition-colors flex items-center justify-center"
+                    aria-label="visit site"
+                  >
+                    <Image
+                      src="/dev/url.svg"
+                      alt="url"
+                      width={18}
+                      height={18}
+                      className="fill-current"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         ))}
       </div>
-
-      <button className="btn btn-link normal-case mt-4 pl-0 text-gray-600 dark:text-gray-400">
-        <Link href={"/projects"}>All Projects</Link>
-      </button>
-    </div>
+    </section>
   );
 }
