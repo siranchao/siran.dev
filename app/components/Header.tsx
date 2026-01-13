@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 import ThemeBtn from "./ThemeBtn";
 import { useSession, signOut, signIn } from "next-auth/react";
 import { useDispatch } from "react-redux";
@@ -9,6 +10,8 @@ import { reset as resetCategoryList } from "@/features/categoryList/categoryList
 
 export default function Header() {
   const { data: session } = useSession();
+  const pathname = usePathname();
+  const router = useRouter();
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(resetFullList());
@@ -20,6 +23,15 @@ export default function Header() {
       top: document.body.scrollHeight,
       behavior: "smooth",
     });
+  };
+
+  const clickAbout = () => {
+    if (pathname === "/") {
+      scrollToBottom();
+      return;
+    }
+
+    router.push("/?scroll=about");
   };
 
   return (
@@ -53,7 +65,7 @@ export default function Header() {
               <Link href="/notes">Notes</Link>
             </li>
             <li>
-              <a onClick={scrollToBottom}>About</a>
+              <a onClick={clickAbout}>About</a>
             </li>
             {session && session.user ? (
               <>
@@ -90,7 +102,7 @@ export default function Header() {
               <Link href="/notes">Notes</Link>
             </li>
             <li>
-              <a onClick={scrollToBottom}>About</a>
+              <a onClick={clickAbout}>About</a>
             </li>
           </ul>
         </div>

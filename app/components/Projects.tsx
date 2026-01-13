@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const data = [
   {
-    img: "/projects/shopee.png",
+    img: "/project/shopping.jpg",
     title: "Shopee E-Commerce",
     desc: "E-commerce platform with Dashboard & CMS, and simple online store template",
     link: "/projects/shopee",
@@ -12,7 +12,7 @@ const data = [
     new: true,
   },
   {
-    img: "/projects/robot.png",
+    img: "/project/ai.jpg",
     title: "Clerk.io - AI Assistant",
     desc: "Modern SaaS platform leveraging LLM and LangChain to build an AI powered document chatbot",
     link: "/projects/clerkio",
@@ -21,7 +21,7 @@ const data = [
     new: true,
   },
   {
-    img: "/projects/museum.png",
+    img: "/project/museum.jpg",
     title: "Portable Museum",
     desc: "An online archive app designed for museum and art lovers!",
     link: "/projects/museum",
@@ -64,8 +64,13 @@ export default function Projects() {
   return (
     <section>
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-base-content">Featured Projects</h2>
-        <Link href="/projects" className="text-sm text-blue-600 hover:underline">
+        <h2 className="text-2xl font-bold text-base-content">
+          Featured Projects
+        </h2>
+        <Link
+          href="/projects"
+          className="text-sm text-blue-600 hover:underline"
+        >
           All Projects →
         </Link>
       </div>
@@ -74,7 +79,7 @@ export default function Projects() {
         {data.slice(0, 3).map((record: any, index: number) => (
           <div
             key={index}
-            className="group overflow-hidden rounded-2xl bg-base-100 shadow-sm hover:shadow-md transition-shadow ring-1 ring-base-300/60"
+            className="group overflow-hidden rounded-3xl bg-base-100 shadow-sm hover:shadow-md transition-shadow ring-1 ring-base-300/60"
           >
             <div className="relative w-full aspect-[16/10] bg-base-200">
               {record.new && (
@@ -86,13 +91,17 @@ export default function Projects() {
                 src={record.img}
                 alt={record.title}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-105"
               />
             </div>
 
             <div className="p-5">
-              <p className="font-semibold text-base-content line-clamp-1">{record.title}</p>
-              <p className="mt-2 text-sm text-base-content/60 line-clamp-2">{record.desc}</p>
+              <p className="font-semibold text-base-content line-clamp-1">
+                {record.title}
+              </p>
+              <p className="mt-2 text-sm text-base-content/60 line-clamp-2">
+                {record.desc}
+              </p>
 
               <div className="mt-4 flex items-center justify-between">
                 <Link
