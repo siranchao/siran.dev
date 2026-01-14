@@ -116,7 +116,7 @@ export default function Projects() {
                     href={record.gitHub}
                     target="_blank"
                     rel="noreferrer"
-                    className="h-9 w-9 rounded-lg bg-base-200 hover:bg-base-300 transition-colors flex items-center justify-center"
+                    className="h-9 w-9 rounded-lg bg-gray-100 dark:bg-gray-500 hover:bg-base-300 transition-colors flex items-center justify-center"
                     aria-label="source code"
                   >
                     <Image
@@ -132,7 +132,7 @@ export default function Projects() {
                     href={record.site}
                     target="_blank"
                     rel="noreferrer"
-                    className="h-9 w-9 rounded-lg bg-base-200 hover:bg-base-300 transition-colors flex items-center justify-center"
+                    className="h-9 w-9 rounded-lg bg-gray-100 dark:bg-gray-500 hover:bg-base-300 transition-colors flex items-center justify-center"
                     aria-label="visit site"
                   >
                     <Image

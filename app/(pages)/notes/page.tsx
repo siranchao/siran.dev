@@ -1,12 +1,12 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import NoteCard from "../components/_section/NoteCard";
-import Pagination from "../components/_lib/Pagination";
-import Breadcrumbs from "../components/_lib/Breadcrumbs";
+import NoteCard from "../../components/_section/NoteCard";
+import Pagination from "../../components/_lib/Pagination";
+import Breadcrumbs from "../../components/_lib/Breadcrumbs";
 import axios from "axios";
-import { PostData } from "../lib/types";
-import ShowLoading from "../components/_lib/ShowLoading";
-import Filter from "../components/_lib/Filter";
+import { PostData } from "../../lib/types";
+import ShowLoading from "../../components/_lib/ShowLoading";
+import Filter from "../../components/_lib/Filter";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setCurrentPage,

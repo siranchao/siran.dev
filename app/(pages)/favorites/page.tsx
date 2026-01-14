@@ -1,15 +1,15 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import NoteCard from "../components/_section/NoteCard";
-import Pagination from "../components/_lib/Pagination";
-import Breadcrumbs from "../components/_lib/Breadcrumbs";
+import NoteCard from "../../components/_section/NoteCard";
+import Pagination from "../../components/_lib/Pagination";
+import Breadcrumbs from "../../components/_lib/Breadcrumbs";
 import axios from "axios";
-import { PostData } from "../lib/types";
-import ShowLoading from "../components/_lib/ShowLoading";
+import { PostData } from "../../lib/types";
+import ShowLoading from "../../components/_lib/ShowLoading";
 import { useSession } from "next-auth/react";
 import { Square3Stack3DIcon } from "@heroicons/react/24/solid";
-import { Tag } from "../lib/types";
-import Warning from "../components/_lib/Warning";
+import { Tag } from "../../lib/types";
+import Warning from "../../components/_lib/Warning";
 import { useRouter } from "next/navigation";
 
 const perPage: number = 12;

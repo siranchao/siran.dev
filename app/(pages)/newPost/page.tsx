@@ -3,11 +3,11 @@ import { useSession } from "next-auth/react";
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { createNewPost, createNewCategory } from "../lib/db";
+import { createNewPost, createNewCategory } from "../../lib/db";
 import { useRouter } from "next/navigation";
-import { PostData, Tag } from "../lib/types";
-import SelectTag from "../components/_section/SelectTag";
-import Warning from "../components/_lib/Warning";
+import { PostData, Tag } from "../../lib/types";
+import SelectTag from "../../components/_section/SelectTag";
+import Warning from "../../components/_lib/Warning";
 
 const uploadImg = async (img: File, type: string) => {
   const data = new FormData();
