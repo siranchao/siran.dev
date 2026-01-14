@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Github, ExternalLink } from "lucide-react";
 
 const data = [
   {
@@ -79,7 +80,7 @@ export default function Projects() {
         {data.slice(0, 3).map((record: any, index: number) => (
           <div
             key={index}
-            className="group overflow-hidden rounded-3xl bg-base-100 shadow-sm hover:shadow-md transition-shadow ring-1 ring-base-300/60"
+            className="group overflow-hidden rounded-2xl bg-base-100 shadow-sm hover:shadow-md transition-shadow ring-1 ring-base-300/60"
           >
             <div className="relative w-full aspect-[16/10] bg-base-200">
               {record.new && (
@@ -111,37 +112,25 @@ export default function Projects() {
                   Read More
                 </Link>
 
-                <div className="flex gap-3 items-center">
+                <div className="flex gap-1 items-center">
                   <a
                     href={record.gitHub}
                     target="_blank"
                     rel="noreferrer"
-                    className="h-9 w-9 rounded-lg bg-gray-100 dark:bg-gray-500 hover:bg-base-300 transition-colors flex items-center justify-center"
+                    className="h-9 w-9 rounded-lg bg-transparent hover:bg-base-300 transition-colors flex items-center justify-center"
                     aria-label="source code"
                   >
-                    <Image
-                      src="/icon/github.svg"
-                      alt="github"
-                      width={18}
-                      height={18}
-                      className="fill-current"
-                    />
+                    <Github className="w-4 h-4" />
                   </a>
 
                   <a
                     href={record.site}
                     target="_blank"
                     rel="noreferrer"
-                    className="h-9 w-9 rounded-lg bg-gray-100 dark:bg-gray-500 hover:bg-base-300 transition-colors flex items-center justify-center"
+                    className="h-9 w-9 rounded-lg bg-transparent hover:bg-base-300 transition-colors flex items-center justify-center"
                     aria-label="visit site"
                   >
-                    <Image
-                      src="/dev/url.svg"
-                      alt="url"
-                      width={18}
-                      height={18}
-                      className="fill-current"
-                    />
+                    <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
               </div>

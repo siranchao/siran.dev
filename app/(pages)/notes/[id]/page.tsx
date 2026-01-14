@@ -5,6 +5,7 @@ import Actions from "@/app/components/_lib/Actions";
 import Tag from "@/app/components/_lib/Tag";
 import Image from "next/image";
 import { PostData } from "@/app/lib/types";
+import { formatShortDate } from "@/app/lib/date";
 import axios from "axios";
 import Link from "next/link";
 
@@ -87,11 +88,7 @@ export default async function Note({ params }: { params: { id: string } }) {
       <section className="mb-16">
         <p className="text-2xl mb-4 font-bold tracking-wide">{content.title}</p>
         <p className="text-sm text-gray-400 font-light dark:text-gray-600">
-          {new Date(data.createdAt).toLocaleDateString("en-US", {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-          })}
+          {formatShortDate(data.createdAt)}
         </p>
         <div className="mt-2">
           {data?.categories.length > 0 &&

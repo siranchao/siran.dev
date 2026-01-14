@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import { ShareIcon, StarIcon, ClipboardDocumentCheckIcon, CheckCircleIcon, InformationCircleIcon } from "@heroicons/react/24/solid";
 import axios from "axios";
 import Link from "next/link";
+import { formatShortDate } from "@/app/lib/date";
 
 
 
@@ -99,7 +100,7 @@ export default function Actions({postId, updatedAt, favoritedBy}: {postId: strin
             </dialog>
           
             <section className="mb-16 flex justify-between items-center">
-                <p className="text-sm text-gray-400 font-light dark:text-gray-600">Last update: {new Date(updatedAt).toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'})}</p>
+                <p className="text-sm text-gray-400 font-light dark:text-gray-600">Last update: {formatShortDate(updatedAt)}</p>
 
                 <div className="flex gap-2 items-center">
                     <button className="btn btn-xs btn-outline btn-info normal-case" onClick={handleCopy}>

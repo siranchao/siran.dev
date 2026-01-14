@@ -1,6 +1,7 @@
 import axios from "axios";
-import { PostData } from "../lib/types";
+import { PostData } from "../../lib/types";
 import Link from "next/link";
+import { formatShortDate } from "@/app/lib/date";
 
 async function getData() {
   try {
@@ -96,11 +97,7 @@ export default async function Notes() {
 
                   <div className="shrink-0 text-right">
                     <p className="text-xs text-base-content/50">
-                      {new Date(post.createdAt).toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
+                      {formatShortDate(post.createdAt)}
                     </p>
                   </div>
                 </div>
