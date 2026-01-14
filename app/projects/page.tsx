@@ -1,6 +1,6 @@
-import Card from "../components/Card";
+import Card from "../components/_lib/Card";
 import { Metadata } from "next";
-import Breadcrumbs from "../components/Breadcrumbs";
+import Breadcrumbs from "../components/_lib/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Siran.dev | Projects",

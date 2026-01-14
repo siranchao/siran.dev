@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import ThemeBtn from "./ThemeBtn";
+import ThemeBtn from "../_lib/ThemeBtn";
 import { useSession, signOut, signIn } from "next-auth/react";
 import { useDispatch } from "react-redux";
 import { reset as resetFullList } from "@/features/fullList/fullListSlice";

@@ -1,10 +1,10 @@
-import Intro from "./components/Intro";
-import Skill from "./components/Skill";
-import Projects from "./components/Projects";
-import BackToTop from "./components/BackToTop";
-import Notes from "./components/Notes";
-import AboutMe from "./components/AboutMe";
-import ScrollToBottomOnLoad from "./components/ScrollToBottomOnLoad";
+import Intro from "./components/_section/Intro";
+import Skill from "./components/_section/Skill";
+import Projects from "./components/_section/Projects";
+import BackToTop from "./components/_lib/BackToTop";
+import Notes from "./components/_section/Notes";
+import AboutMe from "./components/_section/AboutMe";
+import ScrollToBottomOnLoad from "./components/_helper/ScrollToBottomOnLoad";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

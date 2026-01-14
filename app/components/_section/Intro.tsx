@@ -27,7 +27,7 @@ export default function Intro() {
               </a>
               <a
                 href="/projects"
-                className="btn normal-case bg-transparent border border-slate-200 text-slate-900 hover:bg-white/70 dark:border-slate-700 dark:text-slate-100 dark:hover:bg-slate-900"
+                className="btn normal-case bg-transparent border border-slate-300 text-slate-900 hover:bg-white/70 dark:border-slate-700 dark:text-slate-100 dark:hover:bg-slate-900"
               >
                 View Projects
               </a>

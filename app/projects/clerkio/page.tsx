@@ -1,6 +1,6 @@
 import Image from "next/image";
-import BackToTop from "@/app/components/BackToTop";
-import Breadcrumbs from "@/app/components/Breadcrumbs";
+import BackToTop from "@/app/components/_lib/BackToTop";
+import Breadcrumbs from "@/app/components/_lib/Breadcrumbs";
 
 export default function ClerkioPage() {
   return (

@@ -1,6 +1,5 @@
-import ShowLoading from "./components/ShowLoading"
+import ShowLoading from "./components/_lib/ShowLoading";
 
 export default function Loading() {
-
-    return <ShowLoading/>
+  return <ShowLoading />;
 }
