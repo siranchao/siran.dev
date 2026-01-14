@@ -3,11 +3,11 @@ import BackToTop from "@/app/components/_lib/BackToTop";
 import Breadcrumbs from "@/app/components/_lib/Breadcrumbs";
 import Actions from "@/app/components/_lib/Actions";
 import Tag from "@/app/components/_lib/Tag";
+import RelevantPosts from "../../../components/_lib/RelevantPosts";
 import Image from "next/image";
 import { PostData } from "@/app/lib/types";
 import { formatShortDate } from "@/app/lib/date";
 import axios from "axios";
-import Link from "next/link";
 
 type Props = {
   params: { id: string };
@@ -73,12 +73,13 @@ function selectTheme(index: number) {
 
 export default async function Note({ params }: { params: { id: string } }) {
   const data = await getData(params.id);
-  const content: PostData = JSON.parse(data.content);
-  const relevantPosts = await getRelevantPosts(data.categories);
 
   if (!data) {
     return <Warning msg={"No data can be found, please try again"} />;
   }
+
+  const content: PostData = JSON.parse(data.content);
+  const relevantPosts = await getRelevantPosts(data.categories);
 
   return (
     <main className="mb-20">
@@ -235,20 +236,7 @@ export default async function Note({ params }: { params: { id: string } }) {
       {relevantPosts && relevantPosts.length > 0 && (
         <section className="mb-16">
           <p className="text-xl mb-4 font-semibold">You might also like:</p>
-          <ul className="text-sm list-disc pl-4 leading-loose text-gray-600 dark:text-gray-400">
-            {relevantPosts.map(
-              (post: { id: string; title: string }, index: number) => (
-                <li
-                  key={index}
-                  className="hover:font-semibold duration-200 ease-in"
-                >
-                  <Link href={`/notes/${post.id}`} className="line-clamp-1">
-                    {post.title}
-                  </Link>
-                </li>
-              )
-            )}
-          </ul>
+          <RelevantPosts posts={relevantPosts} />
         </section>
       )}
 
