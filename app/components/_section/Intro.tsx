@@ -21,13 +21,13 @@ export default function Intro() {
             <div className="flex flex-wrap gap-3">
               <a
                 href="#contact"
-                className="btn normal-case bg-slate-900 text-white hover:bg-slate-800 border-none dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white"
+                className="btn w-32 normal-case bg-slate-900 text-white hover:bg-slate-800 border-none dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white"
               >
-                Get in touch
+                Get in Touch
               </a>
               <a
                 href="/projects"
-                className="btn normal-case bg-transparent border border-slate-300 text-slate-900 hover:bg-white/70 dark:border-slate-700 dark:text-slate-100 dark:hover:bg-slate-900"
+                className="btn w-32 normal-case bg-transparent border border-slate-300 text-slate-900 hover:bg-white/70 dark:border-slate-700 dark:text-slate-100 dark:hover:bg-slate-900"
               >
                 View Projects
               </a>
@@ -35,25 +35,18 @@ export default function Intro() {
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-[260px] sm:w-[320px] aspect-square">
-              <div className="absolute -inset-4 rounded-[28px] bg-gradient-to-br from-indigo-500/30 via-sky-400/20 to-transparent blur-2xl" />
-              <div className="relative h-full w-full rounded-[28px] bg-white/90 shadow-[0_24px_60px_rgba(99,102,241,0.25)] ring-4 ring-white/80 p-4 dark:bg-base-100 dark:ring-base-200/40">
-                <div className="relative h-full w-full overflow-hidden rounded-2xl ring-1 ring-black/5 dark:ring-base-300/30">
-                  <a
-                    href="https://www.linkedin.com/in/siran-chao/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Image
-                      src="/myself.jpg"
-                      alt="Myself"
-                      fill
-                      priority
-                      className="object-cover transition-transform duration-300 ease-out hover:scale-105"
-                    />
-                  </a>
-                </div>
-              </div>
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+              <Image
+                alt="Siran Profile"
+                className="relative w-56 h-56 md:w-72 md:h-72 object-cover rounded-3xl shadow-2xl rotate-2 group-hover:rotate-0 transition-transform duration-500"
+                src="/me.png"
+                //src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2d-ahoOdQIBBhmH4JInYusoma-So5JRWRA_vA-po7M_GeTy00HAxMxyHY5eL3GvIKk-LxSe5vp2sIdhs43MBGyVGMSz4OGTAClUNgTb6kUd3F1hBmowLMzkg6Qpyv3aZ9EUt1aCLucHBxIN4ZVqtHW28j3BRv8G2bUVYe3Ln1oCKVgt9vHd4a9HTv9o6rEIQv7cLw-UPZR-CYynMJ7P6j0_Lq0pOs-6tho2fcfbRY2SuD3aLXzUiIQb1EtHwpie1tYfMEnbZhUrBV"
+                width={288}
+                height={288}
+                sizes="(min-width: 768px) 288px, 224px"
+                priority
+              />
             </div>
           </div>
         </div>

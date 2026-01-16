@@ -16,19 +16,19 @@ export default function Home() {
   return (
     <>
       <ScrollToBottomOnLoad />
-      <div className="py-16 border-b border-base-300 dark:border-base-content/20">
+      <div className="py-16">
         <Intro />
       </div>
 
-      <div className="py-16 border-b border-base-300 dark:border-base-content/20">
+      <div className="py-16">
         <Skill />
       </div>
 
-      <div className="py-16 border-b border-base-300 dark:border-base-content/20">
+      <div className="py-16">
         <Projects />
       </div>
 
-      <div className="py-16 border-b border-base-300 dark:border-base-content/20">
+      <div className="py-16">
         <Notes />
       </div>
 
