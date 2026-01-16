@@ -9,6 +9,12 @@ const nextConfig = {
                 port: '',
                 pathname: '/siran-chao/image/upload/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'lh3.googleusercontent.com',
+                port: '',
+                pathname: '/**',
+            },
         ],
     },
     async headers() {

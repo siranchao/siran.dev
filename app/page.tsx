@@ -1,25 +1,36 @@
-import Intro from "./components/Intro"
-import Skill from "./components/Skill"
-import Projects from "./components/Projects"
-import BackToTop from "./components/BackToTop"
-import Notes from "./components/Notes"
-import { Metadata } from 'next'
+import Intro from "./components/_section/Intro";
+import Projects from "./components/_section/Projects";
+import BackToTop from "./components/_lib/BackToTop";
+import Notes from "./components/_section/Notes";
+import AboutMe from "./components/_section/AboutMe";
+import ScrollToBottomOnLoad from "./components/_helper/ScrollToBottomOnLoad";
+import { Metadata } from "next";
 
-
-export const  metadata: Metadata = {
-  title: 'Siran.dev | Home',
-  description: 'The index page of Siran.dev',
-}
-
+export const metadata: Metadata = {
+  title: "Siran.dev | Home",
+  description: "The index page of Siran.dev",
+};
 
 export default function Home() {
   return (
     <>
-      <Intro />
-      <Skill />
-      <Projects />
-      <Notes />
+      <ScrollToBottomOnLoad />
+      <div className="py-16">
+        <Intro />
+      </div>
+
+      <div className="py-16">
+        <Projects />
+      </div>
+
+      <div className="py-16">
+        <Notes />
+      </div>
+
+      <div className="py-16">
+        <AboutMe />
+      </div>
       <BackToTop />
     </>
-  )
+  );
 }

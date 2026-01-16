@@ -2,22 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground: rgb(0, 0, 0);
-  --background: linear-gradient(
-    to bottom,
-    transparent,
-    rgb(255, 255, 255)
-  )
-  rgb(214, 219, 220);
-}
-
-[class='dark'] {
-  --foreground: rgb(255, 255, 255);
-  --background: rgb(32 35 42);
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 }
