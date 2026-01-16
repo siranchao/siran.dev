@@ -3,6 +3,7 @@ import { ThemeProvider } from "next-themes";
 import { SessionProvider } from "next-auth/react";
 import { Provider as ReduxProvider } from "react-redux";
 import { store } from "@/app/store";
+import ModalProvider from "./ModalProvider";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +13,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         defaultTheme="light"
         enableSystem={false}
       >
-        <ReduxProvider store={store}>{children}</ReduxProvider>
+        <ReduxProvider store={store}>
+          <ModalProvider>{children}</ModalProvider>
+        </ReduxProvider>
       </ThemeProvider>
     </SessionProvider>
   );

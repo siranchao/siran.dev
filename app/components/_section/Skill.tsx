@@ -9,7 +9,7 @@ export default function Skill() {
     <>
       <section>
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-base-content">
+          <h2 className="font-semibold text-base-content">
             Stacks &amp; Skills
           </h2>
         </div>

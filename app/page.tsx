@@ -1,5 +1,4 @@
 import Intro from "./components/_section/Intro";
-import Skill from "./components/_section/Skill";
 import Projects from "./components/_section/Projects";
 import BackToTop from "./components/_lib/BackToTop";
 import Notes from "./components/_section/Notes";
@@ -18,10 +17,6 @@ export default function Home() {
       <ScrollToBottomOnLoad />
       <div className="py-16">
         <Intro />
-      </div>
-
-      <div className="py-16">
-        <Skill />
       </div>
 
       <div className="py-16">
