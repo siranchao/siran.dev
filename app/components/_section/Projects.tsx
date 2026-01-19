@@ -2,7 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { Github, ExternalLink } from "lucide-react";
 
-const data = [
+export interface IProjectCardData {
+  img: string;
+  title: string;
+  desc: string;
+  link: string;
+  gitHub?: string;
+  site?: string;
+  isNew?: boolean;
+}
+
+const data: IProjectCardData[] = [
   {
     img: "/project/shopping.jpg",
     title: "Shopee E-Commerce",
@@ -10,7 +20,7 @@ const data = [
     link: "/projects/shopee",
     gitHub: "https://github.com/siranchao/shopee-admin",
     site: "https://www.youtube.com/watch?v=stRBZmJWm-8",
-    new: true,
+    isNew: true,
   },
   {
     img: "/project/ai.jpg",
@@ -19,7 +29,7 @@ const data = [
     link: "/projects/clerkio",
     gitHub: "https://github.com/siranchao/clerk.io",
     site: "https://www.youtube.com/watch?v=GENHOcXq1-8",
-    new: true,
+    isNew: true,
   },
   {
     img: "/project/museum.jpg",
@@ -28,7 +38,7 @@ const data = [
     link: "/projects/museum",
     gitHub: "https://github.com/siranchao/my_museum",
     site: "https://my-museum.vercel.app/",
-    new: false,
+    isNew: false,
   },
   {
     img: "/projects/carhub.png",
@@ -37,7 +47,7 @@ const data = [
     link: "/projects/carhub",
     gitHub: "https://github.com/siranchao/auto_lab",
     //site: "https://auto-lab-gamma.vercel.app/",
-    new: false,
+    isNew: false,
   },
 
   // {
@@ -47,7 +57,7 @@ const data = [
   //   link: "/projects/apm",
   //   gitHub: "https://github.com/siranchao/ops_apm",
   //   site: "https://youtu.be/ZTjdyVZpngI?si=rSJnLjDVIUAzpF-v",
-  //   new: false,
+  //   isNew: false,
   // },
 
   // {
@@ -57,9 +67,91 @@ const data = [
   //   link: "/projects/kudos",
   //   gitHub: "https://github.com/siranchao/kudos",
   //   //site: "https://kudos-clone.vercel.app/",
-  //   new: false,
+  //   isNew: false,
   // },
 ];
+
+
+
+export const ProjectCard = (props: IProjectCardData) => {
+  const { img, title, desc, link, gitHub, site, isNew } = props;
+
+
+  return (
+    <div
+      className="group overflow-hidden rounded-2xl bg-base-100 shadow-sm hover:shadow-md transition-shadow ring-1 ring-base-300/60"
+    >
+      <div className="relative w-full aspect-[16/10] bg-base-200">
+        {isNew && (
+          <span className="absolute top-3 right-3 z-10 px-2 py-1 text-[10px] font-semibold rounded-full bg-red-500 text-white">
+            NEW
+          </span>
+        )}
+        <Image
+          src={img}
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-105"
+        />
+      </div>
+
+      <div className="p-5">
+        <p className="font-semibold text-base-content line-clamp-1">
+          {title}
+        </p>
+        <p className="mt-2 text-sm text-base-content/60 line-clamp-2">
+          {desc}
+        </p>
+
+        <div className="mt-4 flex items-center justify-between">
+          <Link
+            href={link}
+            className="text-sm text-blue-600 hover:underline"
+          >
+            Read More
+          </Link>
+
+          <div className="flex gap-1 items-center">
+
+            {gitHub ? (
+              <a
+                href={gitHub}
+                target="_blank"
+                rel="noreferrer"
+                className='h-9 w-9 rounded-lg bg-transparent hover:bg-base-300 transition-colors flex items-center justify-center'
+                aria-label="source code"
+              >
+                <Github className="w-4 h-4" />
+              </a>
+            ) : (
+              <div className='h-9 w-9 rounded-lg bg-transparent opacity-50 cursor-not-allowed flex items-center justify-center'>
+                <Github className="w-4 h-4" />
+              </div>
+            )}
+
+            {site ? (
+              <a
+                href={site}
+                target="_blank"
+                rel="noreferrer"
+                className='h-9 w-9 rounded-lg bg-transparent hover:bg-base-300 transition-colors flex items-center justify-center'
+                aria-label="visit site"
+              >
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            ) : (
+              <div className='h-9 w-9 rounded-lg bg-transparent opacity-50 cursor-not-allowed flex items-center justify-center'>
+                <ExternalLink className="w-4 h-4" />
+              </div>
+
+            )}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function Projects() {
   return (
@@ -78,64 +170,7 @@ export default function Projects() {
 
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {data.slice(0, 3).map((record: any, index: number) => (
-          <div
-            key={index}
-            className="group overflow-hidden rounded-2xl bg-base-100 shadow-sm hover:shadow-md transition-shadow ring-1 ring-base-300/60"
-          >
-            <div className="relative w-full aspect-[16/10] bg-base-200">
-              {record.new && (
-                <span className="absolute top-3 right-3 z-10 px-2 py-1 text-[10px] font-semibold rounded-full bg-red-500 text-white">
-                  NEW
-                </span>
-              )}
-              <Image
-                src={record.img}
-                alt={record.title}
-                fill
-                className="object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-105"
-              />
-            </div>
-
-            <div className="p-5">
-              <p className="font-semibold text-base-content line-clamp-1">
-                {record.title}
-              </p>
-              <p className="mt-2 text-sm text-base-content/60 line-clamp-2">
-                {record.desc}
-              </p>
-
-              <div className="mt-4 flex items-center justify-between">
-                <Link
-                  href={record.link}
-                  className="text-sm text-blue-600 hover:underline"
-                >
-                  Read More
-                </Link>
-
-                <div className="flex gap-1 items-center">
-                  <a
-                    href={record.gitHub}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="h-9 w-9 rounded-lg bg-transparent hover:bg-base-300 transition-colors flex items-center justify-center"
-                    aria-label="source code"
-                  >
-                    <Github className="w-4 h-4" />
-                  </a>
-
-                  <a
-                    href={record.site}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="h-9 w-9 rounded-lg bg-transparent hover:bg-base-300 transition-colors flex items-center justify-center"
-                    aria-label="visit site"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ProjectCard key={index} {...record} />
         ))}
       </div>
     </section>
