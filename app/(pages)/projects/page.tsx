@@ -47,7 +47,7 @@ const projects: IProjectCardData[] = [
     isNew: false,
   },
   {
-    img: "/projects/carhub.png",
+    img: "/project/carhub.png",
     title: "CarHub - Demo",
     desc: "A frontend application demo built with latest React and Next.js",
     link: "/projects/carhub",
@@ -56,7 +56,7 @@ const projects: IProjectCardData[] = [
     isNew: false,
   },
   {
-    img: "/projects/powerapps2.png",
+    img: "/project/apm.jpg",
     title: "Application Portfolio Manager (APM)",
     desc: "A lightweight system app for managing, querying, and analyzing massive information from an enterprise level SQL database",
     link: "/projects/apm",
@@ -65,7 +65,7 @@ const projects: IProjectCardData[] = [
     isNew: false,
   },
   {
-    img: "/projects/powerapps.png",
+    img: "/project/doa.jpg",
     title: "Delegation of Authority Registry",
     desc: "A low-code application allows users to register and manage their delegation of authority process",
     link: "/projects/doa",
@@ -74,7 +74,7 @@ const projects: IProjectCardData[] = [
     isNew: false,
   },
   {
-    img: "/projects/kudos.png",
+    img: "/project/kudos.jpg",
     title: "Kudos App",
     desc: "Create, send, and share kudos with each other in a casual and interesting way!",
     link: "/projects/kudos",
