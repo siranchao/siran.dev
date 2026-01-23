@@ -1,6 +1,6 @@
 "use client";
 
-import { type FormEvent, useEffect, useRef } from "react";
+import { type FormEvent, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useGlobalModal } from "../_helper/ModalProvider";
@@ -9,6 +9,7 @@ export default function ContactForm() {
   const router = useRouter();
   const { showModal } = useGlobalModal();
   const redirectTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     return () => {
@@ -18,20 +19,51 @@ export default function ContactForm() {
     };
   }, []);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
 
-    showModal("Thanks for your message! Catch you up soon...");
-    form.reset();
+    if (isSubmitting) {
+      return;
+    }
+
+    const formData = new FormData(form);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+
+    setIsSubmitting(true);
 
     if (redirectTimeoutRef.current) {
       clearTimeout(redirectTimeoutRef.current);
     }
 
-    redirectTimeoutRef.current = setTimeout(() => {
-      router.push("/");
-    }, 1500);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(errorMessage || "Failed to send message");
+      }
+
+      showModal("Thanks for your message! Catch you up soon...");
+      form.reset();
+
+      redirectTimeoutRef.current = setTimeout(() => {
+        router.push("/");
+      }, 1500);
+    } catch (error) {
+      console.error(error);
+      showModal("Sorry, something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -127,9 +159,10 @@ export default function ContactForm() {
 
           <button
             type="submit"
-            className="mt-1 flex h-12 items-center justify-center gap-2 rounded-[12px] bg-[#0a0a0a] text-[14px] font-semibold text-white transition-colors hover:bg-[#111827] dark:bg-slate-100 dark:text-[#0a0a0a] dark:hover:bg-white"
+            className="mt-1 flex h-12 items-center justify-center gap-2 rounded-[12px] bg-[#0a0a0a] text-[14px] font-semibold text-white transition-colors hover:bg-[#111827] disabled:cursor-not-allowed disabled:opacity-70 dark:bg-slate-100 dark:text-[#0a0a0a] dark:hover:bg-white"
+            disabled={isSubmitting}
           >
-            Send message
+            {isSubmitting ? "Sending..." : "Send message"}
           </button>
         </form>
       </div>

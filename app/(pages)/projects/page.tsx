@@ -1,4 +1,5 @@
 import Card from "../../components/_lib/Card";
+import { ProjectCard, IProjectCardData } from "../../components/_section/Projects";
 import { Metadata } from "next";
 import Breadcrumbs from "../../components/_lib/Breadcrumbs";
 
@@ -17,74 +18,69 @@ interface Record {
   new: boolean;
 }
 
-const projects: Record[] = [
+const projects: IProjectCardData[] = [
   {
+    img: "/project/shopping.jpg",
     title: "Shopee E-Commerce",
-    path: "shopee",
-    imgUrl: "/projects/shopee.png",
-    tag: ["Full-stack", "React", "Next.js"],
-    description:
-      "E-commerce platform with Dashboard & CMS, and simple online store template.",
-    date: "Oct 8, 2023",
-    new: true,
+    desc: "E-commerce platform with Dashboard & CMS, and simple online store template",
+    link: "/projects/shopee",
+    gitHub: "https://github.com/siranchao/shopee-admin",
+    site: "https://www.youtube.com/watch?v=stRBZmJWm-8",
+    isNew: true,
   },
   {
+    img: "/project/ai.jpg",
     title: "Clerk.io - AI Assistant",
-    path: "clerkio",
-    imgUrl: "/projects/robot.png",
-    tag: ["Full-stack", "React", "LLM"],
-    description: "An AI powered document chatbot and SaaS project",
-    date: "Dec 6, 2023",
-    new: true,
+    desc: "Modern SaaS platform leveraging LLM and LangChain to build an AI powered document chatbot",
+    link: "/projects/clerkio",
+    gitHub: "https://github.com/siranchao/clerk.io",
+    site: "https://www.youtube.com/watch?v=GENHOcXq1-8",
+    isNew: true,
   },
   {
+    img: "/project/museum.jpg",
     title: "Portable Museum",
-    path: "museum",
-    imgUrl: "/projects/museum.png",
-    tag: ["React", "Next 12"],
-    description: "An online archive app designed for museum and art lovers!",
-    date: "Feb 13, 2023",
-    new: false,
+    desc: "An online archive app designed for museum and art lovers!",
+    link: "/projects/museum",
+    gitHub: "https://github.com/siranchao/my_museum",
+    site: "https://my-museum.vercel.app/",
+    isNew: false,
   },
   {
+    img: "/project/carhub.png",
     title: "CarHub - Demo",
-    path: "carhub",
-    imgUrl: "/projects/carhub.png",
-    tag: ["Frontend", "React"],
-    description:
-      "A simple frontend application demo built with latest React and Next.js",
-    date: "Sep 9, 2023",
-    new: false,
+    desc: "A frontend application demo built with latest React and Next.js",
+    link: "/projects/carhub",
+    gitHub: "https://github.com/siranchao/auto_lab",
+    site: "",
+    isNew: false,
   },
   {
+    img: "/project/apm.jpg",
     title: "Application Portfolio Manager (APM)",
-    path: "apm",
-    imgUrl: "/projects/powerapps2.png",
-    tag: ["OPS", "PowerApps"],
-    description:
-      "A lightweight system app for managing, querying, and analyzing massive information from an enterprise level SQL database",
-    date: "Jan 5, 2023",
-    new: false,
+    desc: "A lightweight system app for managing, querying, and analyzing massive information from an enterprise level SQL database",
+    link: "/projects/apm",
+    gitHub: "https://github.com/siranchao/ops_apm",
+    site: "",
+    isNew: false,
   },
   {
+    img: "/project/doa.jpg",
     title: "Delegation of Authority Registry",
-    path: "doa",
-    imgUrl: "/projects/powerapps.png",
-    tag: ["OPS", "PowerApps"],
-    description:
-      "A low-code application allows users to register and manage their delegation of authority process",
-    date: "Aug 15, 2022",
-    new: false,
+    desc: "A low-code application allows users to register and manage their delegation of authority process",
+    link: "/projects/doa",
+    gitHub: "https://github.com/siranchao/ops_doa",
+    site: "",
+    isNew: false,
   },
   {
+    img: "/project/kudos.jpg",
     title: "Kudos App",
-    path: "kudos",
-    imgUrl: "/projects/kudos.png",
-    tag: ["Full-stack", "React", "Next.js"],
-    description:
-      "Create, send, and share kudos with each other in a casual and interesting way!",
-    date: "May 24, 2023",
-    new: false,
+    desc: "Create, send, and share kudos with each other in a casual and interesting way!",
+    link: "/projects/kudos",
+    gitHub: "https://github.com/siranchao/kudos",
+    site: "",
+    isNew: false,
   },
 ];
 
@@ -94,9 +90,9 @@ export default function Projects() {
       <Breadcrumbs prevRoute="/" currentRoute="Projects" />
       <p className="text-2xl mb-4 font-bold">Project List</p>
 
-      <div className="grid gap-4 grid-cols-1 place-items-center mb-14 lg:grid-cols-2">
-        {projects.map((project: Record, index: number) => (
-          <Card record={project} key={index} />
+      <div className="mt-6 mb-12 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8">
+        {projects.map((record: any, index: number) => (
+          <ProjectCard key={index} {...record} />
         ))}
       </div>
 
