@@ -1,22 +1,15 @@
-import Card from "../../components/_lib/Card";
-import { ProjectCard, IProjectCardData } from "../../components/_section/Projects";
+import {
+  ProjectCard,
+  IProjectCardData,
+} from "../../components/_section/Projects";
 import { Metadata } from "next";
 import Breadcrumbs from "../../components/_lib/Breadcrumbs";
+import Pagination from "../../components/_lib/Pagination";
 
 export const metadata: Metadata = {
   title: "Siran.dev | Projects",
   description: "This page list all my projects",
 };
-
-interface Record {
-  title: string;
-  path: string;
-  imgUrl?: string;
-  tag?: string[];
-  description: string;
-  date: string;
-  new: boolean;
-}
 
 const projects: IProjectCardData[] = [
   {
@@ -98,11 +91,7 @@ export default function Projects() {
 
       {/* To do: Pagination  */}
       <div className="flex justify-center">
-        <div className="join dark:bg-gray-200">
-          <button className="join-item btn">«</button>
-          <button className="join-item btn btn-active">1</button>
-          <button className="join-item btn">»</button>
-        </div>
+        <Pagination currentPage={1} displayedPages={[[1]]} />
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import Breadcrumbs from "@/app/components/_lib/Breadcrumbs";
 import Actions from "@/app/components/_lib/Actions";
 import Tag from "@/app/components/_lib/Tag";
 import RelevantPosts from "../../../components/_lib/RelevantPosts";
-import Image from "next/image";
+import LightboxImage from "@/app/components/_lib/LightboxImage";
 import { PostData } from "@/app/lib/types";
 import { formatShortDate } from "@/app/lib/date";
 import axios from "axios";
@@ -19,7 +19,7 @@ export async function generateMetadata({ params, searchParams }: Props) {
   const id = params.id;
   // fetch data
   const res = await axios.get(
-    `${process.env.NEXT_PUBLIC_URL}/api/post/metadata/${id}`
+    `${process.env.NEXT_PUBLIC_URL}/api/post/metadata/${id}`,
   );
 
   return {
@@ -31,7 +31,7 @@ export async function generateMetadata({ params, searchParams }: Props) {
 async function getRelevantPosts(tags: { id: string; name: string }[]) {
   const params: string = tags.map((item) => item.name).toString();
   const res = await axios.get(
-    `${process.env.NEXT_PUBLIC_URL}/api/post/guess/?tags=${params}`
+    `${process.env.NEXT_PUBLIC_URL}/api/post/guess/?tags=${params}`,
   );
 
   if (res.status !== 200) {
@@ -87,11 +87,26 @@ export default async function Note({ params }: { params: { id: string } }) {
 
       {/* Intoduction section */}
       <section className="mb-16">
-        <p className="text-2xl mb-4 font-bold tracking-wide">{content.title}</p>
-        <p className="text-sm text-gray-400 font-light dark:text-gray-600">
-          {formatShortDate(data.createdAt)}
-        </p>
-        <div className="mt-2">
+        <div className="space-y-4">
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
+            {content.title}
+          </h1>
+          <div className="flex flex-wrap items-center gap-2 text-sm text-gray-400 dark:text-gray-500">
+            <span>{formatShortDate(data.createdAt)}</span>
+            {data?.readTime && (
+              <>
+                <span className="text-gray-300 dark:text-gray-600">•</span>
+                <span className="inline-flex items-center gap-1">
+                  {data.readTime}
+                  <span className="text-gray-400/80 dark:text-gray-500/80">
+                    read
+                  </span>
+                </span>
+              </>
+            )}
+          </div>
+        </div>
+        <div className="mt-4">
           {data?.categories.length > 0 &&
             data.categories.map(
               (tag: { id: string; name: string }, index: number) => (
@@ -101,24 +116,22 @@ export default async function Note({ params }: { params: { id: string } }) {
                   name={tag.name}
                   color={selectTheme(index)}
                 />
-              )
+              ),
             )}
         </div>
-        <br />
-
         {/* Head description */}
-        <div className="pt-2">
+        <div className="pt-6 space-y-2">
           {content.info.split("\n").map((line: string, index: number) =>
             line ? (
               <p
                 key={index}
-                className="text-sm leading-relaxed text-gray-600 dark:text-gray-400"
+                className="text-base leading-loose text-gray-600 dark:text-gray-300"
               >
                 {line}
               </p>
             ) : (
               <br key={index} />
-            )
+            ),
           )}
         </div>
       </section>
@@ -126,12 +139,12 @@ export default async function Note({ params }: { params: { id: string } }) {
       {/* Image section */}
       <section className="flex gap-4 flex-col items-center mb-16">
         {content.primaryImgUrl && (
-          <Image
+          <LightboxImage
             src={content.primaryImgUrl}
             alt="primary-img"
             width={500}
             height={400}
-            className="rounded-lg shadow-xl"
+            className="rounded-xl shadow-lg ring-1 ring-black/5 transition-shadow group-hover:shadow-xl dark:ring-white/10"
           />
         )}
       </section>
@@ -139,20 +152,20 @@ export default async function Note({ params }: { params: { id: string } }) {
       {/* Subtitle section */}
       {content.mainText && (
         <section className="mb-16">
-          <p className="text-xl mb-4 font-semibold underline">
+          <p className="text-2xl mb-4 font-semibold tracking-tight text-gray-900 dark:text-gray-100">
             {content.subtitle}
           </p>
           {content.mainText.split("\n").map((line: string, index: number) =>
             line ? (
               <p
                 key={index}
-                className="text-sm leading-relaxed text-gray-600 dark:text-gray-400"
+                className="text-base leading-loose text-gray-700 dark:text-gray-300"
               >
                 {line}
               </p>
             ) : (
               <br key={index} />
-            )
+            ),
           )}
         </section>
       )}
@@ -160,12 +173,12 @@ export default async function Note({ params }: { params: { id: string } }) {
       {/* Image section */}
       <section className="flex gap-4 flex-col items-center mb-16">
         {content.secondaryImgUrl && (
-          <Image
+          <LightboxImage
             src={content.secondaryImgUrl}
             alt="secondary-img"
             width={500}
             height={400}
-            className="rounded-lg shadow-xl"
+            className="rounded-xl shadow-lg ring-1 ring-black/5 transition-shadow group-hover:shadow-xl dark:ring-white/10"
           />
         )}
       </section>
@@ -173,7 +186,9 @@ export default async function Note({ params }: { params: { id: string } }) {
       {/* video section */}
       {content.videoUrl && (
         <section className="mb-16">
-          <p className="text-xl mb-4 font-semibold underline">Video</p>
+          <p className="text-2xl mb-4 font-semibold tracking-tight text-gray-900 dark:text-gray-100">
+            Video
+          </p>
           <iframe
             src={content.videoUrl}
             title="YouTube video player"
@@ -187,39 +202,45 @@ export default async function Note({ params }: { params: { id: string } }) {
 
       {/* URL info section */}
       <section className="mb-16">
-        <p className="text-xl mb-4 font-semibold underline">Resource info</p>
-        <div className="flex flex-col gap-2">
-          <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-            {content.primaryLink}:{" "}
-            <span className="ml-2">
+        <div className="rounded-xl border border-gray-200/70 bg-gray-50/60 p-6 dark:border-gray-700/60 dark:bg-gray-900/40">
+          <p className="text-xs uppercase tracking-[0.3em] text-gray-400 dark:text-gray-500">
+            resource info
+          </p>
+          <div className="mt-4 flex flex-col gap-3 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+            <div className="flex items-center gap-2">
+              <span className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                {content.primaryLink}
+                {": "}
+              </span>
               <a
-                className="text-blue-500 hover:underline"
+                className="text-blue-600 hover:text-blue-500 hover:underline dark:text-blue-400"
                 href={content.primaryUrl}
                 target="_blank"
               >
                 {content.primaryUrl}
               </a>
-            </span>
-          </p>
-          {content.secondaryLink && (
-            <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-              {content.secondaryLink}:{" "}
-              <span className="ml-2">
+            </div>
+            {content.secondaryLink && (
+              <div className="flex items-center gap-2">
+                <span className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                  {content.secondaryLink}
+                  {": "}
+                </span>
                 <a
-                  className="text-blue-500 hover:underline"
+                  className="text-blue-600 hover:text-blue-500 hover:underline dark:text-blue-400"
                   href={content.secondaryUrl}
                   target="_blank"
                 >
                   {content.secondaryUrl}
                 </a>
+              </div>
+            )}
+            <div className="flex items-center gap-2">
+              <span className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                Page URL{": "}
               </span>
-            </p>
-          )}
-          <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-            Page URL:{" "}
-            <span className="ml-2">
               <a
-                className="text-blue-500 hover:underline"
+                className="text-blue-600 hover:text-blue-500 hover:underline dark:text-blue-400"
                 href={`${process.env.NEXT_PUBLIC_URL as string}/notes/${
                   params.id
                 }/`}
@@ -227,22 +248,33 @@ export default async function Note({ params }: { params: { id: string } }) {
               >{`${process.env.NEXT_PUBLIC_URL as string}notes/${
                 params.id
               }/`}</a>
-            </span>
-          </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* You might also like */}
       {relevantPosts && relevantPosts.length > 0 && (
         <section className="mb-16">
-          <p className="text-xl mb-4 font-semibold">You might also like:</p>
-          <RelevantPosts posts={relevantPosts} />
+          <div className="rounded-2xl border border-gray-200/70 bg-gradient-to-b from-gray-50 to-white p-6 shadow-sm dark:border-gray-700/60 dark:from-gray-900/40 dark:to-gray-900/10">
+            <div className="flex flex-col gap-2">
+              <p className="text-xs uppercase tracking-[0.3em] text-gray-400 dark:text-gray-500">
+                More to explore
+              </p>
+              <p className="mt-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
+                You might also like...
+              </p>
+            </div>
+            <div className="mt-6">
+              <RelevantPosts posts={relevantPosts} />
+            </div>
+          </div>
         </section>
       )}
 
       {/* good to know */}
       <section className="mb-10">
-        <div className="m-auto w-full flex flex-col gap-2 py-4 px-8 items-start bg-gray-200 dark:bg-gray-800">
+        <div className="m-auto w-full flex flex-col gap-2 rounded-xl border border-gray-200/70 bg-gray-100/70 py-4 px-8 text-gray-600 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-gray-400">
           <div className="flex gap-2 items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -257,11 +289,11 @@ export default async function Note({ params }: { params: { id: string } }) {
                 d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               ></path>
             </svg>
-            <span className="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+            <span className="italic text-sm leading-relaxed">
               Good to know:
             </span>
           </div>
-          <ul className="mt-2 text-sm italic leading-loose text-gray-500 dark:text-gray-400">
+          <ul className="mt-2 text-sm italic leading-loose">
             <li>
               1. Please retain the original link for reference, thank you!
             </li>
