@@ -7,7 +7,7 @@ import { Eye, Clock } from "lucide-react";
 async function getData() {
   try {
     const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_URL}/api/post/recent`
+      `${process.env.NEXT_PUBLIC_URL}/api/post/recent`,
     );
 
     if (res.status !== 200) {
@@ -108,7 +108,12 @@ export default async function Notes() {
                       </div>
                       <div className="flex items-center gap-1">
                         <Clock className="w-3.5 h-3.5" />
-                        <span>{getReadTime()} mins read</span>
+                        <span>
+                          {post.content.readingTime
+                            ? post.content.readingTime
+                            : getReadTime()}{" "}
+                          mins read
+                        </span>
                       </div>
                     </div>
                   </div>

@@ -3,6 +3,9 @@ export interface PostData {
     title: string; 
     subtitle: string; 
     info: string; 
+    markdownContent?: string;
+    readingTime?: number;
+    isMarkdown?: boolean;
     iconUrl?: string;
     primaryImgUrl?: string;
     secondaryImgUrl?: string;

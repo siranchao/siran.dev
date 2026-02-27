@@ -72,12 +72,12 @@ export default function NoteCard({ record }: { record: any }) {
                     <span
                       key={index}
                       className={`badge badge-sm badge-outline rounded-full px-2.5 py-2 text-[11px] font-semibold tracking-wide badge-${selectTheme(
-                        index
+                        index,
                       )}`}
                     >
                       {tag.name}
                     </span>
-                  )
+                  ),
               )
             : null}
         </div>
@@ -86,7 +86,7 @@ export default function NoteCard({ record }: { record: any }) {
           <p className="text-base font-semibold text-slate-900 line-clamp-1 dark:text-slate-50">
             {record.title}
           </p>
-          <p className="text-sm text-slate-500 line-clamp-2 dark:text-slate-400">
+          <p className="h-[40px] text-sm text-slate-500 line-clamp-2 dark:text-slate-400">
             {record.content.info}
           </p>
         </div>
