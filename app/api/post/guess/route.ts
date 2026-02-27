@@ -28,7 +28,9 @@ export async function GET(req: NextRequest) {
             },
             select: {
                 title: true,
-                id: true
+                id: true,
+                isMarkdown: true,
+                readingTime: true
             },
             orderBy: {
                 createdAt: "desc"

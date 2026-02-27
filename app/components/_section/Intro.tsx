@@ -26,10 +26,10 @@ export default function Intro() {
                 Get in Touch
               </a>
               <a
-                href="/projects"
+                href="/notes"
                 className="btn w-32 normal-case bg-transparent border border-slate-300 text-slate-900 hover:bg-white/70 dark:border-slate-700 dark:text-slate-100 dark:hover:bg-slate-900"
               >
-                View Projects
+                My Scribbles
               </a>
             </div>
           </div>

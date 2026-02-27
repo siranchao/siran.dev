@@ -23,6 +23,7 @@ model Post {
   title       String
   readingTime Int        @default(0)
   content     Json
+  isMarkdown  Boolean    @default(false)
   published   Boolean    @default(true)
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt

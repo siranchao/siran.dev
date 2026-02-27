@@ -1,6 +1,6 @@
 "use client";
 import { useSession } from "next-auth/react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { createNewPost, createNewCategory } from "../../lib/db";
@@ -18,7 +18,7 @@ const uploadImg = async (img: File, type: string) => {
   try {
     const resp = await axios.post(
       `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUD_NAME}/image/upload`,
-      data
+      data,
     );
     return resp.data.url;
   } catch (error) {
@@ -31,6 +31,24 @@ const scrollTop = () => {
     top: 0,
     behavior: "smooth",
   });
+};
+
+const estimateReadingTime = (markdown: string) => {
+  const plainText = markdown
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/`[^`]*`/g, " ")
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, " ")
+    .replace(/\[[^\]]*\]\([^)]+\)/g, " ")
+    .replace(/[#>*_~-]/g, " ")
+    .replace(/\n/g, " ")
+    .trim();
+
+  if (!plainText) {
+    return 0;
+  }
+
+  const words = plainText.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 200));
 };
 
 export default async function NewPost() {
@@ -62,8 +80,54 @@ export default async function NewPost() {
   const [secondaryImg, setSecondaryImg] = useState<File>();
 
   //react-hook-form
-  const { register, handleSubmit, reset } = useForm<PostData>();
+  const [readingTimeEdited, setReadingTimeEdited] = useState(false);
+  const { register, handleSubmit, reset, watch, setValue } = useForm<PostData>({
+    defaultValues: {
+      readingTime: 0,
+      isMarkdown: false,
+    },
+  });
+  const isMarkdownMode = Boolean(watch("isMarkdown"));
+  const markdownContent = watch("markdownContent") || "";
+
+  useEffect(() => {
+    if (isMarkdownMode) {
+      return;
+    }
+    if (readingTimeEdited) {
+      return;
+    }
+    setValue("readingTime", estimateReadingTime(markdownContent));
+  }, [isMarkdownMode, markdownContent, readingTimeEdited, setValue]);
+
+  useEffect(() => {
+    if (!isMarkdownMode) {
+      return;
+    }
+
+    setValue("subtitle", "N/A");
+    setValue("primaryLink", "N/A");
+    setValue("primaryUrl", "N/A");
+    setValue("isMarkdown", true);
+  }, [isMarkdownMode, setValue]);
+
   const onSubmit = handleSubmit(async (data) => {
+    const estimatedReadingTime = estimateReadingTime(
+      data.markdownContent || "",
+    );
+    data.isMarkdown = Boolean(data.isMarkdown);
+
+    if (data.isMarkdown) {
+      data.subtitle = "N/A";
+      data.primaryLink = "N/A";
+      data.primaryUrl = "N/A";
+    } else {
+      data.readingTime =
+        typeof data.readingTime === "number" && !Number.isNaN(data.readingTime)
+          ? Math.max(0, data.readingTime)
+          : estimatedReadingTime;
+    }
+
     data.iconUrl = icon ? await uploadImg(icon, "icon") : "";
     data.primaryImgUrl = primaryImg ? await uploadImg(primaryImg, "img") : "";
     data.secondaryImgUrl = secondaryImg
@@ -73,7 +137,7 @@ export default async function NewPost() {
     const res = await createNewPost(
       data,
       categoryList.current,
-      session?.user.accessToken as string
+      session?.user.accessToken as string,
     );
 
     if (res.post) {
@@ -95,7 +159,7 @@ export default async function NewPost() {
       const name = val.trim();
       const res = await createNewCategory(
         name,
-        session?.user.accessToken as string
+        session?.user.accessToken as string,
       );
       setMsg(res.message);
       scrollTop();
@@ -127,6 +191,20 @@ export default async function NewPost() {
         </div>
 
         <div>
+          <label className="label cursor-pointer justify-start gap-3">
+            <span className="font-medium">Markdown Post</span>
+            <input
+              type="checkbox"
+              className="toggle toggle-primary"
+              {...register("isMarkdown")}
+            />
+          </label>
+          <p className="text-sm text-gray-500">
+            Enable this to post with markdown content.
+          </p>
+        </div>
+
+        <div>
           <label className="label">Post Info *</label>
           <textarea
             rows={5}
@@ -145,6 +223,7 @@ export default async function NewPost() {
             className="input input-bordered w-full max-w-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-300"
             {...register("subtitle")}
             required
+            readOnly={isMarkdownMode}
           />
         </div>
 
@@ -158,6 +237,41 @@ export default async function NewPost() {
           ></textarea>
         </div>
 
+        {isMarkdownMode && (
+          <div>
+            <label className="label">Markdown Content *</label>
+            <textarea
+              rows={12}
+              className="textarea textarea-bordered w-full max-w-3xl dark:bg-transparent dark:text-gray-300 dark:border-gray-300"
+              placeholder="Paste and edit your markdown content here"
+              {...register("markdownContent")}
+              required
+            ></textarea>
+            <p className="text-sm text-gray-500 mt-2">
+              Markdown post will be saved with isMarkdown=true.
+            </p>
+          </div>
+        )}
+
+        {!isMarkdownMode && (
+          <div>
+            <label className="label">Reading Time (minutes) *</label>
+            <input
+              type="number"
+              min={0}
+              className="input input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300"
+              {...register("readingTime", {
+                valueAsNumber: true,
+                onChange: () => setReadingTimeEdited(true),
+              })}
+              required
+            />
+            <p className="text-sm text-gray-500 mt-2">
+              Auto-estimated from markdown content. You can edit manually.
+            </p>
+          </div>
+        )}
+
         <div>
           <label className="label">Primary Link *</label>
           <input
@@ -166,6 +280,7 @@ export default async function NewPost() {
             className="input input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300 m-1"
             {...register("primaryLink")}
             required
+            readOnly={isMarkdownMode}
           />
           <input
             type="text"
@@ -173,6 +288,7 @@ export default async function NewPost() {
             className="input input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-300 dark:border-gray-300 m-1"
             {...register("primaryUrl")}
             required
+            readOnly={isMarkdownMode}
           />
         </div>
 
@@ -248,7 +364,13 @@ export default async function NewPost() {
           <button
             className="btn btn-sm btn-outline btn-error"
             type="reset"
-            onClick={() => reset()}
+            onClick={() => {
+              reset({
+                readingTime: 0,
+                isMarkdown: false,
+              });
+              setReadingTimeEdited(false);
+            }}
           >
             Reset
           </button>

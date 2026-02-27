@@ -15,6 +15,8 @@ export async function GET(req: Request, {params}: {params: {id: string}}) {
             },
             select: {
                 title: true,
+                isMarkdown: true,
+                readingTime: true
             }
         })
 
