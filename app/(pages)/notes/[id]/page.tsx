@@ -311,7 +311,28 @@ const highlightCode = (rawCode: string, language?: string) => {
 const renderInlineMarkdown = (text: string) => {
   return escapeHtml(text)
     .replace(
-      /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+      /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)/g,
+      (_match, alt: string, url: string, title: string) => {
+        const resolvedUrl = normalizeAssetUrl(url);
+        const altText = alt || "markdown-image";
+        const titleText = title || "";
+
+        if (isEmbeddableVideo(resolvedUrl)) {
+          return `<span class="my-3 block"><iframe src="${escapeHtml(resolvedUrl)}" title="${escapeHtml(titleText || altText)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="m-auto rounded-lg shadow-xl aspect-video w-full md:w-4/5 lg:w-3/4"></iframe></span>`;
+        }
+
+        if (isVideoAsset(resolvedUrl)) {
+          return `<span class="my-3 block"><video controls preload="metadata" class="m-auto rounded-lg shadow-xl aspect-video w-full md:w-4/5 lg:w-3/4"><source src="${escapeHtml(resolvedUrl)}" />Your browser does not support the video tag.</video></span>`;
+        }
+
+        const captionHtml = titleText
+          ? `<span class="mt-2 block text-center text-xs text-gray-500 dark:text-gray-400">${escapeHtml(titleText)}</span>`
+          : "";
+        return `<span class="my-3 block"><img src="${escapeHtml(resolvedUrl)}" alt="${escapeHtml(altText)}" loading="lazy" referrerpolicy="no-referrer" class="m-auto rounded-xl shadow-lg ring-1 ring-black/5 dark:ring-white/10" />${captionHtml}</span>`;
+      },
+    )
+    .replace(
+      /\[([^\]]+)\]\(((?:https?:\/\/|\/\/)[^)]+)\)/g,
       '<a href="$2" target="_blank" rel="noreferrer" class="text-blue-600 hover:text-blue-500 hover:underline dark:text-blue-400">$1</a>',
     )
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
@@ -320,6 +341,20 @@ const renderInlineMarkdown = (text: string) => {
       /`([^`]+)`/g,
       '<code class="rounded-md border border-gray-200/70 bg-gray-100/80 px-1.5 py-0.5 text-[0.85em] font-medium text-gray-700 dark:border-gray-700/80 dark:bg-gray-800/70 dark:text-gray-200">$1</code>',
     );
+};
+
+const normalizeAssetUrl = (url: string) => {
+  if (!url) return "";
+  if (url.startsWith("//")) return `https:${url}`;
+  return url;
+};
+
+const isVideoAsset = (url: string) => {
+  return /\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(url);
+};
+
+const isEmbeddableVideo = (url: string) => {
+  return /(?:youtube\.com\/embed\/|player\.vimeo\.com\/video\/)/i.test(url);
 };
 
 const renderMarkdownToHtml = (markdown: string) => {
@@ -364,6 +399,26 @@ const renderMarkdownToHtml = (markdown: string) => {
           return `${headingHtml}<hr style="margin: 0 0 20px; border: 0; border-top: 1px solid rgba(148, 163, 184, 0.45);" />`;
         }
         return headingHtml;
+      }
+
+      const imageMatch = block.match(/^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)$/);
+      if (imageMatch) {
+        const altText = imageMatch[1] || "markdown-image";
+        const resolvedUrl = normalizeAssetUrl(imageMatch[2]);
+        const titleText = imageMatch[3] || "";
+
+        if (isEmbeddableVideo(resolvedUrl)) {
+          return `<div class="my-8"><iframe src="${escapeHtml(resolvedUrl)}" title="${escapeHtml(titleText || altText)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="m-auto rounded-lg shadow-xl aspect-video w-full md:w-4/5 lg:w-3/4"></iframe></div>`;
+        }
+
+        if (isVideoAsset(resolvedUrl)) {
+          return `<div class="my-8"><video controls preload="metadata" class="m-auto rounded-lg shadow-xl aspect-video w-full md:w-4/5 lg:w-3/4"><source src="${escapeHtml(resolvedUrl)}" />Your browser does not support the video tag.</video></div>`;
+        }
+
+        const captionHtml = titleText
+          ? `<figcaption class="mt-3 text-center text-xs text-gray-500 dark:text-gray-400">${escapeHtml(titleText)}</figcaption>`
+          : "";
+        return `<figure class="my-8"><img src="${escapeHtml(resolvedUrl)}" alt="${escapeHtml(altText)}" loading="lazy" referrerpolicy="no-referrer" class="m-auto rounded-xl shadow-lg ring-1 ring-black/5 dark:ring-white/10" />${captionHtml}</figure>`;
       }
 
       const lines = block.split("\n");
