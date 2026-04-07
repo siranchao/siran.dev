@@ -14,111 +14,66 @@ export default function Skill() {
           </h2>
         </div>
 
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center auto-rows-fr">
-          <div className="w-full max-w-sm h-full rounded-2xl bg-base-100 shadow-sm hover:shadow-md transition-shadow ring-1 ring-base-300/60">
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5 place-items-center auto-rows-fr">
+          <div className="w-full max-w-sm h-full rounded-2xl bg-base-100 border border-base-300/80 hover:shadow-md transition-all duration-300">
             <div className="p-6">
               <div className="flex items-center gap-3">
-                <div className="h-9 w-9 rounded-xl bg-blue-500/15 flex items-center justify-center">
-                  <CodeBracketIcon className="h-5 w-5 text-blue-600" />
+                <div className="h-9 w-9 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <CodeBracketIcon className="h-5 w-5 text-primary" />
                 </div>
                 <div>
                   <p className="font-semibold text-base-content">Front End</p>
                 </div>
               </div>
 
-              <div className="mt-4 flex flex-wrap gap-3">
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  JavaScript
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  TypeScript
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  React
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  Next.js
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  Redux
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  HTML5
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  Webpack/Vite
-                </span>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {["JavaScript", "TypeScript", "React", "Next.js", "Redux", "HTML5", "Webpack/Vite"].map((skill) => (
+                  <span key={skill} className="px-2.5 py-1 rounded-lg bg-base-200 text-xs font-medium text-base-content/70">
+                    {skill}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
 
-          <div className="w-full max-w-sm h-full rounded-2xl bg-base-100 shadow-sm hover:shadow-md transition-shadow ring-1 ring-base-300/60">
+          <div className="w-full max-w-sm h-full rounded-2xl bg-base-100 border border-base-300/80 hover:shadow-md transition-all duration-300">
             <div className="p-6">
               <div className="flex items-center gap-3">
-                <div className="h-9 w-9 rounded-xl bg-purple-500/15 flex items-center justify-center">
-                  <ServerStackIcon className="h-5 w-5 text-purple-600" />
+                <div className="h-9 w-9 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <ServerStackIcon className="h-5 w-5 text-accent" />
                 </div>
                 <div>
                   <p className="font-semibold text-base-content">Back End</p>
                 </div>
               </div>
 
-              <div className="mt-4 flex flex-wrap gap-3">
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  NodeJS
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  Express
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  Nest.js
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  RESTful API
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  MongoDB
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  PostgreSQL
-                </span>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {["NodeJS", "Express", "Nest.js", "RESTful API", "MongoDB", "PostgreSQL"].map((skill) => (
+                  <span key={skill} className="px-2.5 py-1 rounded-lg bg-base-200 text-xs font-medium text-base-content/70">
+                    {skill}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
 
-          <div className="w-full max-w-sm h-full rounded-2xl bg-base-100 shadow-sm hover:shadow-md transition-shadow ring-1 ring-base-300/60">
+          <div className="w-full max-w-sm h-full rounded-2xl bg-base-100 border border-base-300/80 hover:shadow-md transition-all duration-300">
             <div className="p-6">
               <div className="flex items-center gap-3">
-                <div className="h-9 w-9 rounded-xl bg-emerald-500/15 flex items-center justify-center">
-                  <WrenchScrewdriverIcon className="h-5 w-5 text-emerald-600" />
+                <div className="h-9 w-9 rounded-xl bg-secondary/10 flex items-center justify-center">
+                  <WrenchScrewdriverIcon className="h-5 w-5 text-secondary" />
                 </div>
                 <div>
                   <p className="font-semibold text-base-content">Others</p>
                 </div>
               </div>
 
-              <div className="mt-4 flex flex-wrap gap-3">
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  Jest
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  Docker
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  CI/CD
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  Git
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  Agile/Scrum
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  Figma
-                </span>
-                <span className="badge badge-sm bg-base-200 text-base-content/80 border-0">
-                  Power Platform
-                </span>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {["Jest", "Docker", "CI/CD", "Git", "Agile/Scrum", "Figma", "Power Platform"].map((skill) => (
+                  <span key={skill} className="px-2.5 py-1 rounded-lg bg-base-200 text-xs font-medium text-base-content/70">
+                    {skill}
+                  </span>
+                ))}
               </div>
             </div>
           </div>

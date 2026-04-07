@@ -100,16 +100,16 @@ export default function NotesFilter({
   const getButtonStyles = (isActive: boolean) =>
     `rounded-full border px-4 py-1.5 text-sm font-medium transition-all duration-200 ${
       isActive
-        ? "border-indigo-500 bg-indigo-500 text-white shadow-sm dark:border-indigo-400 dark:bg-indigo-500"
-        : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:bg-slate-700 dark:hover:text-slate-100"
+        ? "border-primary bg-primary text-white shadow-sm"
+        : "border-base-300 bg-base-100 text-base-content/60 hover:border-base-content/20 hover:text-base-content"
     }`;
 
   // Toggle button styles for sort
   const getSortToggleStyles = (isActive: boolean) =>
     `px-4 py-1.5 text-sm font-medium transition-all duration-200 first:rounded-l-full last:rounded-r-full ${
       isActive
-        ? "bg-slate-100 text-slate-900 dark:bg-slate-700 dark:text-slate-100"
-        : "bg-white text-slate-500 hover:text-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
+        ? "bg-base-200 text-base-content"
+        : "bg-base-100 text-base-content/40 hover:text-base-content/70"
     }`;
 
   return (
@@ -117,7 +117,7 @@ export default function NotesFilter({
       {/* Category Filter Row */}
       {showCategoryFilter && selectTag && (
         <div className="flex flex-wrap items-center gap-3">
-          <span className="text-sm font-medium text-slate-600 dark:text-slate-400">
+          <span className="text-sm font-medium text-base-content/40">
             Category:
           </span>
           <div className="flex flex-wrap gap-2">
@@ -144,10 +144,10 @@ export default function NotesFilter({
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         {/* Sort Toggle */}
         <div className="flex items-center gap-3">
-          <span className="text-sm font-medium text-slate-600 dark:text-slate-400">
+          <span className="text-sm font-medium text-base-content/40">
             Sort by:
           </span>
-          <div className="inline-flex overflow-hidden rounded-full border border-slate-200 dark:border-slate-600">
+          <div className="inline-flex overflow-hidden rounded-full border border-base-300">
             <button
               className={getSortToggleStyles(order === "newest")}
               onClick={() => selectOrder("newest")}
@@ -165,18 +165,18 @@ export default function NotesFilter({
 
         {/* Search Bar */}
         <div className="relative w-full sm:w-64">
-          <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-base-content/30" />
           <input
             type="text"
             value={localSearch}
             onChange={handleSearchChange}
             placeholder={searchPlaceholder}
-            className="w-full rounded-full border border-slate-200 bg-white py-2 pl-10 pr-10 text-sm text-slate-700 placeholder-slate-400 outline-none transition-all duration-200 focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:placeholder-slate-500 dark:focus:border-indigo-500 dark:focus:ring-indigo-900/30"
+            className="w-full rounded-full border border-base-300 bg-base-100 py-2 pl-10 pr-10 text-sm text-base-content placeholder-base-content/30 outline-none transition-all duration-200 focus:border-primary/40 focus:ring-2 focus:ring-primary/10"
           />
           {localSearch && (
             <button
               onClick={handleClearSearch}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 transition-colors hover:text-slate-600 dark:hover:text-slate-300"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-base-content/30 transition-colors hover:text-base-content/60"
             >
               <svg
                 className="h-4 w-4"

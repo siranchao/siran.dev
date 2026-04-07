@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <ScrollToBottomOnLoad />
-      <div className="py-16">
+      <div className="py-20">
         <Intro />
       </div>
 
@@ -27,7 +27,7 @@ export default function Home() {
         <Notes />
       </div>
 
-      <div className="py-16">
+      <div className="py-20">
         <AboutMe />
       </div>
       <BackToTop />

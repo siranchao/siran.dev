@@ -71,20 +71,15 @@ const data: IProjectCardData[] = [
   // },
 ];
 
-
-
 export const ProjectCard = (props: IProjectCardData) => {
   const { img, title, desc, link, gitHub, site, isNew } = props;
 
-
   return (
-    <div
-      className="group overflow-hidden rounded-2xl bg-base-100 shadow-sm hover:shadow-md transition-shadow ring-1 ring-base-300/60"
-    >
-      <div className="relative w-full aspect-[16/10] bg-base-200">
+    <div className="group flex flex-col overflow-hidden rounded-2xl bg-base-100 shadow-sm hover:shadow-lg transition-all duration-300 border border-base-300/80">
+      <div className="relative w-full aspect-[16/10] bg-base-200 overflow-hidden">
         {isNew && (
-          <span className="absolute top-3 right-3 z-10 px-2 py-1 text-[10px] font-semibold rounded-full bg-red-500 text-white">
-            NEW
+          <span className="absolute top-3 right-3 z-10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full bg-primary text-white">
+            New
           </span>
         )}
         <Image
@@ -96,62 +91,57 @@ export const ProjectCard = (props: IProjectCardData) => {
       </div>
 
       <div className="p-5">
-        <p className="font-semibold text-base-content line-clamp-1">
-          {title}
-        </p>
-        <p className="mt-2 text-sm text-base-content/60 line-clamp-2">
+        <p className="font-semibold text-base-content line-clamp-1">{title}</p>
+        <p className="mt-2 text-sm text-base-content/50 line-clamp-2 leading-relaxed">
           {desc}
         </p>
+      </div>
 
-        <div className="mt-4 flex items-center justify-between">
-          <Link
-            href={link}
-            className="text-sm text-blue-600 hover:underline"
-          >
-            Read More
-          </Link>
+      <div className="flex mt-auto px-5 pb-5 items-center justify-between">
+        <Link
+          href={link}
+          className="text-sm font-medium text-primary hover:underline underline-offset-4"
+        >
+          Read More
+        </Link>
 
-          <div className="flex gap-1 items-center">
+        <div className="flex gap-1 items-center">
+          {gitHub ? (
+            <a
+              href={gitHub}
+              target="_blank"
+              rel="noreferrer"
+              className="h-8 w-8 rounded-lg bg-transparent hover:bg-base-300/80 transition-colors duration-200 flex items-center justify-center"
+              aria-label="source code"
+            >
+              <Github className="w-4 h-4 text-base-content/50" />
+            </a>
+          ) : (
+            <div className="h-8 w-8 rounded-lg bg-transparent opacity-30 cursor-not-allowed flex items-center justify-center">
+              <Github className="w-4 h-4" />
+            </div>
+          )}
 
-            {gitHub ? (
-              <a
-                href={gitHub}
-                target="_blank"
-                rel="noreferrer"
-                className='h-9 w-9 rounded-lg bg-transparent hover:bg-base-300 transition-colors flex items-center justify-center'
-                aria-label="source code"
-              >
-                <Github className="w-4 h-4" />
-              </a>
-            ) : (
-              <div className='h-9 w-9 rounded-lg bg-transparent opacity-50 cursor-not-allowed flex items-center justify-center'>
-                <Github className="w-4 h-4" />
-              </div>
-            )}
-
-            {site ? (
-              <a
-                href={site}
-                target="_blank"
-                rel="noreferrer"
-                className='h-9 w-9 rounded-lg bg-transparent hover:bg-base-300 transition-colors flex items-center justify-center'
-                aria-label="visit site"
-              >
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            ) : (
-              <div className='h-9 w-9 rounded-lg bg-transparent opacity-50 cursor-not-allowed flex items-center justify-center'>
-                <ExternalLink className="w-4 h-4" />
-              </div>
-
-            )}
-
-          </div>
+          {site ? (
+            <a
+              href={site}
+              target="_blank"
+              rel="noreferrer"
+              className="h-8 w-8 rounded-lg bg-transparent hover:bg-base-300/80 transition-colors duration-200 flex items-center justify-center"
+              aria-label="visit site"
+            >
+              <ExternalLink className="w-4 h-4 text-base-content/50" />
+            </a>
+          ) : (
+            <div className="h-8 w-8 rounded-lg bg-transparent opacity-30 cursor-not-allowed flex items-center justify-center">
+              <ExternalLink className="w-4 h-4" />
+            </div>
+          )}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default function Projects() {
   return (
@@ -162,13 +152,13 @@ export default function Projects() {
         </h2>
         <Link
           href="/projects"
-          className="text-sm text-blue-600 hover:underline"
+          className="text-sm font-medium text-primary hover:underline underline-offset-4"
         >
-          All Projects →
+          All Projects &rarr;
         </Link>
       </div>
 
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {data.slice(0, 3).map((record: any, index: number) => (
           <ProjectCard key={index} {...record} />
         ))}

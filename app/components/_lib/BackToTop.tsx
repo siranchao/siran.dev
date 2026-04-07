@@ -29,10 +29,10 @@ export default function BackToTop() {
 
   return (
     <div
-      className={`fixed z-10 bottom-5 right-5 flex w-8 h-8 justify-center items-center bg-base-200 transition-opacity cursor-pointer rounded-md border border-black hover:bg-base-300 hover:opacity-100 dark:border-gray-400 dark:bg-gray-800 dark:hover:bg-gray-600 ${isVisible ? "opacity-100" : "opacity-0"}`}
+      className={`fixed z-10 bottom-6 right-6 flex w-9 h-9 justify-center items-center bg-base-100 transition-all duration-300 cursor-pointer rounded-xl border border-base-300 shadow-sm hover:shadow-md hover:bg-base-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}
       onClick={scrollToTop}
     >
-      <ArrowSmallUpIcon className="w-5 h-5" />
+      <ArrowSmallUpIcon className="w-4 h-4 text-base-content/60" />
     </div>
   );
 }

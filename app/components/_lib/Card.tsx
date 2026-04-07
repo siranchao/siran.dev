@@ -32,13 +32,13 @@ export default function Card({ record }: { record: any }) {
 
   return (
     <div
-      className="bg-gray-100 rounded-lg shadow-md flex items-center cursor-pointer hover:shadow-2xl hover:-translate-y-1 duration-200 ease-in w-full h-36 dark:bg-gray-200"
+      className="bg-base-100 rounded-xl border border-base-300/80 flex items-center cursor-pointer hover:shadow-md hover:-translate-y-0.5 duration-300 ease-out w-full h-36"
       onClick={clickCard}
     >
       <div className="w-1/3 relative h-full">
         {record.new && (
-          <span className="absolute top-2 left-2 z-10 px-2 py-0.5 text-[10px] font-medium rounded-full bg-red-500 text-white">
-            NEW
+          <span className="absolute top-2 left-2 z-10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-primary text-white">
+            New
           </span>
         )}
 
@@ -52,7 +52,7 @@ export default function Card({ record }: { record: any }) {
           />
         )}
       </div>
-      <div className="w-2/3 h-full p-2">
+      <div className="w-2/3 h-full p-3">
         <div className="flex flex-nowrap overflow-hidden">
           {record.tag && record.tag.length > 0
             ? record.tag.map(
@@ -70,13 +70,13 @@ export default function Card({ record }: { record: any }) {
               )
             : null}
         </div>
-        <p className="text-md font-semibold mb-2 line-clamp-1 dark:text-gray-800">
+        <p className="text-md font-semibold mb-2 line-clamp-1 text-base-content">
           {record.title}
         </p>
-        <p className="text-gray-600 text-sm mb-2 line-clamp-2">
+        <p className="text-base-content/50 text-sm mb-2 line-clamp-2">
           {record.description}
         </p>
-        <p className="text-gray-400 text-xs text-right">{record.date}</p>
+        <p className="text-base-content/35 text-xs text-right">{record.date}</p>
       </div>
     </div>
   );

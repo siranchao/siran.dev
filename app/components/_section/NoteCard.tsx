@@ -41,29 +41,29 @@ export default function NoteCard({ record }: { record: any }) {
 
   return (
     <div
-      className="group w-full cursor-pointer overflow-hidden rounded-2xl border border-gray-200/70 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700/60 dark:bg-slate-900/70"
+      className="group w-full cursor-pointer overflow-hidden rounded-2xl border border-base-300/80 bg-base-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
       onClick={clickCard}
     >
-      <div className="relative h-44 w-full overflow-hidden bg-gradient-to-br from-slate-100 via-slate-200 to-slate-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-950">
+      <div className="relative h-44 w-full overflow-hidden bg-gradient-to-br from-base-200 via-base-300 to-base-200">
         {record.content.iconUrl ? (
           <Image
             src={record.content.iconUrl}
             alt={record.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="rounded-2xl border border-white/60 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-slate-600 shadow-sm dark:border-slate-700/70 dark:bg-slate-900/70 dark:text-slate-300">
+            <div className="rounded-xl border border-base-300 bg-base-100/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-base-content/40 backdrop-blur-sm">
               Note
             </div>
           </div>
         )}
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/40 to-transparent"></div>
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/30 to-transparent"></div>
       </div>
 
-      <div className="flex flex-col gap-4 p-4">
+      <div className="flex flex-col gap-3.5 p-5">
         <div className="flex flex-wrap gap-2">
           {record.categories && record.categories.length > 0
             ? record.categories.map(
@@ -83,17 +83,17 @@ export default function NoteCard({ record }: { record: any }) {
         </div>
 
         <div className="space-y-1.5">
-          <p className="text-base font-semibold text-slate-900 line-clamp-1 dark:text-slate-50">
+          <p className="text-base font-semibold text-base-content line-clamp-1 group-hover:text-primary transition-colors duration-300">
             {record.title}
           </p>
-          <p className="h-[40px] text-sm text-slate-500 line-clamp-2 dark:text-slate-400">
+          <p className="h-[40px] text-sm text-base-content/50 line-clamp-2 leading-relaxed">
             {record.content.info}
           </p>
         </div>
 
-        <div className="mt-auto flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+        <div className="mt-auto flex items-center justify-between text-xs text-base-content/40">
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -110,7 +110,7 @@ export default function NoteCard({ record }: { record: any }) {
               </svg>
               <span>{formatShortDate(record.createdAt)}</span>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -128,7 +128,7 @@ export default function NoteCard({ record }: { record: any }) {
               <span>{readingTime} mins</span>
             </div>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1.5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

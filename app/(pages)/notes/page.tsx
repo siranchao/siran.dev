@@ -144,10 +144,11 @@ export default function Notes() {
     <div className="mb-24 space-y-10">
       <Breadcrumbs prevRoute="/" currentRoute="Notes" />
 
-      <div className="flex flex-col gap-3">
-        <p className="text-3xl font-semibold text-slate-900 dark:text-slate-50">
+      <div className="flex flex-col gap-2">
+        <p className="text-3xl font-bold text-base-content">
           Notes
         </p>
+        <p className="text-sm text-base-content/40">Thoughts, learnings, and things I find interesting</p>
       </div>
 
       <NotesFilter

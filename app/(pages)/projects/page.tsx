@@ -81,9 +81,13 @@ export default function Projects() {
   return (
     <div className="mb-20">
       <Breadcrumbs prevRoute="/" currentRoute="Projects" />
-      <p className="text-2xl mb-4 font-bold">Project List</p>
 
-      <div className="mt-6 mb-12 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8">
+      <div className="flex flex-col gap-2 mb-8">
+        <p className="text-3xl font-bold text-base-content">Projects</p>
+        <p className="text-sm text-base-content/40">A collection of things I&apos;ve built</p>
+      </div>
+
+      <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8">
         {projects.map((record: any, index: number) => (
           <ProjectCard key={index} {...record} />
         ))}

@@ -17,15 +17,15 @@ type EmptyStateProps = {
 };
 
 const baseButtonStyles =
-  "inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
+  "inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
 
 function ActionButton({ action }: { action: EmptyStateAction }) {
   const isPrimary = action.variant !== "secondary";
   const className = [
     baseButtonStyles,
     isPrimary
-      ? "bg-indigo-500 text-white shadow-sm hover:bg-indigo-600 focus-visible:outline-indigo-400"
-      : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 focus-visible:outline-slate-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800",
+      ? "bg-primary text-white shadow-sm hover:bg-primary/90 focus-visible:outline-primary"
+      : "border border-base-300 bg-base-100 text-base-content/70 hover:bg-base-200 focus-visible:outline-base-300",
   ].join(" ");
 
   if (action.href) {
@@ -50,9 +50,9 @@ export default function EmptyState({
   secondaryAction,
 }: EmptyStateProps) {
   return (
-    <div className="flex items-center justify-center rounded-3xl border border-slate-200/80 bg-white/95 px-6 py-10 text-center shadow-[0_20px_50px_-35px_rgba(15,23,42,0.45)] backdrop-blur dark:border-slate-700/70 dark:bg-slate-900/80">
-      <div className="max-w-lg space-y-5">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 text-slate-500 shadow-sm dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+    <div className="flex items-center justify-center rounded-2xl border border-base-300 bg-base-100 px-6 py-12 text-center shadow-sm">
+      <div className="max-w-lg space-y-6">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-base-300 bg-base-200 text-base-content/40">
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -71,10 +71,10 @@ export default function EmptyState({
         </div>
 
         <div className="space-y-2">
-          <p className="text-xl font-semibold text-slate-900 dark:text-slate-50">
+          <p className="text-xl font-semibold text-base-content">
             {title}
           </p>
-          <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-300">
+          <p className="text-sm leading-relaxed text-base-content/50">
             {description}
           </p>
         </div>
