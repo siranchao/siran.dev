@@ -36,8 +36,8 @@ export default function Actions({postId, updatedAt, favoritedBy}: {postId: strin
 
     const handleLikeBtn = async () => {
         if(liked) {
-            const res = await axios.patch(`${process.env.NEXT_PUBLIC_URL}/api/user/unlike/${session?.user?.id}`, 
-            { data: {id: postId} }, 
+            const res = await axios.patch(`${process.env.NEXT_PUBLIC_URL}/api/user/unlike/${session?.user?.id}`,
+            { data: {id: postId} },
             { headers: {"Authorization": session?.user?.accessToken as string} })
 
             if(res.status === 200 && !res.data.favoritePosts.map((item: {id: string}) => item.id).includes(postId)) {
@@ -45,8 +45,8 @@ export default function Actions({postId, updatedAt, favoritedBy}: {postId: strin
                 setMsg("This note has been removed from your favorite list.")
             }
         } else {
-            const res = await axios.patch(`${process.env.NEXT_PUBLIC_URL}/api/user/like/${session?.user?.id}`, 
-            { data: {id: postId} }, 
+            const res = await axios.patch(`${process.env.NEXT_PUBLIC_URL}/api/user/like/${session?.user?.id}`,
+            { data: {id: postId} },
             { headers: {"Authorization": session?.user?.accessToken as string} })
 
 
@@ -63,10 +63,10 @@ export default function Actions({postId, updatedAt, favoritedBy}: {postId: strin
         <>
             {/* Open the modal using ID.showModal() method */}
             <dialog id="my_modal_1" className="modal">
-                <form method="dialog" className="modal-box bg-base-200 rounded-md dark:bg-gray-800">
-                    <p className="py-4 text-sm text-center flex justify-center items-center">                    
-                        <ClipboardDocumentCheckIcon className="w-8 h-8 mr-4" fill="#1dcdbc"/>
-                        <span className="font-semibold text-gray-600 dark:text-gray-400">{msg}</span>
+                <form method="dialog" className="modal-box bg-base-100 rounded-xl border border-base-300">
+                    <p className="py-4 text-sm text-center flex justify-center items-center">
+                        <ClipboardDocumentCheckIcon className="w-7 h-7 mr-3 text-accent"/>
+                        <span className="font-semibold text-base-content/70">{msg}</span>
                     </p>
                 </form>
                 <form method="dialog" className="modal-backdrop">
@@ -75,10 +75,10 @@ export default function Actions({postId, updatedAt, favoritedBy}: {postId: strin
             </dialog>
 
             <dialog id="my_modal_2" className="modal">
-                <form method="dialog" className="modal-box bg-base-200 rounded-md dark:bg-gray-800">
-                    <p className="py-4 text-sm text-center flex justify-center items-center">                    
-                        <CheckCircleIcon className="w-8 h-8 mr-4" fill="#1dcdbc"/>
-                        <span className="font-semibold text-gray-600 dark:text-gray-400">{msg}</span>
+                <form method="dialog" className="modal-box bg-base-100 rounded-xl border border-base-300">
+                    <p className="py-4 text-sm text-center flex justify-center items-center">
+                        <CheckCircleIcon className="w-7 h-7 mr-3 text-accent"/>
+                        <span className="font-semibold text-base-content/70">{msg}</span>
                     </p>
                 </form>
                 <form method="dialog" className="modal-backdrop">
@@ -87,28 +87,28 @@ export default function Actions({postId, updatedAt, favoritedBy}: {postId: strin
             </dialog>
 
             <dialog id="my_modal_3" className="modal">
-                <form method="dialog" className="modal-box bg-base-200 rounded-md dark:bg-gray-800">
-                    <p className="py-4 text-sm text-center flex justify-center items-center">                    
-                        <InformationCircleIcon className="w-8 h-8 mr-4" fill="#1dcdbc"/>
-                        <span className="mr-2 font-semibold text-gray-600 dark:text-gray-400">{msg}</span>
-                        <Link href="/user/login" className="text-blue-500 font-semibold hover:underline">Login now</Link>
+                <form method="dialog" className="modal-box bg-base-100 rounded-xl border border-base-300">
+                    <p className="py-4 text-sm text-center flex justify-center items-center">
+                        <InformationCircleIcon className="w-7 h-7 mr-3 text-info"/>
+                        <span className="mr-2 font-semibold text-base-content/70">{msg}</span>
+                        <Link href="/user/login" className="text-primary font-semibold hover:underline underline-offset-4">Login now</Link>
                     </p>
                 </form>
                 <form method="dialog" className="modal-backdrop">
                     <button>close</button>
                 </form>
             </dialog>
-          
+
             <section className="mb-16 flex justify-between items-center">
-                <p className="text-sm text-gray-400 font-light dark:text-gray-600">Last update: {formatShortDate(updatedAt)}</p>
+                <p className="text-sm text-base-content/40 font-medium">Last update: {formatShortDate(updatedAt)}</p>
 
                 <div className="flex gap-2 items-center">
-                    <button className="btn btn-xs btn-outline btn-info normal-case" onClick={handleCopy}>
-                        <ShareIcon className="w-4 h-4"/>
+                    <button className="btn btn-xs bg-base-200 border border-base-300 text-base-content/60 hover:bg-base-300 normal-case rounded-lg font-semibold" onClick={handleCopy}>
+                        <ShareIcon className="w-3.5 h-3.5"/>
                         <span>Share</span>
                     </button>
 
-                    <button className="btn btn-xs btn-outline btn-accent normal-case" onClick={() => {
+                    <button className="btn btn-xs bg-base-200 border border-base-300 text-base-content/60 hover:bg-base-300 normal-case rounded-lg font-semibold" onClick={() => {
                         if(session) {
                             handleLikeBtn()
                         } else {
@@ -117,7 +117,7 @@ export default function Actions({postId, updatedAt, favoritedBy}: {postId: strin
                             document.getElementById("my_modal_3")?.showModal()
                         }
                     }}>
-                        <StarIcon className="w-4 h-4" stroke="#1dcdbc"/>
+                        <StarIcon className="w-3.5 h-3.5 text-primary"/>
                         <span>{liked ? "Unstar" : "Star"}</span>
                     </button>
                 </div>

@@ -193,15 +193,15 @@ const markdownComponents = {
     }
 
     return (
-      <div className="my-6 overflow-hidden rounded-2xl border border-gray-200/80 bg-[#f8f7f4] shadow-sm dark:border-gray-700/80 dark:bg-[#161b22] [&_.hljs-comment]:text-[#64748b] [&_.hljs-quote]:text-[#64748b] [&_.hljs-keyword]:text-[#7c3aed] [&_.hljs-selector-tag]:text-[#7c3aed] [&_.hljs-built_in]:text-[#0369a1] [&_.hljs-type]:text-[#0369a1] [&_.hljs-title]:text-[#1d4ed8] [&_.hljs-function_.hljs-title]:text-[#1d4ed8] [&_.hljs-string]:text-[#0f766e] [&_.hljs-symbol]:text-[#0f766e] [&_.hljs-number]:text-[#c2410c] [&_.hljs-literal]:text-[#c2410c] [&_.hljs-variable]:text-[#be185d] [&_.hljs-template-variable]:text-[#be185d] [&_.hljs-attr]:text-[#0891b2] dark:[&_.hljs-keyword]:text-[#d8b4fe] dark:[&_.hljs-selector-tag]:text-[#d8b4fe] dark:[&_.hljs-built_in]:text-[#7dd3fc] dark:[&_.hljs-type]:text-[#7dd3fc] dark:[&_.hljs-title]:text-[#93c5fd] dark:[&_.hljs-function_.hljs-title]:text-[#93c5fd] dark:[&_.hljs-string]:text-[#5eead4] dark:[&_.hljs-symbol]:text-[#5eead4] dark:[&_.hljs-number]:text-[#fdba74] dark:[&_.hljs-literal]:text-[#fdba74] dark:[&_.hljs-variable]:text-[#f9a8d4] dark:[&_.hljs-template-variable]:text-[#f9a8d4] dark:[&_.hljs-attr]:text-[#67e8f9]">
-        <div className="flex items-center justify-between border-b border-gray-200/80 px-4 py-2 dark:border-gray-700/80">
-          <span className="text-[11px] uppercase tracking-[0.18em] text-gray-500/90 dark:text-gray-400/90">
+      <div className="group relative my-6 overflow-hidden rounded-2xl border border-gray-200/80 bg-[#fafaf9] shadow-sm dark:border-gray-700/80 dark:bg-[#282c34]">
+        <div className="flex items-center justify-between border-b border-gray-200/80 bg-gray-50/80 px-4 py-2.5 dark:border-gray-700/80 dark:bg-[#21252b]">
+          <span className="select-none text-[11px] font-medium uppercase tracking-[0.18em] text-gray-500/90 dark:text-gray-400/90">
             {language}
           </span>
         </div>
-        <pre className="overflow-x-auto px-4 py-3.5">
+        <pre className="overflow-x-auto p-4">
           <code
-            className={`hljs block font-mono text-[0.8rem] leading-6 text-gray-800 dark:text-gray-100 ${className || ""}`}
+            className={`hljs block font-mono text-[0.8rem] leading-[1.75] ${className || ""}`}
             {...props}
           >
             {children}

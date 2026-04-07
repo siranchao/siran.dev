@@ -25,22 +25,22 @@ export default function Pagination({
   }, [currentPage, displayedPages]);
 
   return (
-    <div className="flex items-center gap-2 rounded-full border border-gray-200/70 bg-white/80 px-2 py-1 shadow-sm backdrop-blur dark:border-gray-700/60 dark:bg-slate-900/70">
+    <div className="flex items-center gap-1.5 rounded-full border border-base-300 bg-base-100 px-2 py-1 shadow-sm">
       <button
-        className="rounded-full px-3 py-1 text-sm font-semibold text-slate-500 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-100"
+        className="rounded-full px-3 py-1 text-sm font-medium text-base-content/40 transition-colors hover:text-base-content"
         onClick={() => prevPage?.()}
       >
-        «
+        &laquo;
       </button>
 
       {pages.map((page: number, index: number) => {
         return (
           <button
             key={index}
-            className={`rounded-full px-3 py-1 text-sm font-semibold transition ${
+            className={`rounded-full px-3 py-1 text-sm font-semibold transition-all duration-200 ${
               page === currentPage
-                ? "bg-slate-900 text-white shadow-sm dark:bg-slate-100 dark:text-slate-900"
-                : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-100"
+                ? "bg-base-content text-base-100 shadow-sm"
+                : "text-base-content/50 hover:text-base-content"
             }`}
             onClick={() => selectPage?.(page)}
           >
@@ -50,10 +50,10 @@ export default function Pagination({
       })}
 
       <button
-        className="rounded-full px-3 py-1 text-sm font-semibold text-slate-500 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-100"
+        className="rounded-full px-3 py-1 text-sm font-medium text-base-content/40 transition-colors hover:text-base-content"
         onClick={() => nextPage?.()}
       >
-        »
+        &raquo;
       </button>
     </div>
   );

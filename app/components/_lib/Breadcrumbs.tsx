@@ -10,19 +10,19 @@ export default function Breadcrumbs({
   currentRoute: string;
 }) {
   return (
-    <div className="text-sm breadcrumbs mb-4 overflow-x-auto text-gray-600 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden dark:text-gray-400">
+    <div className="text-sm breadcrumbs mb-4 overflow-x-auto text-base-content/40 font-medium [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
       <ul>
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/" className="hover:text-base-content transition-colors">Home</Link>
         </li>
         {prevRoute !== "/" && (
           <li>
-            <Link href={`/${prevRoute}`}>
+            <Link href={`/${prevRoute}`} className="hover:text-base-content transition-colors">
               {prevRoute[0].toUpperCase() + prevRoute.slice(1)}
             </Link>
           </li>
         )}
-        <li>{currentRoute}</li>
+        <li className="text-base-content/70">{currentRoute}</li>
       </ul>
     </div>
   );

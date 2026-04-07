@@ -3,11 +3,11 @@ import Skill from "./Skill";
 
 export default function AboutMe() {
   return (
-    <section className="flex flex-col gap-10">
-      <div className="flex flex-col gap-6">
-        <div className="flex flex-col gap-6">
+    <section className="flex flex-col gap-12">
+      <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4">
           <h2 className="text-2xl font-bold text-base-content">About Me</h2>
-          <div className="space-y-4 text-[16px] leading-[26px] text-base-content/80">
+          <div className="text-base leading-[1.8] text-base-content/60 max-w-prose">
             <p>
               I&apos;m an enthusiastic fullstack developer specializing in
               front-end development. Strong focus on React, TypeScript, frontend

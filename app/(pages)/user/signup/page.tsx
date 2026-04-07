@@ -34,7 +34,7 @@ export default function SignUp() {
             } else {
                 setMsg(res.message);
             }
-           
+
         } catch(err: any) {
             console.log(err)
             typeof err === "string" ? setMsg(err) : setMsg("Error creating account, please try again");
@@ -42,48 +42,48 @@ export default function SignUp() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-around bg-gray-100 p-4 mx-auto rounded-lg shadow-xl w-full sm:w-3/4 md:w-2/3">
-            <p className="text-xl font-semibold py-2 dark:text-gray-600">Create a new account</p>
-                    
+        <div className="flex flex-col items-center justify-around bg-base-100 border border-base-300 p-6 mx-auto rounded-2xl shadow-sm w-full sm:w-3/4 md:w-2/3 max-w-md">
+            <p className="text-xl font-bold py-2 text-base-content">Create a new account</p>
+
             <form className="form-control w-full max-w-xs gap-4 py-4" onSubmit={submitForm}>
-                    {msg && <p className="text-sm text-error mt-4">{msg}</p>}
-                    {success && <p className="text-sm text-info mt-4">{success}</p>}
+                    {msg && <p className="text-sm text-error font-medium mt-4">{msg}</p>}
+                    {success && <p className="text-sm text-success font-medium mt-4">{success}</p>}
 
                     <div>
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="text-[11px] font-bold uppercase tracking-wider text-base-content/50">Email</span>
                         </label>
-                        <input type="email" placeholder="email@example.com" className="input input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-600 dark:border-gray-300" required
+                        <input type="email" placeholder="email@example.com" className="input w-full max-w-xs border-base-300 bg-base-100 text-base-content placeholder:text-base-content/30 focus:border-primary/50 focus:outline-none rounded-xl" required
                             value={email} onChange={(e) => {setEmail(e.target.value); setMsg("");}}/>
                     </div>
 
                     <div>
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="text-[11px] font-bold uppercase tracking-wider text-base-content/50">Name</span>
                         </label>
-                        <input type="text" className="input input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-600 dark:border-gray-300" required
+                        <input type="text" className="input w-full max-w-xs border-base-300 bg-base-100 text-base-content placeholder:text-base-content/30 focus:border-primary/50 focus:outline-none rounded-xl" required
                             value={name} onChange={(e) => {setName(e.target.value); setMsg("");}}/>
                     </div>
 
                     <div>
                         <label className="label">
-                            <span className="label-text">Password</span>
+                            <span className="text-[11px] font-bold uppercase tracking-wider text-base-content/50">Password</span>
                         </label>
-                        <input type="password" placeholder="At least 6 characters long" className="input input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-600 dark:border-gray-300" required
+                        <input type="password" placeholder="At least 6 characters long" className="input w-full max-w-xs border-base-300 bg-base-100 text-base-content placeholder:text-base-content/30 focus:border-primary/50 focus:outline-none rounded-xl" required
                             value={password} onChange={(e) => {setPassword(e.target.value); setMsg("");}}/>
                     </div>
 
                     <div>
                         <label className="label">
-                            <span className="label-text">Re-enter Password</span>
+                            <span className="text-[11px] font-bold uppercase tracking-wider text-base-content/50">Re-enter Password</span>
                         </label>
-                        <input type="password" className="input input-bordered w-full max-w-xs dark:bg-transparent dark:text-gray-600 dark:border-gray-300" required
+                        <input type="password" className="input w-full max-w-xs border-base-300 bg-base-100 text-base-content placeholder:text-base-content/30 focus:border-primary/50 focus:outline-none rounded-xl" required
                             value={password2} onChange={(e) => {setPassword2(e.target.value); setMsg("");}}/>
                     </div>
 
 
 
-                    <button type="submit" className="btn btn-accent mt-4">Sign up</button>
+                    <button type="submit" className="btn bg-base-content text-base-100 hover:bg-base-content/85 border-none rounded-xl font-semibold mt-4">Sign up</button>
             </form>
         </div>
 

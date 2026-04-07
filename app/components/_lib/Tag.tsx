@@ -10,7 +10,7 @@ export default function Tag( props: {
 
 
     return (
-        <div className={`badge badge-md badge-outline mb-2 mr-2 badge-${props.color} hover:-translate-y-1 duration-200 ease-in`}>
+        <div className={`badge badge-md badge-outline mb-2 mr-2 badge-${props.color} hover:-translate-y-0.5 duration-200 ease-out rounded-full`}>
             <Link href={`/notes/tag/${props.name}`}>
                 {props.name}
             </Link>

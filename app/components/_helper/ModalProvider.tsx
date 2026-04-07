@@ -54,16 +54,16 @@ export default function ModalProvider({
       <dialog ref={dialogRef} className="modal">
         <form
           method="dialog"
-          className="modal-box flex h-[150px] items-center justify-center rounded-md bg-base-200 text-center dark:bg-gray-800"
+          className="modal-box flex h-[150px] items-center justify-center rounded-xl bg-base-100 border border-base-300 text-center"
         >
           <button
             type="submit"
             aria-label="Close"
-            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-base-content/40"
           >
-            ✕
+            &times;
           </button>
-          <p className="text-sm font-semibold text-gray-600 dark:text-gray-400">
+          <p className="text-sm font-semibold text-base-content/60">
             {message}
           </p>
         </form>
