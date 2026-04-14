@@ -77,6 +77,6 @@ export async function POST(req: Request) {
     }
   } catch (error) {
     console.log(error);
-    throw new Error("Error when creating new post");
+    return new Response(JSON.stringify("Error creating post"), { status: 500 });
   }
 }

@@ -5,8 +5,6 @@ import Footer from "./components/_section/Footer";
 import Providers from "./components/_helper/Providers";
 import { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
-
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",

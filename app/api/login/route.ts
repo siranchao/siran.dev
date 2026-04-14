@@ -19,7 +19,7 @@ export async function POST(req: Request) {
         })
     
         if (!user) {
-            return new Response(JSON.stringify("User not found"), {status: 401})
+            return new Response(JSON.stringify("Invalid credentials"), {status: 401})
         }
     
         if (user && (await bcrypt.compare(body.password, user.password))) {
@@ -34,12 +34,12 @@ export async function POST(req: Request) {
 
             return new Response(JSON.stringify(res), {status: 200})
         } else {
-            return new Response(JSON.stringify("Wrong password"), {status: 401})
+            return new Response(JSON.stringify("Invalid credentials"), {status: 401})
         }
 
-    } catch(err: any) {
+    } catch(err) {
         console.log(err)
-        throw new Error(err);
+        return new Response(JSON.stringify("Internal server error"), { status: 500 })
     }
 
 }   

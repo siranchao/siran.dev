@@ -52,11 +52,6 @@ export async function GET(req: NextRequest) {
       };
     }
 
-    // Count total matching posts
-    const totalPosts = await prisma.post.count({
-      where: whereClause,
-    });
-
     // Build the order clause
     let orderBy: any = { createdAt: "desc" };
     if (query.order === "oldest") {
@@ -65,21 +60,24 @@ export async function GET(req: NextRequest) {
       orderBy = { favoritedBy: { _count: "desc" } };
     }
 
-    // Fetch posts with pagination
-    const posts = await prisma.post.findMany({
-      where: whereClause,
-      skip: (query.page - 1) * query.perPage,
-      take: query.perPage,
-      orderBy,
-      include: {
-        categories: true,
-        favoritedBy: {
-          select: {
-            id: true,
+    // Run count and fetch in parallel
+    const [totalPosts, posts] = await Promise.all([
+      prisma.post.count({ where: whereClause }),
+      prisma.post.findMany({
+        where: whereClause,
+        skip: (query.page - 1) * query.perPage,
+        take: query.perPage,
+        orderBy,
+        include: {
+          categories: true,
+          favoritedBy: {
+            select: {
+              id: true,
+            },
           },
         },
-      },
-    });
+      }),
+    ]);
 
     const totalPages = Math.ceil(totalPosts / query.perPage);
 

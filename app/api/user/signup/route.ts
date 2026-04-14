@@ -37,7 +37,7 @@ export async function POST(req: Request) {
 
     } catch (err) {
         console.log(err)
-        throw new Error("Error when creating user");
+        return new Response(JSON.stringify("Error creating account"), { status: 500 })
     }
 
 }

@@ -11,8 +11,12 @@ interface RequestBody {
  */
 export async function POST(req: Request) {
     const accessToken = req.headers.get("Authorization")
-    if(!accessToken || !verifyJwt(accessToken)) {
+    const decoded = accessToken ? verifyJwt(accessToken) : null
+    if(!accessToken || !decoded) {
         return new Response("Not authorized request", {status: 401})
+    }
+    if(!decoded.isAdmin) {
+        return new Response("Forbidden: admin access required", {status: 403})
     }
 
     try {
@@ -43,6 +47,6 @@ export async function POST(req: Request) {
         
     } catch(error) {
         console.log(error)
-        throw new Error("Error when creating new category");
+        return new Response(JSON.stringify("Error creating category"), { status: 500 })
     }
 }
