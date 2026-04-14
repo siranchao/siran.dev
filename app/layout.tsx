@@ -4,6 +4,7 @@ import Header from "./components/_section/Header";
 import Footer from "./components/_section/Footer";
 import Providers from "./components/_helper/Providers";
 import { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -40,6 +41,8 @@ export default function RootLayout({
             <Footer />
           </div>
         </Providers>
+
+        <Analytics />
       </body>
     </html>
   );
