@@ -1,5 +1,4 @@
 "use client";
-import { useState, useEffect } from "react";
 
 export default function Pagination({
   currentPage,
@@ -14,15 +13,9 @@ export default function Pagination({
   nextPage?: () => void;
   prevPage?: () => void;
 }) {
-  const [pages, setPages] = useState<number[]>(displayedPages[0]);
-
-  useEffect(() => {
-    setPages(
-      displayedPages.find((item: number[]) =>
-        item.includes(currentPage),
-      ) as number[],
-    );
-  }, [currentPage, displayedPages]);
+  const pages = displayedPages.find((item: number[]) =>
+    item.includes(currentPage),
+  ) ?? displayedPages[0];
 
   return (
     <div className="flex items-center gap-1.5 rounded-full border border-base-300 bg-base-100 px-2 py-1 shadow-sm">

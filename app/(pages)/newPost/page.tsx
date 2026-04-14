@@ -51,7 +51,7 @@ const estimateReadingTime = (markdown: string) => {
   return Math.max(1, Math.ceil(words / 200));
 };
 
-export default async function NewPost() {
+export default function NewPost() {
   const router = useRouter();
   const { data: session } = useSession({
     required: true,

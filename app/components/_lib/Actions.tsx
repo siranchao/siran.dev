@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { ShareIcon, StarIcon, ClipboardDocumentCheckIcon, CheckCircleIcon, InformationCircleIcon } from "@heroicons/react/24/solid";
 import axios from "axios";
@@ -10,15 +10,10 @@ import { formatShortDate } from "@/app/lib/date";
 
 export default function Actions({postId, updatedAt, favoritedBy}: {postId: string, updatedAt: string, favoritedBy: {id: string}[]}) {
     const { data: session } = useSession()
-    const [liked, setLiked] = useState<boolean>()
+    const liked = favoritedBy.some((item: {id: string}) => item.id === session?.user?.id)
+    const [optimisticLiked, setOptimisticLiked] = useState<boolean | null>(null)
     const [msg, setMsg] = useState<string>("")
-
-    useEffect(() => {
-        const list: string[] = favoritedBy.map((item: {id: string}) => item.id)
-        setLiked(list.includes(session?.user?.id as string))
-
-
-    },[favoritedBy, session?.user?.id])
+    const isLiked = optimisticLiked ?? liked
 
     const handleCopy = () => {
         navigator.clipboard.
@@ -35,13 +30,13 @@ export default function Actions({postId, updatedAt, favoritedBy}: {postId: strin
     }
 
     const handleLikeBtn = async () => {
-        if(liked) {
+        if(isLiked) {
             const res = await axios.patch(`${process.env.NEXT_PUBLIC_URL}/api/user/unlike/${session?.user?.id}`,
             { data: {id: postId} },
             { headers: {"Authorization": session?.user?.accessToken as string} })
 
             if(res.status === 200 && !res.data.favoritePosts.map((item: {id: string}) => item.id).includes(postId)) {
-                setLiked(!liked)
+                setOptimisticLiked(false)
                 setMsg("This note has been removed from your favorite list.")
             }
         } else {
@@ -51,7 +46,7 @@ export default function Actions({postId, updatedAt, favoritedBy}: {postId: strin
 
 
             if(res.status === 200 && res.data.favoritePosts.map((item: {id: string}) => item.id).includes(postId)) {
-                setLiked(!liked)
+                setOptimisticLiked(true)
                 setMsg("This note has been added to your favorite list.")
             }
         }
@@ -118,7 +113,7 @@ export default function Actions({postId, updatedAt, favoritedBy}: {postId: strin
                         }
                     }}>
                         <StarIcon className="w-3.5 h-3.5 text-primary"/>
-                        <span>{liked ? "Unstar" : "Star"}</span>
+                        <span>{isLiked ? "Unstar" : "Star"}</span>
                     </button>
                 </div>
             </section>

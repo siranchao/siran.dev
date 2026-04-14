@@ -13,7 +13,7 @@ export default function BackToTop() {
       setIsVisible(scrollTop > 500); // Adjust this value based on when you want the button to appear
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       // Clean up the event listener when the component is unmounted
       window.removeEventListener("scroll", handleScroll);

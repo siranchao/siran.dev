@@ -8,8 +8,12 @@ import { verifyJwt } from "@/app/lib/jwt"
  */
 export async function PATCH(req: Request, {params}: {params: {id: string}}) {
     const accessToken = req.headers.get("Authorization")
-    if(!accessToken || !verifyJwt(accessToken)) {
+    const decoded = accessToken ? verifyJwt(accessToken) : null
+    if(!accessToken || !decoded) {
         return new Response("Not authorized request", {status: 401})
+    }
+    if(decoded.id !== params.id) {
+        return new Response("Forbidden", {status: 403})
     }
 
     try {
@@ -38,7 +42,7 @@ export async function PATCH(req: Request, {params}: {params: {id: string}}) {
 
     } catch(error) {
         console.log(error)
-        throw new Error("Error when updateing post data");
+        return new Response(JSON.stringify("Error updating data"), { status: 500 })
     }
 
 }

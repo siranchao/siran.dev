@@ -8,6 +8,7 @@ import LightboxImage from "@/app/components/_lib/LightboxImage";
 import { PostData } from "@/app/lib/types";
 import { formatShortDate } from "@/app/lib/date";
 import axios from "axios";
+import { cache } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
@@ -18,16 +19,11 @@ type Props = {
 };
 
 export async function generateMetadata({ params, searchParams }: Props) {
-  // read route params
-  const id = params.id;
-  // fetch data
-  const res = await axios.get(
-    `${process.env.NEXT_PUBLIC_URL}/api/post/metadata/${id}`,
-  );
+  const data = await getData(params.id);
 
   return {
-    title: res.data.title,
-    description: `Siran.dev - Note title: ${res.data.title}`,
+    title: data?.title ?? "Note",
+    description: data ? `Siran.dev - Note title: ${data.title}` : "Siran.dev",
   };
 }
 
@@ -44,14 +40,14 @@ async function getRelevantPosts(tags: { id: string; name: string }[]) {
   return res.data;
 }
 
-async function getData(id: string) {
+const getData = cache(async function getData(id: string) {
   const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/post/${id}`);
   if (res.status !== 200) {
     return null;
   }
 
   return res.data;
-}
+});
 function selectTheme(index: number) {
   let val: string = "";
   switch (index) {

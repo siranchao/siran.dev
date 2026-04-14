@@ -33,8 +33,11 @@ export default function NoteCard({ record }: { record: any }) {
     if (Number.isFinite(value) && value > 0) {
       return Math.round(value);
     }
-    return Math.floor(Math.random() * 6) + 5;
-  }, [record?.readingTime]);
+    let hash = 0;
+    const id = record?.id ?? "";
+    for (let i = 0; i < id.length; i++) hash = ((hash << 5) - hash) + id.charCodeAt(i);
+    return 5 + (Math.abs(hash) % 6);
+  }, [record?.readingTime, record?.id]);
   const clickCard = () => {
     router.push(`/notes/${record.id}`);
   };

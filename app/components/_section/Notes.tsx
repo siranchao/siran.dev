@@ -54,14 +54,13 @@ export default async function Notes() {
     };
   };
 
-  //TODO: generate a random number between 200 to 2000 for views
-  const getViews = () => {
-    return Math.floor(Math.random() * (2000 - 200 + 1)) + 200;
+  const hashId = (id: string) => {
+    let hash = 0;
+    for (let i = 0; i < id.length; i++) hash = ((hash << 5) - hash) + id.charCodeAt(i);
+    return Math.abs(hash);
   };
-  //TODO: generate a random number between 5 to 30 for read time
-  const getReadTime = () => {
-    return Math.floor(Math.random() * (15 - 5 + 1)) + 5;
-  };
+  const getViews = (id: string) => 200 + (hashId(id) % 1801);
+  const getReadTime = (id: string) => 5 + (hashId(id) % 11);
 
   return (
     <section>
@@ -104,14 +103,14 @@ export default async function Notes() {
                     <div className="flex items-center gap-4 text-xs text-base-content/40">
                       <div className="flex items-center gap-1.5">
                         <Eye className="w-3.5 h-3.5" />
-                        <span>{getViews().toLocaleString()} views</span>
+                        <span>{getViews(post.id).toLocaleString()} views</span>
                       </div>
                       <div className="flex items-center gap-1.5">
                         <Clock className="w-3.5 h-3.5" />
                         <span>
                           {post.content.readingTime
                             ? post.content.readingTime
-                            : getReadTime()}{" "}
+                            : getReadTime(post.id)}{" "}
                           mins read
                         </span>
                       </div>
