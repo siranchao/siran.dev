@@ -1,16 +1,22 @@
 'use client'
 import Link from "next/link"
-import { useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation'
 
 
-export default function Login() {
+function LoginForm() {
     const searchParams = useSearchParams()
     const [remember, setRemember] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [msg, setMsg] = useState(searchParams.get('error') ? "Incorrect email or password, please try again" : "");
+    const [msg, setMsg] = useState("");
+
+    useEffect(() => {
+        if (searchParams.get('error')) {
+            setMsg("Incorrect email or password, please try again");
+        }
+    }, [searchParams]);
 
     const submitForm = async (e: any) => {
         e.preventDefault();
@@ -66,5 +72,13 @@ export default function Login() {
             <p className="text-sm text-base-content/50 mt-4">Don&apos;t have an account? <Link href="/user/signup" className="text-primary font-semibold hover:underline underline-offset-4 pl-1">Sign up</Link></p>
         </div>
 
+    )
+}
+
+export default function Login() {
+    return (
+        <Suspense fallback={null}>
+            <LoginForm />
+        </Suspense>
     )
 }
